@@ -1,0 +1,19 @@
+{
+  "name": "glacejs",
+  "version": "1.0.0",
+  "description": "Glacejs is functional testing framework based on mochajs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schipiga/glacejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schipiga/glacejs/issues"
+  },
+  "homepage": "https://github.com/schipiga/glacejs#readme"
+}
