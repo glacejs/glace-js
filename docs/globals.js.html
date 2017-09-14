@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>GlaseJS Source: globals.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">GlaseJS</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="CONF.html">CONF</a></li><li><a href="SS.html">SS</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-cli.html">cli</a></li><li><a href="module-config.html">config</a></li><li><a href="module-dom.html">dom</a></li><li><a href="module-error.html">error</a></li><li><a href="module-event.html">event</a></li><li><a href="module-globals.html">globals</a></li><li><a href="module-image.html">image</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-proxy_base.html">proxy/base</a></li><li><a href="module-proxy_index.html">proxy/index</a></li><li><a href="module-proxy_middleware_index.html">proxy/middleware/index</a></li><li><a href="module-proxy_middleware_info.html">proxy/middleware/info</a></li><li><a href="module-proxy_middleware_speed.html">proxy/middleware/speed</a></li><li><a href="module-proxy_proxy.html">proxy/proxy</a></li><li><a href="module-runner.html">runner</a></li><li><a href="module-steps_image.html">steps/image</a></li><li><a href="module-steps_index.html">steps/index</a></li><li><a href="module-steps_proxy.html">steps/proxy</a></li><li><a href="module-steps_video.html">steps/video</a></li><li><a href="module-steps_web.html">steps/web</a></li><li><a href="module-steps_xvfb.html">steps/xvfb</a></li><li><a href="module-testing.html">testing</a></li><li><a href="module-testrail-reporter.html">testrail-reporter</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-video.html">video</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-dom-Control.html">dom~Control</a></li><li><a href="module-dom-Dom.html">dom~Dom</a></li><li><a href="module-error-GlaceError.html">error~GlaceError</a></li><li><a href="module-event-PointerEvents.html">event~PointerEvents</a></li><li><a href="module-image-Image.html">image~Image</a></li><li><a href="module-proxy_base-BaseProxy.html">proxy/base~BaseProxy</a></li><li><a href="module-proxy_proxy-ProxyServer.html">proxy/proxy~ProxyServer</a></li><li><a href="module-steps_index-Steps.html">steps/index~Steps</a></li><li><a href="module-testing-TestStep.html">testing~TestStep</a></li><li><a href="module-testrail-reporter-TestrailReporter.html">testrail-reporter~TestrailReporter</a></li><li><a href="module-video-VideoRecorder.html">video~VideoRecorder</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#afterStep">afterStep</a></li><li><a href="global.html#baseTest">baseTest</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#beforeStep">beforeStep</a></li><li><a href="global.html#cacheManager">cacheManager</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#fromCache">fromCache</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#test">test</a></li><li><a href="global.html#toCache">toCache</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: globals.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+/**
+ * Global framework functions and helpers.
+ *
+ * @module
+ */
+
+var _ = require("lodash");
+
+var logger = require("./logger");
+/**
+ * Verification matcher with expanded abilities.
+ *
+ * @global
+ * @function
+ */
+global.expect = require("chai").expect;
+/**
+ * Framework and tests config.
+ *
+ * @global
+ * @namespace
+ */
+global.CONF = require("./config");
+/**
+ * Atomic steps collection.
+ *
+ * @global
+ * @namespace
+ */
+global.SS = new (require("./steps"));
+if (CONF.isWeb) {
+    var wdio = require("webdriverio");
+    var webdriver = wdio.remote(CONF.webdriver);
+    SS.setWebdriver(webdriver);
+};
+/**
+ * Tests scope.
+ *
+ * @global
+ * @function
+ */
+global.scope = describe;
+/**
+ * Executed sessions counter.
+ * 
+ * @type {Number}
+ */
+var sessNum = 0;
+/**
+ * Tests session.
+ *
+ * @global
+ * @function
+ * @arg {string} [name] - Session name. By default it includes start date time.
+ * @arg {object} [ctx] - Session context. By default it's empty.
+ * @arg {function} func - Function with test cases.
+ */
+global.session = (name, ctx, func) => {
+
+    if (!func &amp;&amp; !ctx) {
+        func = name;
+        ctx = {};
+        name = `Session ${new Date}`;
+    } else if (!func) {
+        func = ctx;
+        ctx = name;
+        name = `Session ${new Date}`;
+    };
+
+    sessNum++;
+    ctx.sessionNumber = sessNum;
+
+    scope(name, () => {
+        beforeSession(ctx);
+        func();
+        afterSession(ctx);
+    });
+};
+/**
+ * Hook to execute before tests session. May be overridden.
+ *
+ * @global
+ * @function
+ * @arg {object} ctx - Session context.
+ */
+global.beforeSession = ctx => {
+    if (CONF.isWeb) {
+        before(async () => {
+            if (!CONF.noDriversInstall) await SS.installSeleniumDrivers();
+            await SS.startSeleniumServer();
+            await SS.launchBrowser();
+        });
+    };
+};
+/**
+ * Hook to execute after tests session. May be overridden.
+ *
+ * @global
+ * @function
+ * @arg {object} ctx - Session context.
+ */
+global.afterSession = ctx => {
+    if (CONF.isWeb) {
+        after(async () => await SS.closeBrowser());
+        after(async () => await SS.stopSeleniumServer());
+    };
+};
+/**
+ * Basis for any test case.
+ *
+ * If test with the same was registered already, this test will be omitted
+ * with corresponding error in log.
+ *
+ * If retries amount is specified and this test was failed, the test will be
+ * added to queue in separated session with title containing `Retry` and its
+ * number.
+ *
+ * @global
+ * @function
+ * @arg {string} name - Name of test case.
+ * @arg {function} func - Test function.
+ */
+global.baseTest = (names => {
+    return (name, func) => {
+
+        if (names.includes(name)) {
+            logger.warn(`Test case "${name}" is added already. \
+                         Test case with the same name will be omitted.`);
+            return;
+        };
+        names.push(name);
+
+        var testCase = new TestCase(name);
+        var retries = CONF.testRetries;
+
+        CONF.testCases.push(testCase);
+
+        scope(name, () => {
+
+            var testFunc = ctxs => {
+                ctxs = ctxs || [{}];
+
+                before(() => {
+                    testCase.reset();
+                    CONF.curTestCase = testCase;
+                });
+
+                for (var ctx of ctxs) func(ctx);
+
+                after(() => {
+                    if (!testCase.isFailed() || retries &lt;= 0) return;
+                    retries--;
+
+                    var retryNum = CONF.testRetries - retries;
+                    var ctx = { retryNumber: retryNum };
+
+                    session(`Retry #${retryNum}`, ctx, () => {
+                        testFunc(testCase.failedParams);
+                    });
+                });
+            };
+            testFunc();
+        });
+    };
+})([]);
+/**
+ * Test case.
+ *
+ * @global
+ * @function
+ * @arg {string} name - Name of test case.
+ * @arg {function} func - Test function.
+ */
+global.test = (name, func) => {
+    baseTest(name, ctx => {
+        func(ctx);
+    });
+};
+/**
+ * Test step.
+ * 
+ * Contains actions and verifications, which will be executed separatly
+ * from another steps. It is not the same as `SS`. `SS` is namespace with
+ * atomic application actions. But this function is used to organize test
+ * structure and to allocate independent test actions.
+ *
+ * @global
+ * @function
+ * @arg {string} name - Name of test case.
+ * @arg {function} func - Step function.
+ */
+global.step = it;
+/**
+ * Hook to be executed before each test step.
+ *
+ * @global
+ * @function
+ * @arg {string} name - Name of test case.
+ * @arg {function} func - Hook function.
+ */
+global.beforeStep = beforeEach;
+/**
+ * Hook to be executed after each test step.
+ *
+ * @global
+ * @function
+ * @arg {string} name - Name of test case.
+ * @arg {function} func - Hook function.
+ */
+global.afterStep = afterEach;
+/**
+ * Hook to iterate test steps through all languages specifed in configuration.
+ *
+ * It's applicable for multilingual application. If list of languages is
+ * specified, it will be used firstly. Otherwise from configuration.
+ *
+ * @global
+ * @function
+ * @arg {object} ctx - Test case context.
+ * @arg {function} func - Function with test steps.
+ */
+global.forEachLanguage = (ctx, func) => {
+    (ctx.languages || CONF.languages).forEach(lang => {
+        scope(`for language "${lang}"`, () => {
+            func();
+        });
+    });
+};
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright 2017
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on 2017-09-16T12:32:32+03:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>GlaseJS Source: image.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">GlaseJS</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="CONF.html">CONF</a></li><li><a href="SS.html">SS</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-cli.html">cli</a></li><li><a href="module-config.html">config</a></li><li><a href="module-dom.html">dom</a></li><li><a href="module-error.html">error</a></li><li><a href="module-event.html">event</a></li><li><a href="module-globals.html">globals</a></li><li><a href="module-image.html">image</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-proxy_base.html">proxy/base</a></li><li><a href="module-proxy_index.html">proxy/index</a></li><li><a href="module-proxy_middleware_index.html">proxy/middleware/index</a></li><li><a href="module-proxy_middleware_info.html">proxy/middleware/info</a></li><li><a href="module-proxy_middleware_speed.html">proxy/middleware/speed</a></li><li><a href="module-proxy_proxy.html">proxy/proxy</a></li><li><a href="module-runner.html">runner</a></li><li><a href="module-steps_image.html">steps/image</a></li><li><a href="module-steps_index.html">steps/index</a></li><li><a href="module-steps_proxy.html">steps/proxy</a></li><li><a href="module-steps_video.html">steps/video</a></li><li><a href="module-steps_web.html">steps/web</a></li><li><a href="module-steps_xvfb.html">steps/xvfb</a></li><li><a href="module-testing.html">testing</a></li><li><a href="module-testrail-reporter.html">testrail-reporter</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-video.html">video</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-dom-Control.html">dom~Control</a></li><li><a href="module-dom-Dom.html">dom~Dom</a></li><li><a href="module-error-GlaceError.html">error~GlaceError</a></li><li><a href="module-event-PointerEvents.html">event~PointerEvents</a></li><li><a href="module-image-Image.html">image~Image</a></li><li><a href="module-proxy_base-BaseProxy.html">proxy/base~BaseProxy</a></li><li><a href="module-proxy_proxy-ProxyServer.html">proxy/proxy~ProxyServer</a></li><li><a href="module-steps_index-Steps.html">steps/index~Steps</a></li><li><a href="module-testing-TestStep.html">testing~TestStep</a></li><li><a href="module-testrail-reporter-TestrailReporter.html">testrail-reporter~TestrailReporter</a></li><li><a href="module-video-VideoRecorder.html">video~VideoRecorder</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#afterStep">afterStep</a></li><li><a href="global.html#baseTest">baseTest</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#beforeStep">beforeStep</a></li><li><a href="global.html#cacheManager">cacheManager</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#fromCache">fromCache</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#test">test</a></li><li><a href="global.html#toCache">toCache</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: image.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+/**
+ * Describes image processing.
+ *
+ * @module
+ */
+var sharp = require("sharp");
+var temp = require("temp");
+
+var U = require("./utils");
+/**
+ * Creates new instance of Image.
+ *
+ * @class
+ * @arg {string} srcPath - path to processed image
+ * @arg {object} [srcOpts] - image options
+ * @arg {number} [srcOpts.scaleX] - image current scale value on `X` axis
+ * @arg {number} [srcOpts.scaleY] - image current scale value on `Y` axis
+ */
+var Image = module.exports = function (srcPath, srcOpts) {
+
+    if (!(this instanceof Image))
+        return new Image(srcPath, srcOpts);
+
+    srcOpts = U.defVal(srcOpts, {});
+    srcOpts.scaleX = U.defVal(srcOpts.scaleX, 1);
+    srcOpts.scaleY = U.defVal(srcOpts.scaleY, 1);
+
+    this._srcPath = srcPath;
+    this._srcOpts = srcOpts;
+};
+/**
+ * Defines if processed image includes specified image.
+ *
+ * @method
+ * @arg {string} dstPath - path to potentially included image
+ * @arg {object} [dstOpts] - included image options
+ * @arg {number} [dstOpts.tolerance=0.05] - comparison tolerance
+ * @arg {?string} [dstOpts.matchedPath=null] - path to same captured place
+ * @arg {boolean} [dstOpts.saveMatch=false] - flag to capture images
+ *  intersection or no
+ * @return {Promise.&lt;object>} - result
+ */
+Image.prototype.includes = function (dstPath, dstOpts) {
+
+    dstOpts = U.defVal(dstOpts, {});
+    dstOpts.scaleX = U.defVal(dstOpts.scaleX, 1);
+    dstOpts.scaleY = U.defVal(dstOpts.scaleY, 1);
+
+    this._dstPath = dstPath;
+    this._dstOpts = dstOpts;
+
+    this._tolerance = U.defVal(dstOpts.tolerance, .05);
+    this._matchedPath = U.defVal(dstOpts.matchedPath);
+    this._saveMatch = U.defVal(dstOpts.saveMatch, !!this._matchedPath);
+
+    if (this._saveMatch &amp;&amp; !this._matchedPath)
+        this._matchedPath = temp.path({ suffix: '.png' });
+
+    this._pixelDenominator = 255 * Math.sqrt(3);
+
+    var srcImage;
+
+    return this._loadImg(this._srcPath, this._srcOpts).then(image => {
+        srcImage = image;
+        return this._loadImg(this._dstPath, this._dstOpts);
+    }).then(dstImage => {
+        return this._includes(srcImage, dstImage);
+    }).then(result => {
+        if (!result.isIncluded) return { isIncluded: false };
+        if (!this._saveMatch) return result;
+        return this
+            ._saveMatchImage(result.offsetX,
+                             result.offsetY,
+                             result.width,
+                             result.height)
+            .then(() => {
+                result.matchedPath = this._matchedPath;
+                return result;
+            });
+    });
+};
+/**
+ * Loads image.
+ *
+ * @method
+ * @protected
+ * @arg {string} imgPath - path loaded image
+ * @arg {object} imgOpts - image options
+ * @return {Promise.&lt;object>} - image data
+ */
+Image.prototype._loadImg = function(imgPath, imgOpts) {
+    var width, height;
+    var img = sharp(imgPath);
+    return img.metadata().then(metadata => {
+        width = Math.ceil(metadata.width / imgOpts.scaleX);
+        height = Math.ceil(metadata.height / imgOpts.scaleY);
+        return img.resize(width, height).raw().toBuffer();
+    }).then(data => {
+        return { data: data, width: width, height: height };
+    });
+};
+/**
+ * Saves matched part of image.
+ *
+ * @method
+ * @protected
+ * @arg {number} left - offset from left image border
+ * @arg {number} top - offset from top image border
+ * @arg {number} width - width of matched part
+ * @arg {number} height - height of matched part
+ * @return {Promise}
+ */
+Image.prototype._saveMatchImage = function (left, top, width, height) {
+    return sharp(this._srcPath)
+        .extract({ left: left, top: top, width: width, height: height })
+        .toFile(this._matchedPath);
+};
+/**
+ * Defines whether one image data includes another.
+ *
+ * @method
+ * @protected
+ * @arg {object} src - source image data
+ * @arg {object} dst - destination image data, which is potentially included
+ * @return {object} - result
+ */
+Image.prototype._includes = function (src, dst) {
+
+    var srcPixels = this._cropPixels(this._getPixels(src)),
+        dstPixels = this._cropPixels(this._getPixels(dst));
+    var offsetX, offsetY, diffValue, x, y, pixels;
+
+    var dstUsedPixels = [],
+        dstWidth = dstPixels[0].length,
+        dstHeight = dstPixels.length;
+
+    var result = { isIncluded: false,
+                   diffValue:  null,
+                   offsetX:    null,
+                   offsetY:    null,
+                   width:      dstWidth,
+                   height:     dstHeight };
+
+    var deltaX = srcPixels[0].length - dstWidth,
+        deltaY = srcPixels.length - dstHeight;
+
+    for (y = 0; y &lt; dstHeight; y++) {
+        pixels = dstPixels[y];
+
+        for (x = 0; x &lt; dstWidth; x++) {
+            if (this._isPixelUsed(pixels[x]))
+                dstUsedPixels.push({ pixel: pixels[x], x: x, y: y });
+        };
+    };
+
+    for (offsetY = 0; offsetY &lt;= deltaY; offsetY++) {
+        for (offsetX = 0; offsetX &lt;= deltaX; offsetX++) {
+
+            diffValue = this._getDiffValue(srcPixels, dstUsedPixels,
+                                           offsetX, offsetY);
+            if (diffValue === null) continue;
+
+            if (result.diffValue === null || result.diffValue > diffValue) {
+                result.isIncluded = true;
+                result.diffValue = diffValue;
+                result.offsetX = offsetX;
+                result.offsetY = offsetY;
+            };
+
+            if (diffValue === 0 || !this._saveMatch) return result;
+        };
+    };
+    return result;
+};
+/**
+ * Calculates difference between source pixels and destination pixels.
+ *
+ * @method
+ * @protected
+ * @arg {object[][]} - source pixels matrix
+ * @arg {object[][]} - destination pixels matrix
+ * @arg {number} offsetX - source left border offset
+ * @arg {number} offsetY - source top border offset
+ * @return {number} - difference value
+ */
+Image.prototype._getDiffValue = function (srcPixels, dstPixels,
+                                          offsetX, offsetY) {
+    var diffPixels = 0,
+        limit = this._tolerance * dstPixels.length,
+        dstPixel,
+        srcPixel,
+        i;
+
+    for (i = 0; i &lt; dstPixels.length; i++) {
+        dstPixel = dstPixels[i];
+        srcPixel = srcPixels[offsetY + dstPixel.y][offsetX + dstPixel.x];
+
+        if (this._isPixelTolerant(srcPixel, dstPixel.pixel))
+            continue;
+
+        diffPixels++;
+        if (diffPixels > limit) return null;
+    };
+    return diffPixels / dstPixels.length;
+};
+/**
+ * Defines whether pixel should be used for difference calculation or no,
+ *  according its alpha value.
+ *
+ * @method
+ * @protected
+ * @arg {object} pixel - pixel
+ * @return {boolean} - `true` if should be, `false` otherwise
+ */
+Image.prototype._isPixelUsed = function (pixel) {
+    return (255 - pixel.A) / 255 &lt; this._tolerance;
+};
+/**
+ * Defines whether source pixel is tolerant to destination pixel.
+ *
+ * @method
+ * @protected
+ * @arg {object} srcPixel - source pixel
+ * @arg {object} dstPixel - destination pixel
+ * @return {boolean} - `true` if pixels are tolerant, `false` otherwise
+ */
+Image.prototype._isPixelTolerant = function(srcPixel, dstPixel) {
+    var deltaR = srcPixel.R - dstPixel.R,
+        deltaG = srcPixel.G - dstPixel.G,
+        deltaB = srcPixel.B - dstPixel.B;
+
+    return Math.sqrt(deltaR * deltaR +
+                     deltaG * deltaG +
+                     deltaB * deltaB) /
+        this._pixelDenominator &lt; this._tolerance;
+};
+/**
+ * Retrieves pixels from image data.
+ *
+ * @method
+ * @protected
+ * @arg {object} img - image data
+ * @return {object[][]} - pixels matrix
+ */
+Image.prototype._getPixels = function (img) {
+    var pixels = [],
+        height = img.height,
+        width = img.width * 4,
+        x, y, offset;
+
+    for (y = 0; y &lt; height; y++) {
+        offset = width * y;
+        pixels.push([]);
+
+        for (var x = 0; x &lt; width; x += 4) {
+            pixels[y].push({
+                R: img.data[offset + x],
+                G: img.data[offset + x + 1],
+                B: img.data[offset + x + 2],
+                A: img.data[offset + x + 3]
+            });
+        };
+    };
+    return pixels;
+};
+/**
+ * Crops pixels, removes empty rows and columns.
+ *
+ * @method
+ * @protected
+ * @arg {object[][]} pixels - pixels matrix
+ * @return {object[][]} - cropped pixels matrix
+ */
+Image.prototype._cropPixels = function (pixels) {
+
+    pixels = this._cropTop(pixels);
+    pixels.reverse();
+    pixels = this._cropTop(pixels);
+    pixels.reverse();
+    pixels = this._transpose(pixels);
+    pixels = this._cropTop(pixels);
+    pixels.reverse();
+    pixels = this._cropTop(pixels);
+    pixels.reverse();
+    return this._transpose(pixels);
+};
+/**
+ * Crops top part of pixels matrix.
+ *
+ * @method
+ * @protected
+ * @arg {object[][]} pixels - pixels matrix
+ * @return {object[][]} - cropped pixels matrix
+ */
+Image.prototype._cropTop = function (pixels) {
+
+    var croppedPixels = [],
+        isTransparent = true,
+        width = pixels[0].length,
+        height = pixels.length,
+        x, y, pixelsRow;
+
+    for (y = 0; y &lt; height; y++) {
+        pixelsRow = pixels[y];
+
+        if (isTransparent) {
+            for (x = 0; x &lt; width; x++) {
+                if (pixelsRow[x].A != 0) {
+                    isTransparent = false;
+                    break;
+                };
+            };
+        };
+
+        if (!isTransparent)
+            croppedPixels.push(pixelsRow);
+    };
+    return croppedPixels;
+};
+/**
+ * Transposes pixels matrix.
+ *
+ * @method
+ * @arg {object[][]} pixels - pixels matrix
+ * @return {object[][]} transposed pixels matrix
+ */
+Image.prototype._transpose = function (pixels) {
+
+    var width = pixels[0].length,
+        height = pixels.length,
+        tPixels = [],
+        x, y;
+
+    if (width === 0 || height === 0)
+        return [];
+
+    for (y = 0; y &lt; width; y++) {
+        tPixels[y] = [];
+
+        for (x = 0; x &lt; height; x++) {
+            tPixels[y][x] = pixels[x][y];
+        };
+    };
+    return tPixels;
+};
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright 2017
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on 2017-09-16T12:32:32+03:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

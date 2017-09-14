@@ -2,7 +2,7 @@
   "name": "glacejs",
   "version": "1.0.0",
   "description": "Glacejs is functional testing framework based on mochajs",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,15 +10,38 @@
     "type": "git",
     "url": "git+https://github.com/schipiga/glacejs.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sergei Chipiga",
+  "license": "GPLv2",
+  "bin": {
+    "glace": "./bin/glace"
+  },
   "bugs": {
     "url": "https://github.com/schipiga/glacejs/issues"
   },
   "homepage": "https://github.com/schipiga/glacejs#readme",
-  "devDependencies": {
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0",
+  "dependencies": {
+    "cache-manager": "^2.4.0",
+    "cache-manager-fs": "^1.0.6",
+    "chai": "^4.1.2",
+    "cross-spawn": "^5.1.0",
+    "es6-error": "^4.0.2",
+    "express": "^4.15.4",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "http-mitm-proxy": "^0.5.3",
+    "http-proxy": "^1.16.2",
+    "ink-docstrap": "^1.3.0",
+    "jsdoc-strip-async-await": "^0.1.0",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.5.3",
+    "rimraf": "^2.6.2",
+    "selenium-standalone": "^6.9.0",
+    "sharp": "^0.18.3",
+    "temp": "^0.8.3",
+    "webdriverio": "^4.8.0",
+    "winston": "^2.3.1",
+    "xvfb": "^0.2.3",
     "yargs": "^8.0.2"
   }
 }

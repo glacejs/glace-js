@@ -1,0 +1,19 @@
+{
+    "opts": {
+        "readme": "README.md",
+        "recurse": true,
+        "template": "node_modules/ink-docstrap/template",
+        "tutorials": "tutorials"
+    },
+    "plugins": ["plugins/markdown", "node_modules/jsdoc-strip-async-await"],
+    "source": {
+        "include": [ "lib" ]
+    },
+    "templates": {
+        "theme": "simplex",
+        "outputSourceFiles": true,
+        "systemName": "GlaseJS",
+        "copyright": "Copyright 2017",
+        "linenums": true
+    }
+}
