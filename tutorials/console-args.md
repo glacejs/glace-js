@@ -10,4 +10,5 @@
 - `--os-version` (**optional**) - Mobile OS version. For example, `--os-version 9.0.3` or `--os-version 5.0.5`.
 - `--udid` (**optional**) - Mobile device UDID.
 - `--ios-engine` (**optional**) - iOS driver engine name. Default value is `XCUITest`.
-- `--retry <times>` (**optional**) - How much times test case should be relaunched if it is failed.
+- `--retry <times>` (**optional**) - Number of times to retry a failed test case.
+- `--stdout-log` (**optional**) - Print log to console stdout.
