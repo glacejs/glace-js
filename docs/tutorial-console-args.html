@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Module: dom</title>
+	<title>GlaseJS Tutorial: GlaceJS command line arguments</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,123 +88,33 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
-			
-
-	<h1 class="page-title">Module: dom</h1>
-<section>
+			<section class="tutorial-section">
 
 <header>
     
+
+    <h2>GlaceJS command line arguments</h2>
 </header>
 
-
 <article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Defines classes responsible for interaction with DOM in browser context.</p></div>
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="dom.js.html">dom.js</a>,
-				 <a href="dom.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-dom-Control.html">Control</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-dom-Dom.html">Dom</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+    <p><code>GlaceJS</code> supports follow command line arguments:</p>
+<ul>
+<li><code>&lt;path&gt;</code> (<strong>optional</strong>) - File or folder path, where tests are located. For example, <code>glace myTests.js</code> or <code>glace path/to/tests-folder</code>. In folder it loads files with tests recursively. If file with tests is not specified directly, it loads files with prefix <code>test</code> and extension <code>.js</code> only. If argument is not specified, it looks inside folder <code>tests</code> in current work directory.</li>
+<li><code>--web</code> (<strong>optional</strong>) - Activates steps for web testing in browser via selenium. If option is specified, selenium server and browser will launched automatically on session begin and will be stopped at session end.</li>
+<li><code>--install-drivers</code> (<strong>optional</strong>) - Installs selenium webdrivers on session start.</li>
+</ul>
 </article>
 
 </section>
-
-
-
 
 		</div>
 	</div>
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>
