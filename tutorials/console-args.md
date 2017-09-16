@@ -6,7 +6,8 @@
 - `--platform` (**optional**) - Platfrom type. Supported values are `pc`, `android`, `ios`. Default value is `pc`. For example, `--platform android`.
 - `--browser` (**optional**) - Browser name. Default value is specific for platform: `chrome` for `pc`, `chrome` for `android`, `safari` for `ios`. For example, `--browser firefox`.
 - `--selenium-addr` (**optional**) - Selenium or appium network address. For example, `--selenium-addr 192.168.0.9:4004`. If it is not specified, local selenium server with default options will be started.
-- `--device` (**optional**) - Mobile device name. For example, `--device "My iPhone"` or `--device Our_Android`. Look for actual value for each mobile device is in its settings.
+- `--device` (**optional**) - Mobile device name. For example, `--device "My iPhone"` or `--device Our_Android`. Look for actual value for mobile device in its settings.
 - `--os-version` (**optional**) - Mobile OS version. For example, `--os-version 9.0.3` or `--os-version 5.0.5`.
 - `--udid` (**optional**) - Mobile device UDID.
 - `--ios-engine` (**optional**) - iOS driver engine name. Default value is `XCUITest`.
+- `--retry <times>` (**optional**) - How much times test case should be relaunched if it is failed.

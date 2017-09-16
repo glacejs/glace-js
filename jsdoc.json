@@ -10,7 +10,7 @@
         "include": [ "lib" ]
     },
     "templates": {
-        "theme": "simplex",
+        "theme": "cosmo",
         "outputSourceFiles": true,
         "systemName": "GlaseJS",
         "copyright": "Copyright 2017",
