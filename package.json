@@ -40,6 +40,7 @@
     "selenium-standalone": "^6.9.0",
     "sharp": "^0.18.3",
     "temp": "^0.8.3",
+    "uuid": "^3.1.0",
     "webdriverio": "^4.8.0",
     "winston": "^2.3.1",
     "xvfb": "^0.2.3",
