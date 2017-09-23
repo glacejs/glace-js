@@ -7,9 +7,16 @@
     },
     "plugins": ["plugins/markdown", "node_modules/jsdoc-strip-async-await"],
     "source": {
-        "include": [ "lib" ]
+        "include": [ "lib", "glace.png" ]
     },
     "templates": {
+        "default": {
+            "staticFiles": {
+                "include": [
+                    "./static"
+                ]
+            }
+        },
         "theme": "cosmo",
         "outputSourceFiles": true,
         "systemName": "GlaseJS",

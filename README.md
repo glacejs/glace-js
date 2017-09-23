@@ -1,3 +1,5 @@
-Glace (from the French. glacé — ice, frozen) is a cold drink based on coffee with the addition of ice cream. As the ware is typically used glass-glass or glass.
+**Glace** (fr. *glacé* — ice, frozen) is a cold drink based on **coffee** with addition of **ice cream**.
 
-Glacejs is functional testing framework based on mochajs.
+![GlaceJS logo](glace.png)
+
+`GlaceJS` is a functional testing framework based on [mochajs](http://mochajs.org/).
