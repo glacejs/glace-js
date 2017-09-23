@@ -40,14 +40,14 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-cli.html">cli</a></li><li><a href="module-config.html">config</a></li><li><a href="module-dom.html">dom</a></li><li><a href="module-error.html">error</a></li><li><a href="module-event.html">event</a></li><li><a href="module-globals.html">globals</a></li><li><a href="module-image.html">image</a></li><li><a href="module-index.html">index</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-proxy_base.html">proxy/base</a></li><li><a href="module-proxy_index.html">proxy/index</a></li><li><a href="module-proxy_middleware_index.html">proxy/middleware/index</a></li><li><a href="module-proxy_middleware_info.html">proxy/middleware/info</a></li><li><a href="module-proxy_middleware_speed.html">proxy/middleware/speed</a></li><li><a href="module-proxy_proxy.html">proxy/proxy</a></li><li><a href="module-runner.html">runner</a></li><li><a href="module-steps_image.html">steps/image</a></li><li><a href="module-steps_index.html">steps/index</a></li><li><a href="module-steps_proxy.html">steps/proxy</a></li><li><a href="module-steps_video.html">steps/video</a></li><li><a href="module-steps_web.html">steps/web</a></li><li><a href="module-steps_xvfb.html">steps/xvfb</a></li><li><a href="module-testing.html">testing</a></li><li><a href="module-testrail-reporter.html">testrail-reporter</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-video.html">video</a></li>
+					<li><a href="module-cli.html">cli</a></li><li><a href="module-config.html">config</a></li><li><a href="module-error.html">error</a></li><li><a href="module-globals.html">globals</a></li><li><a href="module-image.html">image</a></li><li><a href="module-index.html">index</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-page_element.html">page/element</a></li><li><a href="module-page_event.html">page/event</a></li><li><a href="module-page_index.html">page/index</a></li><li><a href="module-proxy_base.html">proxy/base</a></li><li><a href="module-proxy_globalProxy.html">proxy/globalProxy</a></li><li><a href="module-proxy_index.html">proxy/index</a></li><li><a href="module-proxy_middleware_index.html">proxy/middleware/index</a></li><li><a href="module-proxy_middleware_info.html">proxy/middleware/info</a></li><li><a href="module-proxy_middleware_speed.html">proxy/middleware/speed</a></li><li><a href="module-proxy_proxy.html">proxy/proxy</a></li><li><a href="module-reporter_base.html">reporter/base</a></li><li><a href="module-reporter_index.html">reporter/index</a></li><li><a href="module-reporter_stdout.html">reporter/stdout</a></li><li><a href="module-runner.html">runner</a></li><li><a href="module-steps_index.html">steps/index</a></li><li><a href="module-steps_page.html">steps/page</a></li><li><a href="module-steps_video.html">steps/video</a></li><li><a href="module-steps_web.html">steps/web</a></li><li><a href="module-steps_xvfb.html">steps/xvfb</a></li><li><a href="module-testing.html">testing</a></li><li><a href="module-testrail-reporter.html">testrail-reporter</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-video.html">video</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-dom-Control.html">dom~Control</a></li><li><a href="module-dom-Dom.html">dom~Dom</a></li><li><a href="module-error-GlaceError.html">error~GlaceError</a></li><li><a href="module-event-PointerEvents.html">event~PointerEvents</a></li><li><a href="module-image-Image.html">image~Image</a></li><li><a href="module-proxy_base-BaseProxy.html">proxy/base~BaseProxy</a></li><li><a href="module-proxy_proxy-ProxyServer.html">proxy/proxy~ProxyServer</a></li><li><a href="module-steps_index-Steps.html">steps/index~Steps</a></li><li><a href="module-testing-TestStep.html">testing~TestStep</a></li><li><a href="module-testrail-reporter-TestrailReporter.html">testrail-reporter~TestrailReporter</a></li><li><a href="module-video-VideoRecorder.html">video~VideoRecorder</a></li>
+					<li><a href="module-error-ConfigError.html">error~ConfigError</a></li><li><a href="module-error-GlaceError.html">error~GlaceError</a></li><li><a href="module-error-StepError.html">error~StepError</a></li><li><a href="module-image-Image.html">image~Image</a></li><li><a href="module-page_element-Control.html">page/element~Control</a></li><li><a href="module-page_event-PointerEvents.html">page/event~PointerEvents</a></li><li><a href="module-proxy_base-BaseProxy.html">proxy/base~BaseProxy</a></li><li><a href="module-proxy_globalProxy-GlobalProxy.html">proxy/globalProxy~GlobalProxy</a></li><li><a href="module-proxy_proxy-WebProxy.html">proxy/proxy~WebProxy</a></li><li><a href="module-reporter_base-BaseReporter.html">reporter/base~BaseReporter</a></li><li><a href="module-steps_index-Steps.html">steps/index~Steps</a></li><li><a href="module-testing-TestStep.html">testing~TestStep</a></li><li><a href="module-video-VideoRecorder.html">video~VideoRecorder</a></li>
 				</ul>
 			</li>
 			
@@ -100,7 +100,7 @@
         <pre
             class="sunlight-highlight-javascript linenums">"use strict";
 /**
- * Contains code, responsible for proxy server implementation.
+ * Web Proxy classes and functions.
  *
  * @module
  */
@@ -112,30 +112,32 @@ var url = require("url");
 var util = require("util");
 
 var _ = require("lodash");
+var expect = require("chai").expect;
 var express = require("express");
 var httpProxy = require("http-proxy");
 
 var CONF = require("../config");
-var utils = require("../utils");
-
+var U = require("../utils");
+var BaseProxy = require("./base");
 /**
- * Creates a new instance of ProxyServer.
+ * Web Proxy.
  *
  * @class
- * @arg {object} [opts] - proxy options
- * @arg {boolean} [opts.useCache=false] - flag to cache and take from cache responses
+ * @arg {object} opts - Proxy options.
+ * @arg {string} opts.url - URL which should be proxied.
+ *  them from cache.
  */
-var ProxyServer = module.exports.ProxyServer = function (opts) {
-    BaseProxy.call(this);
-    opts = opts || {};
+var WebProxy = module.exports.WebProxy = function (opts) {
 
+    BaseProxy.call(this, opts);
+
+    this._url = opts.url;
     this._server = null;
-    this._proxy = null;
-    this._responses = {};
-    this.isRunning = false;
-    this.useCache = !!opts.useCache;
 
-    var parsedUrl = url.parse(CONF.initUrl);
+    var parsedUrl = url.parse(this._url);
+
+    expect(["http:", "https:"],
+           "Unsupported protocol").include(parsedUrl.protocol);
 
     if (parsedUrl.protocol === "https:") {
 
@@ -143,50 +145,51 @@ var ProxyServer = module.exports.ProxyServer = function (opts) {
             target: "https://" + parsedUrl.host,
             agent: https.globalAgent,
             headers: { host: parsedUrl.hostname },
-            proxyTimeout: CONF.timeout.pageLoad,
+            proxyTimeout: this._timeout,
         });
-    } else if (parsedUrl.protocol === "http:") {
+
+    } else {
 
         this._proxy = httpProxy.createProxyServer({
             target: {
                 host: parsedUrl.hostname,
                 port: parsedUrl.port,
             },
-            proxyTimeout: CONF.timeout.pageLoad,
+            proxyTimeout: this._timeout,
         });
-    } else {
-        throw new Error("Unexpected URL protocol " + parsedUrl.protocol);
     };
+    this._proxyUrl = `http://${os.hostname()}:${this._port}`;
 
     var app = express();
     app.use(async (req, res) => {
         this.req = req;
         this.res = res;
-        for (var mw of middleware) await mw.call(this);
+
+        for (var mw of middleware) if (await mw.call(this)) return;
+
         delete this.req;
         delete this.res;
         this._proxy.web(req, res);
     });
     this._server = http.createServer(app);
 };
-
-util.inherits(ProxyServer, BaseProxy);
+util.inherits(WebProxy, BaseProxy);
 /**
- * Starts proxy server if it"s not started yet.
+ * Starts proxy server if it’s not started yet.
  *
  * @method
  */
-ProxyServer.prototype.start = function () {
+WebProxy.prototype.start = function () {
     if (this.isRunning) return;
-    this._server.listen(CONF.proxyPort);
+    this._server.listen(this._port);
     this.isRunning = true;
 };
 /**
- * Stops proxy server if it"s not stopped yet.
+ * Stops proxy server if it’s not stopped yet.
  *
  * @method
  */
-ProxyServer.prototype.stop = function () {
+WebProxy.prototype.stop = function () {
     if (!this.isRunning) return;
     this._server.close();
     this._proxy.close();
@@ -237,7 +240,7 @@ ProxyServer.prototype.stop = function () {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on 2017-09-16T17:59:28+03:00
+		on 2017-09-23T09:05:05+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

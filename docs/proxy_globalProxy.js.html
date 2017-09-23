@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>GlaseJS Source: proxy/globalProxy.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">GlaseJS</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="CONF.html">CONF</a></li><li><a href="SS.html">SS</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-cli.html">cli</a></li><li><a href="module-config.html">config</a></li><li><a href="module-error.html">error</a></li><li><a href="module-globals.html">globals</a></li><li><a href="module-image.html">image</a></li><li><a href="module-index.html">index</a></li><li><a href="module-logger.html">logger</a></li><li><a href="module-page_element.html">page/element</a></li><li><a href="module-page_event.html">page/event</a></li><li><a href="module-page_index.html">page/index</a></li><li><a href="module-proxy_base.html">proxy/base</a></li><li><a href="module-proxy_globalProxy.html">proxy/globalProxy</a></li><li><a href="module-proxy_index.html">proxy/index</a></li><li><a href="module-proxy_middleware_index.html">proxy/middleware/index</a></li><li><a href="module-proxy_middleware_info.html">proxy/middleware/info</a></li><li><a href="module-proxy_middleware_speed.html">proxy/middleware/speed</a></li><li><a href="module-proxy_proxy.html">proxy/proxy</a></li><li><a href="module-reporter_base.html">reporter/base</a></li><li><a href="module-reporter_index.html">reporter/index</a></li><li><a href="module-reporter_stdout.html">reporter/stdout</a></li><li><a href="module-runner.html">runner</a></li><li><a href="module-steps_index.html">steps/index</a></li><li><a href="module-steps_page.html">steps/page</a></li><li><a href="module-steps_video.html">steps/video</a></li><li><a href="module-steps_web.html">steps/web</a></li><li><a href="module-steps_xvfb.html">steps/xvfb</a></li><li><a href="module-testing.html">testing</a></li><li><a href="module-testrail-reporter.html">testrail-reporter</a></li><li><a href="module-utils.html">utils</a></li><li><a href="module-video.html">video</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-error-ConfigError.html">error~ConfigError</a></li><li><a href="module-error-GlaceError.html">error~GlaceError</a></li><li><a href="module-error-StepError.html">error~StepError</a></li><li><a href="module-image-Image.html">image~Image</a></li><li><a href="module-page_element-Control.html">page/element~Control</a></li><li><a href="module-page_event-PointerEvents.html">page/event~PointerEvents</a></li><li><a href="module-proxy_base-BaseProxy.html">proxy/base~BaseProxy</a></li><li><a href="module-proxy_globalProxy-GlobalProxy.html">proxy/globalProxy~GlobalProxy</a></li><li><a href="module-proxy_proxy-WebProxy.html">proxy/proxy~WebProxy</a></li><li><a href="module-reporter_base-BaseReporter.html">reporter/base~BaseReporter</a></li><li><a href="module-steps_index-Steps.html">steps/index~Steps</a></li><li><a href="module-testing-TestStep.html">testing~TestStep</a></li><li><a href="module-video-VideoRecorder.html">video~VideoRecorder</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-console-args.html">GlaceJS command line arguments</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#afterStep">afterStep</a></li><li><a href="global.html#baseTest">baseTest</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#beforeStep">beforeStep</a></li><li><a href="global.html#cacheManager">cacheManager</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#fromCache">fromCache</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#test">test</a></li><li><a href="global.html#toCache">toCache</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: proxy/globalProxy.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+/**
+ * Describes global transparent proxy.
+ *
+ * @module
+ */
+
+var fs = require("fs");
+var path = require("path");
+var util = require("util");
+
+var expect = require("chai").expect;
+var MitmProxy = require("http-mitm-proxy");
+var spawn = require("cross-spawn");
+
+var GlaceError = require("../error").GlaceError;
+var U = require("../utils");
+var BaseProxy = require("./base");
+var middleware = require("./middleware");
+/**
+ * Creates new instance of `GlobalProxy`.
+ *
+ * @class
+ * @classdesc - Contains methods to run and manage global transparent proxy.
+ * @arg {object} [opts] - global proxy options
+ * @arg {number} [opts.port=8080] - global proxy port
+ * @arg {number} [opts.timeout=0] - global proxy timeout
+ * @arg {boolean} [opts.installCertificate=false] - flag to install global
+ *  proxy certificate as trusted in order to manage `https` connection or no
+ * @arg {?string} [opts.rootPath] - Folder where proxy starts in order to
+ *  generate self-signed certificate. By default is `current work directory`.
+ * @arg {boolean} [opts.useCache=false] - flag to cache and take from cache responses
+ */
+var GlobalProxy = module.exports = function (opts) {
+
+    opts = U.defVal(opts, {});
+    BaseProxy.call(this, opts);
+
+    this._installCertificate = U.defVal(opts.installCertificate, false);
+    this._certificatePath = path.resolve(process.cwd(),
+                                         ".http-mitm-proxy",
+                                         "certs",
+                                         "ca.pem");
+
+    this._proxy = MitmProxy();
+
+    this._proxy.onRequest(async (ctx, callback) => {
+        this.req = ctx.clientToProxyRequest;
+        this.res = ctx.proxyToClientResponse;
+
+        for (var mw of middleware) if (await mw.call(this)) return;
+
+        delete this.req;
+        delete this.res;
+        return callback();
+    });
+
+    this._proxy.onResponse((ctx, callback) => {
+        ctx.proxyToClientResponse.setHeader(
+            "Access-Control-Allow-Origin", "*");
+        return callback(null);
+    });
+};
+util.inherits(GlobalProxy, BaseProxy);
+/**
+ * Starts global proxy if it"s not started yet.
+ *
+ * @method
+ */
+GlobalProxy.prototype.start = function () {
+    if (this.isRunning) return;
+
+    return new Promise((resolve, reject) => {
+
+        this._proxy.listen({ port: this._port,
+                             silent: true,
+                             timeout: this._timeout },
+                           err => {
+                               if (err) reject(err);
+                               resolve();
+                           });
+
+    }).then(() => {
+
+        this.isRunning = true;
+
+        if (this._installCertificate) {
+
+            if (process.platform !== "win32") {
+                throw new GlaceError("For your platform certificate" +
+                                     "installation isn't implemented");
+            };
+            expect(fs.existsSync(this._certificatePath),
+                   `Proxy certificate ${this._certificatePath} is absent`)
+                .to.be.true;
+
+            var proc = spawn.sync("certutil", [ "-addstore",
+                                                "-enterprise",
+                                                "-f", "Root",
+                                                this._certificatePath ]);
+
+            if (proc.status !== 0) {
+                throw new GlaceError(
+                    "Can't install proxy certificate as trusted:\n" +
+                    proc.stdout.toString());
+            };
+        };
+    });
+};
+/**
+ * Stops global proxy if it"s not stopped yet.
+ *
+ * @method
+ */
+GlobalProxy.prototype.stop = function () {
+    if (!this.isRunning) return;
+    this._proxy.close();
+    this.isRunning = false;
+};
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	Copyright 2017
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on 2017-09-23T09:05:05+03:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
