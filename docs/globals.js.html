@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="CONF.html">CONF</a></li><li><a href="module-config-config.html">config~config</a></li><li><a href="SS.html">SS</a></li>
+					<li><a href="module-config-config.html">config~config</a></li>
 				</ul>
 			</li>
 			
@@ -61,7 +61,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#afterStep">afterStep</a></li><li><a href="global.html#baseTest">baseTest</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#beforeStep">beforeStep</a></li><li><a href="global.html#cacheManager">cacheManager</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#fromCache">fromCache</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#test">test</a></li><li><a href="global.html#toCache">toCache</a></li>
+					<li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#afterStep">afterStep</a></li><li><a href="global.html#baseTest">baseTest</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#beforeStep">beforeStep</a></li><li><a href="global.html#cacheManager">cacheManager</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#fromCache">fromCache</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#test">test</a></li><li><a href="global.html#toCache">toCache</a></li>
 				</ul>
 			</li>
 			
@@ -100,7 +100,7 @@
         <pre
             class="sunlight-highlight-javascript linenums">"use strict";
 /**
- * Global framework functions and helpers.
+ * Contains global framework functions and helpers.
  *
  * @module
  */
@@ -110,24 +110,32 @@ var _ = require("lodash");
 var logger = require("./logger");
 var TestCase = require("./testing").TestCase;
 /**
- * Verification matcher with expanded abilities.
+ * `chaijs` `expect` function.
  *
  * @global
  * @function
+ * @arg {*} actualValue - Some actual value which should be checked.
+ * @see {@link http://chaijs.com/|chaijs} to get more details about
+ *  `expect` usage.
+ * @example
+
+expect(1).to.be.equal(1);
+expect(2).to.be.gte(0);
+
  */
 global.expect = require("chai").expect;
 /**
- * Framework and tests config.
+ * `GlaceJS` config.
  *
  * @global
- * @namespace
+ * @see {@link module:config|config} to get more details about its options.
  */
 global.CONF = require("./config");
 /**
  * Atomic steps collection.
  *
  * @global
- * @namespace
+ * @see {@link module:steps/index|steps} to get more details about its methods.
  */
 global.SS = new (require("./steps"));
 if (CONF.isWeb) {
@@ -136,10 +144,28 @@ if (CONF.isWeb) {
     SS.setWebdriver(webdriver);
 };
 /**
- * Tests scope.
+ * Execute tests scope.
  *
  * @global
  * @function
+ * @arg {string} name - Scope name.
+ * @arg {function} func - Function with test cases.
+ * @example
+
+scope("Some test scope", () => {
+    test("Some test name", () => {
+        before(() => {
+            someFunc();
+        });
+        step("step #1", () => {
+            someFunc();
+        });
+        step("step #2", () => {
+            someFunc();
+        });
+    });
+});
+
  */
 global.scope = describe;
 /**
@@ -149,13 +175,34 @@ global.scope = describe;
  */
 var sessNum = 0;
 /**
- * Tests session.
+ * Executes tests session.
  *
  * @global
  * @function
  * @arg {string} [name] - Session name. By default it includes start date time.
  * @arg {object} [ctx] - Session context. By default it's empty.
  * @arg {function} func - Function with test cases.
+ * @example
+
+session(() => {
+    test("Test #1", () => {
+        step("Step #1", () => {
+            someFunc();
+        });
+        step("Step #2", () => {
+            someFunc();
+        });
+    });
+    test("Test #2", () => {
+        step("Step #1", () => {
+            someFunc();
+        });
+        step("Step #2", () => {
+            someFunc();
+        });
+    });
+});
+
  */
 global.session = (name, ctx, func) => {
 
@@ -179,11 +226,21 @@ global.session = (name, ctx, func) => {
     });
 };
 /**
- * Hook to execute before tests session. May be overridden.
+ * Executes before tests session. May be overridden or expanded.
  *
  * @global
  * @function
  * @arg {object} ctx - Session context.
+ * @example
+
+var oldBeforeSession = beforeSession;
+global.beforeSession = ctx => {
+    before(() => {
+        someFunc();
+    });
+    oldBeforeSession(ctx);
+};
+
  */
 global.beforeSession = ctx => {
     if (CONF.isWeb) {
@@ -198,11 +255,21 @@ global.beforeSession = ctx => {
     };
 };
 /**
- * Hook to execute after tests session. May be overridden.
+ * Executes after tests session. May be overridden or expanded.
  *
  * @global
  * @function
  * @arg {object} ctx - Session context.
+ * @example
+
+var oldAfterSession = afterSession;
+global.afterSession = ctx => {
+    oldAfterSession(ctx);
+    after(() => {
+        someFunc();
+    });
+};
+
  */
 global.afterSession = ctx => {
     if (CONF.isWeb) {
@@ -376,9 +443,9 @@ global.forEachLanguage = (ctx, func) => {
 	</span>
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-09-23T09:58:03+03:00
+		on 2017-09-23T10:57:25+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
