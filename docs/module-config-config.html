@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Class: GlobalProxy</title>
+	<title>GlaseJS Namespace: config</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,20 +93,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: GlobalProxy</h1>
+	<h1 class="page-title">Namespace: config</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-proxy_globalProxy.html">proxy/globalProxy</a>~</span>
+            <span class="ancestors"><a href="module-config.html">config</a>~</span>
         
-        GlobalProxy
+        config
         </h2>
-        
-            <div class="class-description"><ul>
-<li>Contains methods to run and manage global transparent proxy.</li>
-</ul></div>
         
     
 </header>
@@ -116,85 +112,18 @@
     <div class="container-overview">
     
         
-<hr>
-<dt>
-    <h4 class="name" id="GlobalProxy"><span class="type-signature"></span>new GlobalProxy( [opts])</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates new instance of <code>GlobalProxy</code>.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
+            <div class="description"><p>Contains <code>GlaceJS</code> main configuration.</p></div>
         
 
         
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+<dl class="details">
     
 
-        <tr>
-            
-                <td class="name"><code>opts</code></td>
-            
+    <h5 class="subsection-title">Properties:</h5>
 
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
+    <dl>
 
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>global proxy options</p>
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -220,13 +149,13 @@
 
         <tr>
             
-                <td class="name"><code>port</code></td>
+                <td class="name"><code>curTestCase</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">TestCase</span>
 
 
 
@@ -240,7 +169,7 @@
                 
 
                 
-
+                    &lt;nullable><br>
                 
                 </td>
             
@@ -248,25 +177,26 @@
             
                 <td class="default">
                 
-                    8080
+                    null
                 
                 </td>
             
 
-            <td class="description last"><p>global proxy port</p></td>
+            <td class="description last"><p>Pointer to current test case object.
+ On tests run it points to <code>null</code>. The pointer changes when a test launches.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>timeout</code></td>
+                <td class="name"><code>testCases</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Array.&lt;TestCase></span>
 
 
 
@@ -280,33 +210,33 @@
                 
 
                 
-
-                
                 </td>
             
 
             
                 <td class="default">
                 
-                    0
+                    []
                 
                 </td>
             
 
-            <td class="description last"><p>global proxy timeout</p></td>
+            <td class="description last"><p>List of all executed test cases. It
+ populates when a test launches. It is used to store full information about
+ executed tests and may be used in reporter.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>installCertificate</code></td>
+                <td class="name"><code>testsDir</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">string</span>
 
 
 
@@ -316,9 +246,42 @@
             
                 <td class="attributes">
                 
-                    &lt;optional><br>
-                
 
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Path to tests directory or single test module.
+ If it contains path to directory, tests will be loaded recursive from it.
+ By default <code>GlaceJS</code> tries to load tests from <code>tests</code> folder in current
+ work directory.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>reportsDir</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
                 
 
                 
@@ -328,20 +291,110 @@
             
                 <td class="default">
                 
-                    false
-                
                 </td>
             
 
-            <td class="description last"><p>flag to install global
- proxy certificate as trusted in order to manage <code>https</code> connection or no</p></td>
+            <td class="description last"><p>Path to directory where reports will be put.
+ By default <code>GlaceJS</code> tries to put reports to <code>reports</code> folder in current
+ work directory.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>rootPath</code></td>
+                <td class="name"><code>log</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Logger settings.</p>
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Path to common logger file, which is
+ <code>glacejs.log</code> inside current work directory.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>level</code></td>
             
 
             <td class="type">
@@ -361,7 +414,46 @@
                 
 
                 
-                    &lt;nullable><br>
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    debug
+                
+                </td>
+            
+
+            <td class="description last"><p>Common logger level.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>webdriver</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
                 
 
                 
@@ -374,15 +466,15 @@
                 </td>
             
 
-            <td class="description last"><p>Folder where proxy starts in order to
- generate self-signed certificate. By default is <code>current work directory</code>.</p></td>
+            <td class="description last"><p>Webdriver settings. Corresponds to
+ <code>webdriverio</code> remote settings.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>useCache</code></td>
+                <td class="name"><code>isWeb</code></td>
             
 
             <td class="type">
@@ -402,6 +494,228 @@
                 
 
                 
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag to launch tests in browser.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>appUrl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>URL of web application.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>noDriversInstall</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag to not install selenium
+ drivers on start.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platform</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    pc
+                
+                </td>
+            
+
+            <td class="description last"><p>Platform type where should launch tests.
+ Permitted values are <code>pc</code>, <code>android</code>, <code>ios</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>browserName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Name of browser where tests will be
+ executed. Default value depends on platform. <code>Chrome</code> for <code>pc</code>, <code>chrome</code>
+ for <code>android</code>, <code>safari</code> for <code>ios</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>testRetries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of times to retry a failed test.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stdoutLog</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
                 
                 </td>
@@ -415,130 +729,208 @@
                 </td>
             
 
-            <td class="description last"><p>flag to cache and take from cache responses</p></td>
+            <td class="description last"><p>Flag to print log message in stdout.</p></td>
         </tr>
 
     
-    </tbody>
-</table>
 
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="proxy_globalProxy.js.html">proxy/globalProxy.js</a>,
-				 <a href="proxy_globalProxy.js.html#sunlight-1-line-34">line 34</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
+        <tr>
             
-<hr>
-<dt>
-    <h4 class="name" id="start"><span class="type-signature"></span>start()</h4>
-    
-    
-</dt>
-<dd>
+                <td class="name"><code>toTestrail</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag to plug <code>testrail</code> reporter.</p></td>
+        </tr>
 
     
-    <div class="description">
-        <p>Starts global proxy if it&quot;s not started yet.</p>
-    </div>
-    
+
+        <tr>
+            
+                <td class="name"><code>isDesktop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag that tests are launched on
+ desktop.</p></td>
+        </tr>
 
     
 
-    
+        <tr>
+            
+                <td class="name"><code>isMobile</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag that tests are launched on
+ mobile device.</p></td>
+        </tr>
 
     
-    
+
+        <tr>
+            
+                <td class="name"><code>isAndroid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag that tests are launched on
+ android device.</p></td>
+        </tr>
 
     
-<dl class="details">
+
+        <tr>
+            
+                <td class="name"><code>isIos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag that tests are launched on iOS
+ device.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
     
 
 	
@@ -572,8 +964,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="proxy_globalProxy.js.html">proxy/globalProxy.js</a>,
-				 <a href="proxy_globalProxy.js.html#sunlight-1-line-70">line 70</a>
+				<a href="config.js.html">config.js</a>,
+				 <a href="config.js.html#sunlight-1-line-101">line 101</a>
 			</li>
 		</ul>
 	</dd>
@@ -586,94 +978,10 @@
 	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
 
         
-            
-<hr>
-<dt>
-    <h4 class="name" id="stop"><span class="type-signature"></span>stop()</h4>
     
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Stops global proxy if it&quot;s not stopped yet.</p>
     </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="proxy_globalProxy.js.html">proxy/globalProxy.js</a>,
-				 <a href="proxy_globalProxy.js.html#sunlight-1-line-115">line 115</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
 
     
 
@@ -687,10 +995,6 @@
 
     
 
-    
-</dd>
-
-        </dl>
     
 
     
