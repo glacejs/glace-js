@@ -15,8 +15,8 @@
 // });
 
 test("failed before", () => {
-    before(() => {
-        throw new Error("boom");
-    });
+    // before(() => {
+    //     throw new Error("boom");
+    // });
     chunk("my step", () => {});
 });
