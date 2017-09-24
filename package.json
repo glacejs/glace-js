@@ -4,7 +4,7 @@
   "description": "Glacejs is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
-    "test": "glace"
+    "test": "./bin/glace"
   },
   "repository": {
     "type": "git",
