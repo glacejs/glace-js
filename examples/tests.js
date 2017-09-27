@@ -13,10 +13,21 @@
 //         });
 //     });
 // });
+scope ("My tests", () => {
 
-test("failed before", () => {
-    // before(() => {
-    //     throw new Error("boom");
+    // after(() => {
+    //     throw new Error("before boom");
     // });
-    chunk("my step", () => {});
+
+    test("failed before", () => {
+        after(() => {
+            console.log("after #1");
+            throw new Error("boom");
+        });
+        after(() => {
+            console.log('after #2');
+            // throw new Error("another boom");
+        });
+        chunk("my step", () => {});
+    });  
 });
