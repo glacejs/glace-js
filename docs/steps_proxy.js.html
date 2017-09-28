@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: reporter/stdout.js</title>
+	<title>GlaseJS Source: steps/proxy.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,197 +93,361 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: reporter/stdout.js</h1>
+		<h1 class="page-title">Source: steps/proxy.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">"use strict";
 /**
- * `GlaceJS` stdout reporter.
+ * Steps for proxy.
  *
  * @module
  */
 
-var fs = require("fs");
-var path = require("path");
-var util = require("util");
+var CONF = require("../config");
+var U = require("../utils");
+var GlobalProxy = require("../proxy").GlobalProxy;
+var WebProxy = require("../proxy").WebProxy;
+/**
+ * Steps to manage proxy.
+ *
+ * @mixin
+ */
+module.exports = {
+    /**
+     * Step to start proxy.
+     *
+     * @method
+     * @instance
+     * @async
+     * @this Steps
+     * @arg {object} [opts] - Step to start proxy.
+     * @arg {string} [opts.appUrl] - Web application url which will
+     *  be proxied. Default value will be requested from `config.appUrl`
+     *  if it is specified.
+     * @arg {boolean} [opts.useCache] - Flag to use proxy cache for
+     *  responses. Default value will be requested from `config.useCache`
+     *  if it is specified.
+     * @arg {number} [opts.timeout] - Proxy timeout to break connection.
+     *  Default value will be requested from `config.timeout.proxy`.
+     * @arg {number} [opts.port] - Proxy port. Default value will be
+     *  requested from `config.proxyPort`.
+     * @arg {boolean} [opts.check=true] - Flag to check that proxy is launched.
+     * @throws {AssertionError} - If proxy is not launched.
+     * @return {string} - Proxy url to web application.
+     */
+    startProxy: async function (opts) {
 
-var colors = require("colors");
-var MochaReporter = require("mocha").reporters.base;
+        opts = U.defVal(opts, {});
+        var appUrl = U.defVal(opts.appUrl, CONF.appUrl);
+        var useCache = U.defVal(opts.useCache, CONF.useCache);
+        var timeout = U.defVal(opts.timeout, CONF.timeout.proxy);
+        var port = U.defVal(opts.port, CONF.proxyPort);
+        var check = U.defVal(opts.check, true);
 
-var TestCase = require("../testing").TestCase;
-
-var sessionErrors = [];
-
-var indents = 0;
-var indent = () => Array(indents).join("  ");
-
-var origConsoleLog;
-
-var patchConsoleLog = () => {
-    var reportLog = fs.createWriteStream(
-        path.resolve(process.cwd(), "reporter.log"), { flags : "w" });
-    origConsoleLog = console.log;
-
-    console.log = function() {
-        reportLog.write(util.format.apply(null, arguments) + "\n");
-        origConsoleLog.apply(this, arguments);
-    };
-};
-
-var restoreConsoleLog = () => {
-    if (origConsoleLog) console.log = origConsoleLog;
-};
-
-var epilogue = () => {
-    var indent = "  ";
-
-    var passedTests = [];
-    var failedTests = [];
-
-    for (var testCase of CONF.testCases) {
-        if (testCase.status === TestCase.FAILED) {
-            failedTests.push(testCase);
+        if (!this._proxy) {
+            this._proxy = new WebProxy({ url: appUrl,
+                                         useCache: useCache,
+                                         timeout: timeout,
+                                         port: port });
         };
-        if (testCase.status === TestCase.PASSED) {
-            passedTests.push(testCase);
+        await this._proxy.start();
+
+        if (check) {
+            expect(this._proxy.isRunning,
+                   "Proxy is not launched").be.true;
         };
-    };
 
-    if (passedTests.length !== 0) {
-        var msg = "passed test" + (passedTests.length === 1 ? "" : "s");
-        console.log((indent + MochaReporter.symbols.ok + " " +
-                     String(passedTests.length).bold + " " + msg).green);
-    };
+        this._appUrl = this._proxy.proxyUrl;
+    },
+    /**
+     * Step to stop proxy.
+     *
+     * @method
+     * @instance
+     * @async
+     * @this Steps
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flag to check that proxy is
+     *  stopped.
+     * @throws {AssertionError} - If proxy is still running.
+     */
+    stopProxy: async function (opts) {
 
-    if (failedTests.length !== 0) {
-        var msg = "failed test" + (failedTests.length === 1 ? "" : "s");
-        console.log((indent + MochaReporter.symbols.err + " " +
-                     String(failedTests.length).bold + " " + msg).red);
-    };
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
 
-    if (failedTests.length) {
-        console.log();
-        console.log("TEST FAILURES:".bold)
-        for (var testCase of failedTests) {
-            console.log();
-            console.log(("test: " + testCase.name).blue.bold);
-            for(var err of testCase.errors) {
-                console.log();
-                console.log(err.red.bold);
+        if (!this._proxy) return;
+        await this._proxy.stop();
+
+        if (check) {
+            expect(this._proxy.isRunning,
+                   "Proxy is still running").be.false;
+        };
+    },
+    /**
+     * Step to start global proxy.
+     *
+     * @method
+     * @instance
+     * @async
+     * @this Steps
+     * @arg {object} [opts] - Step to start proxy.
+     * @arg {boolean} [opts.useCache] - Flag to use proxy cache for
+     *  responses. Default value will be requested from `config.useCache`
+     *  if it is specified.
+     * @arg {number} [opts.timeout] - Proxy timeout to break connection.
+     *  Default value will be requested from `config.timeout.proxy`.
+     * @arg {number} [opts.port] - Proxy port. Default value will be
+     *  requested from `config.proxyPort`.
+     * @arg {boolean} [opts.check=true] - Flag to check that proxy is launched.
+     * @throws {AssertionError} - If global proxy is not launched.
+     */
+    startGlobalProxy: async function (opts) {
+
+        opts = U.defVal(opts, {});
+        var useCache = U.defVal(opts.useCache, CONF.useCache);
+        var timeout = U.defVal(opts.timeout, CONF.timeout.proxy);
+        var port = U.defVal(opts.port, CONF.globalProxyPort);
+        var check = U.defVal(opts.check, true);
+
+        if (!this._globalProxy) {
+            this._globalProxy = new GlobalProxy({
+                useCache: useCache,
+                timeout: timeout,
+                port: port,
+                installCertificate: CONF.installCertificate });
+        };
+
+        await this._globalProxy.start();
+
+        if (check) {
+            expect(this._globalProxy.isRunning,
+                   "Global proxy is not launched")
+                .to.be.true;
+        };
+    },
+    /**
+     * Step to stop global proxy.
+     *
+     * @method
+     * @instance
+     * @async
+     * @this Steps
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flag to check that global
+     *  proxy is stopped.
+     * @throws {AssertionError} - If global proxy is still running.
+     */
+    stopGlobalProxy: async function (opts) {
+
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
+
+        if (!this._globalProxy) return;
+        await this._globalProxy.stop();
+
+        if (check) {
+            expect(this._globalProxy.isRunning,
+                   "Global proxy is still running").be.false;
+        };
+    },
+    /**
+     * Step to limit proxy speed.
+     *
+     * @method
+     * @instance
+     * @this Steps
+     * @arg {number} speed - Proxy limited speed, kb/s.
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flat to check that proxy speed
+     *  is limited.
+     * @throws {AssertionError} - If proxy speed is not limited.
+     */
+    limitProxySpeed: function (speed, opts) {
+
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
+
+        this._checkProxy();
+
+        if (this._proxy) {
+            this._proxy.setSpeed(speed);
+        };
+        if (this._globalProxy) {
+            this._globalProxy.setSpeed(speed);
+        };
+
+        if (check) {
+            if (this._proxy) {
+                expect(this._proxy.speed,
+                       "Proxy speed is not limited").be.equal(speed);
+            };
+            if (this._globalProxy) {
+                expect(this._globalProxy.speed,
+                       "Global proxy speed is not limited").be.equal(speed);
             };
         };
-    };
-    if (sessionErrors.length) {
-        console.log();
-        console.log("OUTTEST FAILURES:".bold);
-        for (var error of sessionErrors) {
-            console.log();
-            console.log(error.red.bold);
-        };
-    };
-};
+    },
+    /**
+     * Step to unlimit proxy speed.
+     *
+     * @method
+     * @instance
+     * @this Steps
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flag to check that proxy speed
+     *  is unlimited.
+     * @throws {AssertionError} - If proxy speed is still limited.
+     */
+    unlimitProxySpeed: function (opts) {
 
-var stdoutReporter = module.exports = {
-    /**
-     * Called on tests start.
-     *
-     * @method
-     * @instance
-     */
-    start: () => {
-        patchConsoleLog();
-    },
-    /**
-     * Called before tests end.
-     *
-     * @method
-     * @instance
-     */
-    end: () => {
-        epilogue();
-        console.log();
-        var reportMsg = "Tests report is " + CONF.reportsDir;
-        console.log(Array(reportMsg.length + 1).join("-").yellow);
-        console.log(reportMsg.yellow);
-        restoreConsoleLog();
-    },
-    /**
-     * Called on scope start.
-     *
-     * @method
-     * @instance
-     * @arg {object} scope - `MochaJS` suite.
-     */
-    scope: scope => {
-        ++indents;
-        if (indents !== 1) {
-            console.log();
-            console.log((indent() + "scope: " + scope.title).blue);
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
+
+        this._checkProxy();
+
+        if (this._proxy) {
+            this._proxy.resetSpeed();
+        };
+        if (this._globalProxy) {
+            this._globalProxy.resetSpeed();
+        };
+
+        if (check) {
+            if (this._proxy) {
+                expect(this._proxy.speed,
+                       "Proxy speed still has limited value").be.null;
+            };
+            if (this._globalProxy) {
+                expect(this._globalProxy.speed,
+                       "Global proxy speed still has limited value").be.null;
+            };
         };
     },
     /**
-     * Called before scope end.
+     * Step to start responses measurement.
      *
      * @method
      * @instance
-     * @arg {object} scope - `MochaJS` suite.
+     * @this Steps
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flag to check that responses
+     *  measurement is launched.
+     * @throws {AssertionError} - If responses measurement is not launched.
      */
-    scopeEnd: scope => {
-        --indents;
-        if (indents === 1) console.log();
-    },
-    /**
-     * Called on test start.
-     *
-     * @method
-     * @instance
-     * @arg {object} test - `MochaJS` suite.
-     */
-    test: test => {
-        ++indents; 
-        console.log();
-        console.log((indent() + "test: " + test.title).blue.bold);
-    },
-    /**
-     * Called on test end.
-     *
-     * @method
-     * @instance
-     * @arg {object} test - `MochaJS` suite.
-     */
-    testEnd: test => {
-        --indents;
-        if (indents === 1) console.log();
-    },
-    /**
-     * Called on chunk passed.
-     *
-     * @method
-     * @instance
-     * @arg {object} chunk - `MochaJS` test.
-     */
-    pass: chunk => {
-        console.log((indent() + "  " +
-                     MochaReporter.symbols.ok + " " +
-                     "chunk: " + chunk.title).green);
-    },
-    /**
-     * Called on chunk or hook failed.
-     *
-     * @method
-     * @instance
-     * @arg {object} chunk - `MochaJS` test.
-     */
-    fail: (chunk, err) => {
-        if (!CONF.curTestCase) {
-            sessionErrors.push(chunk.title + "\n" +
-                               err.message + "\n" + err.stack);
+    measureResponses: function (opts) {
+
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
+
+        this._checkProxy();
+
+        if (this._proxy) {
+            this._proxy.measureResponses();
         };
-        console.log((indent() + "  " +
-                     MochaReporter.symbols.err + " " +
-                     "chunk: " + chunk.title).red);
+        if (this._globalProxy) {
+            this._globalProxy.measureResponses();
+        };
+
+        if (check) {
+            if (this._proxy) {
+                expect(this._proxy.getResponsesData(),
+                       "Proxy responses measurement is not launched")
+                    .not.be.null;
+            };
+            if (this._globalProxy) {
+                expect(this._globalProxy.getResponsesData(),
+                       "Global proxy responses measurement is not launched")
+                    .not.be.null;
+            };
+        };
+    },
+    /**
+     * Step to get measured responses data.
+     *
+     * @method
+     * @instance
+     * @this Steps
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flag to check that responses
+     *  data are present.
+     * @throws {AssertionError} - If responses data are absent.
+     */
+    getResponsesData: function (opts) {
+
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
+
+        this._checkProxy();
+
+        var data = [];
+
+        if (this._proxy &amp;&amp; this._proxy.getResponsesData()) {
+            data = data.concat(this._proxy.getResponsesData());
+        };
+        if (this._globalProxy &amp;&amp; this._globalProxy.getResponsesData()) {
+            data = data.concat(this._globalProxy.getResponsesData());
+        };
+
+        if (check) {
+            expect(_.isEmpty(data),
+                   "Responses data are absent").be.false;
+        };
+
+        return data;
+    },
+    /**
+     * Step to stop responses measurement.
+     *
+     * @method
+     * @instance
+     * @this Steps
+     * @arg {object} [opts] - Step options.
+     * @arg {boolean} [opts.check=true] - Flag to check that responses
+     *  measurement is stopped.
+     * @throws {AssertionError} - If responses measurement is still running.
+     */
+    unmeasureResponses: function (opts) {
+
+        opts = U.defVal(opts, {});
+        var check = U.defVal(opts.check, true);
+
+        this._checkProxy();
+
+        if (this._proxy) {
+            this._proxy.unmeasureResponses();
+        };
+        if (this._globalProxy) {
+            this._globalProxy.unmeasureResponses();
+        };
+
+        if (check) {
+            if (this._proxy) {
+                expect(this._proxy.getResponsesData(),
+                       "Proxy responses measurement is still running")
+                    .to.be.null;
+            };
+            if (this._globalProxy) {
+                expect(this._globalProxy.getResponsesData(),
+                       "Global proxy responses measurement is still running")
+                    .to.be.null;
+            };
+        };
+    },
+    /**
+     * Helper to check that proxy is launched.
+     *
+     * @method
+     * @protected
+     * @instance
+     * @this Steps
+     * @throws {AssertionError} - If no proxy is launched.
+     */
+    _checkProxy: function () {
+        expect(this._proxy || this._globalProxy,
+               "No proxy is launched").to.not.be.undefined;
     },
 };
 </pre>

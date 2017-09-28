@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Module: lib/proxy/base</title>
+	<title>GlaseJS Module: lib/proxy/middleware/cache</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,7 +93,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: lib/proxy/base</h1>
+	<h1 class="page-title">Module: lib/proxy/middleware/cache</h1>
 <section>
 
 <header>
@@ -105,7 +105,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Base proxy.</p></div>
+            <div class="description"><p>Middleware to cache responses.</p></div>
         
 
         
@@ -143,8 +143,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="proxy_base.js.html">proxy/base.js</a>,
-				 <a href="proxy_base.js.html#sunlight-1-line-2">line 2</a>
+				<a href="proxy_middleware_cache.js.html">proxy/middleware/cache.js</a>,
+				 <a href="proxy_middleware_cache.js.html#sunlight-1-line-2">line 2</a>
 			</li>
 		</ul>
 	</dd>
@@ -167,20 +167,486 @@
     
 
     
-        <h3 class="subsection-title">Classes</h3>
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         <dl>
-            <dt><a href="module-lib_proxy_base-BaseProxy.html">BaseProxy</a></dt>
-            <dd></dd>
+            
+<hr>
+<dt>
+    <h4 class="name" id="~cache"><span class="type-signature">&lt;inner> </span>cache()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Middleware to cache server responses and reply them.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>This:</h5>
+        <ul><li>BaseProxy</li></ul>
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="proxy_middleware_cache.js.html">proxy/middleware/cache.js</a>,
+				 <a href="proxy_middleware_cache.js.html#sunlight-1-line-38">line 38</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li><code>true</code> if response was retrieved from cache, <code>false</code>
+otherwise.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~fromCache"><span class="type-signature">&lt;inner> </span>fromCache(req, res)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Patches http response to send response from cache, if it is there.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http(s) request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http(s) response</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="proxy_middleware_cache.js.html">proxy/middleware/cache.js</a>,
+				 <a href="proxy_middleware_cache.js.html#sunlight-1-line-58">line 58</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li><code>true</code> if response is in cache and
+was patched, otherwise <code>false</code></li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~toCache"><span class="type-signature">&lt;inner> </span>toCache(req, res)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Patches http response to put response to cache.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http(s) request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>http(s) response</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="proxy_middleware_cache.js.html">proxy/middleware/cache.js</a>,
+				 <a href="proxy_middleware_cache.js.html#sunlight-1-line-83">line 83</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
         </dl>
-    
-
-    
-
-    
-
-    
-
     
 
     
