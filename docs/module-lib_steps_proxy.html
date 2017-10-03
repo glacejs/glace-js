@@ -149,7 +149,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-18">line 18</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-17">line 17</a>
 			</li>
 		</ul>
 	</dd>
@@ -244,7 +244,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-361">line 361</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-378">line 378</a>
 			</li>
 		</ul>
 	</dd>
@@ -498,7 +498,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-291">line 291</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-308">line 308</a>
 			</li>
 		</ul>
 	</dd>
@@ -784,7 +784,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-181">line 181</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-198">line 198</a>
 			</li>
 		</ul>
 	</dd>
@@ -1038,7 +1038,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-253">line 253</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-270">line 270</a>
 			</li>
 		</ul>
 	</dd>
@@ -1109,7 +1109,8 @@
 
     
     <div class="description">
-        <p>Step to start global proxy.</p>
+        <p>Step to start global proxy. Step recall will be skipped if global
+ proxy wasn't stopped before.</p>
     </div>
     
 
@@ -1176,7 +1177,7 @@
 
             
 
-            <td class="description last"><p>Step to start proxy.</p>
+            <td class="description last"><p>Step options.</p>
                 <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
@@ -1317,7 +1318,7 @@
             
 
             <td class="description last"><p>Proxy port. Default value will be
- requested from <code>config.proxyPort</code>.</p></td>
+ requested from <code>config.globalProxyPort</code>.</p></td>
         </tr>
 
     
@@ -1357,7 +1358,7 @@
                 </td>
             
 
-            <td class="description last"><p>Flag to check that proxy is launched.</p></td>
+            <td class="description last"><p>Flag to check that proxy was launched.</p></td>
         </tr>
 
     
@@ -1409,7 +1410,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-114">line 114</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-125">line 125</a>
 			</li>
 		</ul>
 	</dd>
@@ -1440,7 +1441,7 @@
     <dt>
         <div class="param-desc">
         <ul>
-<li>If global proxy is not launched.</li>
+<li>If global proxy was not launched.</li>
 </ul>
         </div>
     </dt>
@@ -1480,7 +1481,8 @@
 
     
     <div class="description">
-        <p>Step to start proxy.</p>
+        <p>Step to start proxy. Step recall will be skipped if proxy wasn't
+ stopped before.</p>
     </div>
     
 
@@ -1547,7 +1549,7 @@
 
             
 
-            <td class="description last"><p>Step to start proxy.</p>
+            <td class="description last"><p>Step options.</p>
                 <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
@@ -1768,7 +1770,7 @@
                 </td>
             
 
-            <td class="description last"><p>Flag to check that proxy is launched.</p></td>
+            <td class="description last"><p>Flag to check that proxy was launched.</p></td>
         </tr>
 
     
@@ -1851,7 +1853,7 @@
     <dt>
         <div class="param-desc">
         <ul>
-<li>If proxy is not launched.</li>
+<li>If proxy was not launched.</li>
 </ul>
         </div>
     </dt>
@@ -1880,7 +1882,7 @@
             
 <div class="param-desc">
     <ul>
-<li>Proxy url to web application.</li>
+<li>Proxied URL.</li>
 </ul>
 </div>
 
@@ -1917,7 +1919,8 @@
 
     
     <div class="description">
-        <p>Step to stop global proxy.</p>
+        <p>Step to stop global proxy. Step call will be skipped if global proxy
+ wasn't launched before.</p>
     </div>
     
 
@@ -2048,7 +2051,7 @@
             
 
             <td class="description last"><p>Flag to check that global
- proxy is stopped.</p></td>
+ proxy was stopped.</p></td>
         </tr>
 
     
@@ -2100,7 +2103,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-150">line 150</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-167">line 167</a>
 			</li>
 		</ul>
 	</dd>
@@ -2131,7 +2134,7 @@
     <dt>
         <div class="param-desc">
         <ul>
-<li>If global proxy is still running.</li>
+<li>If global proxy wasn't stopped.</li>
 </ul>
         </div>
     </dt>
@@ -2171,7 +2174,8 @@
 
     
     <div class="description">
-        <p>Step to stop proxy.</p>
+        <p>Step to stop proxy. Step call will be skipped if proxy wasn't launched
+ before.</p>
     </div>
     
 
@@ -2301,7 +2305,7 @@
                 </td>
             
 
-            <td class="description last"><p>Flag to check that proxy is
+            <td class="description last"><p>Flag to check that proxy was
  stopped.</p></td>
         </tr>
 
@@ -2354,7 +2358,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-77">line 77</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-85">line 85</a>
 			</li>
 		</ul>
 	</dd>
@@ -2385,7 +2389,7 @@
     <dt>
         <div class="param-desc">
         <ul>
-<li>If proxy is still running.</li>
+<li>If proxy wasn't stopped.</li>
 </ul>
         </div>
     </dt>
@@ -2608,7 +2612,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-217">line 217</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-234">line 234</a>
 			</li>
 		</ul>
 	</dd>
@@ -2862,7 +2866,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_proxy.js.html">steps/proxy.js</a>,
-				 <a href="steps_proxy.js.html#sunlight-1-line-325">line 325</a>
+				 <a href="steps_proxy.js.html#sunlight-1-line-342">line 342</a>
 			</li>
 		</ul>
 	</dd>
@@ -2975,7 +2979,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-10-03T20:17:20+03:00
+		on 2017-10-03T22:59:28+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

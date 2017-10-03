@@ -194,7 +194,8 @@
 
     
     <div class="description">
-        <p>Step to close browser.</p>
+        <p>Step to close browser. Step will be skipped if browser wasn't launched
+ before.</p>
     </div>
     
 
@@ -324,7 +325,382 @@
                 </td>
             
 
-            <td class="description last"><p>Flag to check step result or no.</p></td>
+            <td class="description last"><p>Flag to check that browser was closed.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_web.js.html">steps/web.js</a>,
+				 <a href="steps_web.js.html#sunlight-1-line-142">line 142</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If browser wasn't closed.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">AssertionError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="installSeleniumDrivers"><span class="type-signature">&lt;async> </span>installSeleniumDrivers()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Step to install selenium drivers.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>This:</h5>
+        <ul><li>Steps</li></ul>
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_web.js.html">steps/web.js</a>,
+				 <a href="steps_web.js.html#sunlight-1-line-27">line 27</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If there was error during drivers installation.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="launchBrowser"><span class="type-signature">&lt;async> </span>launchBrowser( [opts])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Step to launch browser. Step recall</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>This:</h5>
+        <ul><li>Steps</li></ul>
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Step options.</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>check</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>Flag to check that browser was
+ launched.</p></td>
         </tr>
 
     
@@ -407,7 +783,7 @@
     <dt>
         <div class="param-desc">
         <ul>
-<li>if browser isn't closed</li>
+<li>If browser wasn't launched.</li>
 </ul>
         </div>
     </dt>
@@ -418,7 +794,7 @@
             </dt>
             <dd>
                 
-<span class="param-type">Error</span>
+<span class="param-type">AssertionError</span>
 
 
 
@@ -439,7 +815,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="installSeleniumDrivers"><span class="type-signature">&lt;async> </span>installSeleniumDrivers()</h4>
+    <h4 class="name" id="openUrl"><span class="type-signature">&lt;async> </span>openUrl(pageUrl [, opts])</h4>
     
     
 </dt>
@@ -447,98 +823,7 @@
 
     
     <div class="description">
-        <p>Step to install selenium drivers.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>This:</h5>
-        <ul><li>Steps</li></ul>
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="steps_web.js.html">steps/web.js</a>,
-				 <a href="steps_web.js.html#sunlight-1-line-26">line 26</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="launchBrowser"><span class="type-signature">&lt;async> </span>launchBrowser( [opts])</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Step to launch browser.</p>
+        <p>Step to open URL in browser.</p>
     </div>
     
 
@@ -574,6 +859,38 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pageUrl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>URL which should be opened in browser.</p></td>
+        </tr>
+
     
 
         <tr>
@@ -668,7 +985,46 @@
                 </td>
             
 
-            <td class="description last"><p>Flag to check step result or no.</p></td>
+            <td class="description last"><p>Flag to check that URL is opened.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Timeout to wait for URL will be opened
+ in browser, ms. Default value is <code>CONF.timeouts.pageLoad</code>.</p></td>
         </tr>
 
     
@@ -720,7 +1076,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_web.js.html">steps/web.js</a>,
-				 <a href="steps_web.js.html#sunlight-1-line-82">line 82</a>
+				 <a href="steps_web.js.html#sunlight-1-line-188">line 188</a>
 			</li>
 		</ul>
 	</dd>
@@ -751,7 +1107,7 @@
     <dt>
         <div class="param-desc">
         <ul>
-<li>if browser isn't launched</li>
+<li>If URL wasn't opened after timeout.</li>
 </ul>
         </div>
     </dt>
@@ -773,150 +1129,6 @@
 
 
         
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="openPage"><span class="type-signature">&lt;async> </span>openPage(pageUrl)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Step to open page in browser.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>This:</h5>
-        <ul><li>Steps</li></ul>
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>pageUrl</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>URL or page.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="steps_web.js.html">steps/web.js</a>,
-				 <a href="steps_web.js.html#sunlight-1-line-149">line 149</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
 
     
 
@@ -1002,77 +1214,7 @@
 
             
 
-            <td class="description last"><p>step options</p>
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>check</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-
-            <td class="description last"><p>flag to check step result or no</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>Step options.</p></td>
         </tr>
 
     
@@ -1117,7 +1259,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_web.js.html">steps/web.js</a>,
-				 <a href="steps_web.js.html#sunlight-1-line-135">line 135</a>
+				 <a href="steps_web.js.html#sunlight-1-line-170">line 170</a>
 			</li>
 		</ul>
 	</dd>
@@ -1158,7 +1300,8 @@
 
     
     <div class="description">
-        <p>Step to start selenium server.</p>
+        <p>Step to start selenium server. Step recall will be skipped if
+ selenium server wasn't stopped before.</p>
     </div>
     
 
@@ -1208,7 +1351,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_web.js.html">steps/web.js</a>,
-				 <a href="steps_web.js.html#sunlight-1-line-49">line 49</a>
+				 <a href="steps_web.js.html#sunlight-1-line-51">line 51</a>
 			</li>
 		</ul>
 	</dd>
@@ -1231,6 +1374,36 @@
     
 
     
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If there was error on selenium start.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
 
     
 
@@ -1241,7 +1414,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="stopSeleniumServer"><span class="type-signature"></span>stopSeleniumServer()</h4>
+    <h4 class="name" id="stopSeleniumServer"><span class="type-signature">&lt;async> </span>stopSeleniumServer()</h4>
     
     
 </dt>
@@ -1249,7 +1422,8 @@
 
     
     <div class="description">
-        <p>Step to stop selenium server.</p>
+        <p>Step to stop selenium server. Step call will be skipped if selenium
+ server wasn't started before.</p>
     </div>
     
 
@@ -1299,7 +1473,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_web.js.html">steps/web.js</a>,
-				 <a href="steps_web.js.html#sunlight-1-line-68">line 68</a>
+				 <a href="steps_web.js.html#sunlight-1-line-80">line 80</a>
 			</li>
 		</ul>
 	</dd>
@@ -1322,6 +1496,36 @@
     
 
     
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If there was error on selenium stop.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
 
     
 
@@ -1382,7 +1586,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-10-03T20:17:20+03:00
+		on 2017-10-03T22:59:28+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
