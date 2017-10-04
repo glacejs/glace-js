@@ -2,3 +2,4 @@ node_modules
 *.log
 reports
 .http-mitm-proxy
+.proxy-cache
