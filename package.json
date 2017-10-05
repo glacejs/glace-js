@@ -11,7 +11,7 @@
     "url": "git+https://github.com/schipiga/glacejs.git"
   },
   "author": "Sergei Chipiga",
-  "license": "GPLv2",
+  "license": "GPL-2.0",
   "bin": {
     "glace": "./bin/glace"
   },
@@ -37,6 +37,7 @@
     "mkdirp": "^0.5.1",
     "mocha": "^3.5.3",
     "rimraf": "^2.6.2",
+    "screen-resolution": "git+https://github.com/schipiga/screen-resolution.git",
     "selenium-standalone": "^6.9.0",
     "sharp": "^0.18.3",
     "temp": "^0.8.3",
@@ -45,9 +46,10 @@
     "webdriverio": "^4.8.0",
     "winston": "^2.3.1",
     "xvfb": "^0.2.3",
-    "yargs": "^8.0.2"
-  },
-  "devDependencies": {
+    "yargs": "^8.0.2",
     "testrail-api": "^1.1.0"
+  },
+  "optionalDependencies": {
+    "binary": "git+https://github.com/schipiga/binary.git"
   }
 }
