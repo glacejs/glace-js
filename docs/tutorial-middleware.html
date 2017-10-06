@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: proxy/httpProxy.js</title>
+	<title>GlaseJS Tutorial: How to use own middleware</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,120 +91,28 @@
 	<div class="col-md-12">
 	
 		<div id="main">
-			
+			<section class="tutorial-section">
 
-		<h1 class="page-title">Source: proxy/httpProxy.js</h1>
+<header>
     
-<section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">"use strict";
-/**
- * Http Proxy classes and functions.
- *
- * @module
- */
 
-var os = require("os");
-var http = require("http");
-var https = require("https");
-var url = require("url");
-var util = require("util");
+    <h2>How to use own middleware</h2>
+</header>
 
-var _ = require("lodash");
-var expect = require("chai").expect;
-var express = require("express");
-var httpProxy = require("http-proxy");
+<article>
+    <p>First please see <a href="https://github.com/schipiga/glacejs/tree/master/examples/ownMiddleware">example</a> how to develop and include own proxy middleware.</p>
+<p>By default <code>GlaceJS</code> supports 3 middlewares:</p>
+<ul>
+<li>to gather responses info</li>
+<li>to manage responses speed</li>
+<li>to cache and replay responses</li>
+</ul>
+<p>Your middleware may be registered just adding it to array (see example).
+Middleware will be used in all supported proxies and executed inside proxy context.
+If you want to prevent middleware calling after your middleware you should <code>return true</code> inside it.</p>
+</article>
 
-var CONF = require("../config");
-var U = require("../utils");
-
-var BaseProxy = require("./base");
-var middleware = require("./middleware");
-/**
- * Http Proxy.
- *
- * @class
- * @arg {object} opts - Proxy options.
- * @arg {string} opts.url - URL which should be proxied.
- *  them from cache.
- */
-var HttpProxy = module.exports = function (opts) {
-
-    BaseProxy.call(this, opts);
-
-    this._url = opts.url;
-    this._server = null;
-
-    var parsedUrl = url.parse(this._url);
-
-    expect(["http:", "https:"],
-           "Unsupported protocol").include(parsedUrl.protocol);
-
-    if (parsedUrl.protocol === "https:") {
-
-        this._proxy = httpProxy.createProxyServer({
-            target: "https://" + parsedUrl.host,
-            agent: https.globalAgent,
-            headers: { host: parsedUrl.hostname },
-            proxyTimeout: this._timeout,
-        });
-
-    } else {
-
-        this._proxy = httpProxy.createProxyServer({
-            target: {
-                host: parsedUrl.hostname,
-                port: parsedUrl.port,
-            },
-            proxyTimeout: this._timeout,
-        });
-    };
-
-    var app = express();
-    app.use(async (req, res) => {
-        this.req = req;
-        this.res = res;
-
-        for (var mw of middleware) if (await mw.call(this)) return;
-
-        delete this.req;
-        delete this.res;
-        this._proxy.web(req, res);
-    });
-    this._server = http.createServer(app);
-};
-util.inherits(HttpProxy, BaseProxy);
-/**
- * Starts proxy server if it’s not started yet.
- *
- * @method
- */
-HttpProxy.prototype.start = function () {
-    if (this.isRunning) return;
-    this._server.listen(this._port);
-    this.proxyUrl = `http://${os.hostname()}:${this._server.address().port}`;
-    this.isRunning = true;
-};
-/**
- * Stops proxy server if it’s not stopped yet.
- *
- * @method
- */
-HttpProxy.prototype.stop = function () {
-    if (!this.isRunning) return;
-    this._server.close();
-    this._proxy.close();
-    this.proxyUrl = null;
-    this.isRunning = false;
-};
-</pre>
-    </article>
 </section>
-
-
-
-
 
 		</div>
 	</div>

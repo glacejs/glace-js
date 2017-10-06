@@ -1,5 +1,14 @@
 {
     "console-args": {
-        "title": "GlaceJS command line arguments"
+        "title": "Command line arguments"
+    },
+    "conftest": {
+        "title": "How to use conftest.js"
+    },
+    "middleware": {
+        "title": "How to use own middleware"
+    },
+    "reporter": {
+        "title": "How to use own reporter"
     }
 }
