@@ -11,14 +11,14 @@
     "url": "git+https://github.com/schipiga/glacejs.git"
   },
   "author": "Sergei Chipiga",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "bin": {
     "glace": "./bin/glace"
   },
   "bugs": {
     "url": "https://github.com/schipiga/glacejs/issues"
   },
-  "homepage": "https://github.com/schipiga/glacejs#readme",
+  "homepage": "https://schipiga.github.io/glacejs",
   "dependencies": {
     "cache-manager": "^2.4.0",
     "cache-manager-fs": "^1.0.6",
@@ -37,7 +37,7 @@
     "mkdirp": "^0.5.1",
     "mocha": "^3.5.3",
     "rimraf": "^2.6.2",
-    "screen-resolution": "git+https://github.com/schipiga/screen-resolution.git",
+    "screen-resolution": "^1.0.0",
     "selenium-standalone": "^6.9.0",
     "sharp": "^0.18.3",
     "temp": "^0.8.3",
@@ -51,5 +51,13 @@
   },
   "optionalDependencies": {
     "binary": "git+https://github.com/schipiga/binary.git"
-  }
+  },
+  "engines": {
+    "node": ">= 7.6",
+    "npm": ">= 4.0"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ]
 }
