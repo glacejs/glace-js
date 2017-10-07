@@ -27,6 +27,7 @@
     "cross-spawn": "^5.1.0",
     "es6-error": "^4.0.2",
     "express": "^4.15.4",
+    "find-process": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "http-mitm-proxy": "^0.5.3",
