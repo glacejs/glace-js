@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Module: lib/reporter/stdout</title>
+	<title>GlaseJS Class: Element</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,10 +93,17 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: lib/reporter/stdout</h1>
+	<h1 class="page-title">Class: Element</h1>
 <section>
 
 <header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-lib_page_element.html">lib/page/element</a>~</span>
+        
+        Element
+        </h2>
+        
     
 </header>
 
@@ -105,10 +112,103 @@
     <div class="container-overview">
     
         
-            <div class="description"><p><code>GlaceJS</code> stdout reporter.</p></div>
+<hr>
+<dt>
+    <h4 class="name" id="Element"><span class="type-signature"></span>new Element(name, driver)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Creates a new instance of <code>Element</code>.</p>
+<p><code>Element</code> binds DOM control in browser context with virtual control in test.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
         
 
         
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>control name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>driver</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>selenium driver instance</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
 <dl class="details">
     
 
@@ -143,8 +243,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-2">line 2</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-22">line 22</a>
 			</li>
 		</ul>
 	</dd>
@@ -158,7 +258,21 @@
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
     
     </div>
 
@@ -181,7 +295,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="done"><span class="type-signature"></span>done()</h4>
+    <h4 class="name" id="click"><span class="type-signature"></span>click()</h4>
     
     
 </dt>
@@ -189,7 +303,7 @@
 
     
     <div class="description">
-        <p>Called on report finalizing.</p>
+        <p>Clicks control in browser.</p>
     </div>
     
 
@@ -235,8 +349,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-187">line 187</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-110">line 110</a>
 			</li>
 		</ul>
 	</dd>
@@ -261,6 +375,32 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>result of selenium execution in browser context</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -269,7 +409,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="end"><span class="type-signature"></span>end()</h4>
+    <h4 class="name" id="getElement"><span class="type-signature"></span>getElement()</h4>
     
     
 </dt>
@@ -277,7 +417,7 @@
 
     
     <div class="description">
-        <p>Called before tests end.</p>
+        <p>Gets webdriver element.</p>
     </div>
     
 
@@ -323,8 +463,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-87">line 87</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-37">line 37</a>
 			</li>
 		</ul>
 	</dd>
@@ -349,6 +489,32 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>Webdriver element.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -357,7 +523,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="fail"><span class="type-signature"></span>fail(chunk)</h4>
+    <h4 class="name" id="getText"><span class="type-signature"></span>getText()</h4>
     
     
 </dt>
@@ -365,7 +531,800 @@
 
     
     <div class="description">
-        <p>Called on chunk or hook failed.</p>
+        <p>Gets text content of DOM element.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-46">line 46</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>text value or null</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="isExist"><span class="type-signature"></span>isExist()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Defines whether control is exist or no.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-165">line 165</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li><code>true</code> if control is exist, <code>false</code> otherwise</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="isSelected"><span class="type-signature"></span>isSelected()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Defines whether control is selected or no.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-150">line 150</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li><code>true</code> if control is selected, <code>false</code> otherwise</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="isVisible"><span class="type-signature"></span>isVisible()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Defines whether control is visible or no.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-207">line 207</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li><code>true</code> if control is visible, <code>false</code> otherwise</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="location"><span class="type-signature"></span>location()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Gets DOM control location with attributes:
+ <code>x</code>, <code>y</code>, <code>midX</code>, <code>midY</code>, <code>width</code>, <code>height</code></p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-75">line 75</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>location of control</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;object></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="pClick"><span class="type-signature"></span>pClick()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Clicks element in browser via pointer events.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-123">line 123</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="scrollIntoView"><span class="type-signature"></span>scrollIntoView()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Scrolls control into browser viewport.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-97">line 97</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>result of javascript execution in browser context</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;*></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setText"><span class="type-signature"></span>setText(text)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Sets text to DOM element.</p>
     </div>
     
 
@@ -400,13 +1359,13 @@
 
         <tr>
             
-                <td class="name"><code>chunk</code></td>
+                <td class="name"><code>text</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">string</span>
 
 
 
@@ -417,7 +1376,7 @@
 
             
 
-            <td class="description last"><p><code>MochaJS</code> test.</p></td>
+            <td class="description last"><p>Text value to assign.</p></td>
         </tr>
 
     
@@ -461,8 +1420,116 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-161">line 161</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-65">line 65</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="tap"><span class="type-signature"></span>tap()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Taps control in browser.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-143">line 143</a>
 			</li>
 		</ul>
 	</dd>
@@ -495,7 +1562,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="pass"><span class="type-signature"></span>pass(chunk)</h4>
+    <h4 class="name" id="waitForExist"><span class="type-signature"></span>waitForExist( [timeout])</h4>
     
     
 </dt>
@@ -503,7 +1570,7 @@
 
     
     <div class="description">
-        <p>Called on chunk passed.</p>
+        <p>Waits for control is exist.</p>
     </div>
     
 
@@ -526,6 +1593,8 @@
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -538,13 +1607,13 @@
 
         <tr>
             
-                <td class="name"><code>chunk</code></td>
+                <td class="name"><code>timeout</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">number</span>
 
 
 
@@ -552,10 +1621,20 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p><code>MochaJS</code> test.</p></td>
+            <td class="description last"><p>timeout to wait, ms</p></td>
         </tr>
 
     
@@ -599,8 +1678,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-149">line 149</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-177">line 177</a>
 			</li>
 		</ul>
 	</dd>
@@ -623,8 +1702,64 @@
     
 
     
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If control isn't exist after timeout.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TimeoutError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>result of selenium execution</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;*></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -633,7 +1768,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="scope"><span class="type-signature"></span>scope(scope)</h4>
+    <h4 class="name" id="waitForInvisible"><span class="type-signature"></span>waitForInvisible( [timeout])</h4>
     
     
 </dt>
@@ -641,7 +1776,7 @@
 
     
     <div class="description">
-        <p>Called on scope start.</p>
+        <p>Waits for control is invisible.</p>
     </div>
     
 
@@ -664,6 +1799,8 @@
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -676,13 +1813,13 @@
 
         <tr>
             
-                <td class="name"><code>scope</code></td>
+                <td class="name"><code>timeout</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">number</span>
 
 
 
@@ -690,10 +1827,20 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p><code>MochaJS</code> suite.</p></td>
+            <td class="description last"><p>timeout to wait, ms</p></td>
         </tr>
 
     
@@ -737,8 +1884,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-101">line 101</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-238">line 238</a>
 			</li>
 		</ul>
 	</dd>
@@ -761,8 +1908,64 @@
     
 
     
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If control is still visible after timeout.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TimeoutError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>result of selenium execution</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;*></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -771,7 +1974,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="scopeEnd"><span class="type-signature"></span>scopeEnd(scope)</h4>
+    <h4 class="name" id="waitForNonExist"><span class="type-signature"></span>waitForNonExist( [timeout])</h4>
     
     
 </dt>
@@ -779,7 +1982,7 @@
 
     
     <div class="description">
-        <p>Called before scope end.</p>
+        <p>Waits for control isn't exist.</p>
     </div>
     
 
@@ -802,6 +2005,8 @@
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -814,13 +2019,13 @@
 
         <tr>
             
-                <td class="name"><code>scope</code></td>
+                <td class="name"><code>timeout</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">number</span>
 
 
 
@@ -828,10 +2033,20 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p><code>MochaJS</code> suite.</p></td>
+            <td class="description last"><p>timeout to wait, ms</p></td>
         </tr>
 
     
@@ -875,8 +2090,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-115">line 115</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-193">line 193</a>
 			</li>
 		</ul>
 	</dd>
@@ -899,8 +2114,64 @@
     
 
     
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If control is still exist after timeout.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TimeoutError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>result of selenium execution</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;*></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -909,7 +2180,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="test"><span class="type-signature"></span>test(test)</h4>
+    <h4 class="name" id="waitForVisible"><span class="type-signature"></span>waitForVisible( [timeout])</h4>
     
     
 </dt>
@@ -917,7 +2188,7 @@
 
     
     <div class="description">
-        <p>Called on test start.</p>
+        <p>Waits for control is visible.</p>
     </div>
     
 
@@ -940,6 +2211,8 @@
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -952,13 +2225,13 @@
 
         <tr>
             
-                <td class="name"><code>test</code></td>
+                <td class="name"><code>timeout</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">number</span>
 
 
 
@@ -966,10 +2239,20 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p><code>MochaJS</code> suite.</p></td>
+            <td class="description last"><p>timeout to wait, ms</p></td>
         </tr>
 
     
@@ -1013,8 +2296,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-126">line 126</a>
+				<a href="page_element.js.html">page/element.js</a>,
+				 <a href="page_element.js.html#sunlight-1-line-221">line 221</a>
 			</li>
 		</ul>
 	</dd>
@@ -1037,146 +2320,64 @@
     
 
     
-
+    <h5>Throws:</h5>
     
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="testEnd"><span class="type-signature"></span>testEnd(test)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Called on test end.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>test</code></td>
             
 
-            <td class="type">
-            
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If control isn't visible after timeout.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
                 
-<span class="param-type">object</span>
+<span class="param-type">TimeoutError</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p><code>MochaJS</code> suite.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="reporter_stdout.js.html">reporter/stdout.js</a>,
-				 <a href="reporter_stdout.js.html#sunlight-1-line-138">line 138</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
+            </dd>
+        </dl>
+    </dt>
 </dl>
 
 
-    
+        
 
     
-
+    <h5>Returns:</h5>
     
+            
+<div class="param-desc">
+    <ul>
+<li>result of selenium execution</li>
+</ul>
+</div>
 
-    
 
-    
 
-    
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;*></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>

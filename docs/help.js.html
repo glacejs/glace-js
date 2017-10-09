@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Module: lib/proxy/globalProxy</title>
+	<title>GlaseJS Source: help.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,107 +88,91 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: lib/proxy/globalProxy</h1>
+		<h1 class="page-title">Source: help.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+/**
+ * Help description.
+ *
+ * @module
+ */
 
-<header>
-    
-</header>
+require("colors");
 
+var trigger = true;
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Describes global transparent proxy.</p></div>
-        
+var d = function () {
+    var msg = Array.from(arguments).join(" ");
+    msg = (trigger ? msg.yellow : msg.cyan).bold;
+    trigger = !trigger;
+    return msg;
+};
 
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="proxy_globalProxy.js.html">proxy/globalProxy.js</a>,
-				 <a href="proxy_globalProxy.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-lib_proxy_globalProxy-GlobalProxy.html">GlobalProxy</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+var argv = require("yargs")
+    .usage("\nglace [options] [tests-file-or-folder]".white.bold)
+    .options({
+        "args-config": {
+            describe: d("Path to JSON file with CLI arguments."),
+            type: "string",
+            default: "./args.json (if exists)",
+        },
+        "config": {
+            describe: d("Path to JS file with configuration which will be",
+                        "merged with override default configuration"),
+            type: "string",
+            default: "./config.js (if exists)",
+        },
+        "web": {
+            describe: d("Flag to launch tests in browser. Browser will be",
+                        "launched on session start and closed on session finish."),
+            type: "boolean"
+        },
+        "app": {
+            describe: d("Application URL which will be used for web tests."),
+            type: "string"
+        },
+        "dont-install-drivers": {
+            describe: d("Flag to not install selenium drivers on tests run."),
+            type: "boolean"
+        },
+        "platform": {
+            describe: d("Specify platform type where tests will be executed."),
+            type: "string",
+            default: "pc",
+            choices: [ "pc", "android", "ios" ]
+        },
+        "browser": {
+            describe: d("Name of browser where web tests will be",
+                        "executed. Default value is platform specific."),
+            type: "string"
+        },
+        "retry": {
+            describe: d("Number of times to retry failed test."),
+            type: "number",
+            default: 0
+        },
+        "chunk-retry": {
+            describe: d("Number of times to retry failed chunk."),
+            type: "number",
+            default: 0
+        }
+    })
+    .help("h")
+    .alias("h", "help")
+    .epilog("Have a green test ;)".green.bold)
+    .argv;
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -198,10 +182,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>
