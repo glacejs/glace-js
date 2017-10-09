@@ -1,6 +1,6 @@
-// npm test -- examples/parametrization/outside.js --languages en,ru,ja,ee
-test("My multilingual test", () => {
-    forEachLanguage(lang => {
+// npm test -- examples/parametrization/outside.js
+["en", "ru", "ja", "ee"].forEach(lang => {
+    test("My test for language " + lang, () => {
         chunk(() => {});
     });
 });

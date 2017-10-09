@@ -18,7 +18,7 @@ Steps.register({
     },
 });
 
-test("Page usage example", () => {
+test("Webdriver elements example", () => {
     chunk(async () => {
         await SS.search("nodejs");
     });

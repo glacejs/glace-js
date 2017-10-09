@@ -18,7 +18,7 @@ Steps.register({
     },
 });
 
-test("Page usage example", () => {
+test("Page elements example", () => {
     chunk(async () => {
         await SS.search("nodejs");
     });

@@ -1,4 +1,4 @@
-// npm test -- examples/page/imageNotInclude.js --web --app https://yandex.ru
+// npm test -- examples/image/imageNotInclude.js --web --app https://yandex.ru
 
 var Steps = require("../../lib").Steps;
 var Page = require("../../lib").Page;
@@ -8,7 +8,7 @@ var indexPage = new Page(
     { searchField: "input#text",
       searchButton: "button.button_theme_websearch[type='submit']"});
 
-test("Page usage example", () => {
+test("Check image doesn't include image", () => {
 
     before(() => SS.registerPages(indexPage));
 

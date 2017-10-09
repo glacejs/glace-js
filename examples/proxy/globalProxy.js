@@ -1,5 +1,5 @@
 // npm test -- examples/proxy/globalProxy.js --web --global-proxy
-test("Open URL", () => {
+test("Global proxy", () => {
     chunk(async () => {
         await SS.openUrl("https://yandex.ru");
     });
