@@ -10,16 +10,14 @@ var indexPage = new Page(
 
 test("Page usage example", () => {
 
-    before(() => {
-        SS.registerPages(indexPage);
-    });
+    before(() => SS.registerPages(indexPage));
 
     chunk(async () => {
         await SS.openPage(indexPage.name);
         var searchImage = await SS.makeScreenshot({ element: "searchButton" });
         await SS.openUrl("https://opennet.ru");
         var fullImage = await SS.makeScreenshot();
-        await SS.checkImagesInclusion(
-            searchImage, fullImage, { shouldBe: false });
+        await SS.checkImageInclusion(
+            fullImage, searchImage, { shouldBe: false });
     });
 });

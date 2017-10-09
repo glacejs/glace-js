@@ -18,6 +18,6 @@ test("Page usage example", () => {
         await SS.openPage(indexPage.name);
         var searchImage = await SS.makeScreenshot({ element: "searchButton" });
         var fullImage = await SS.makeScreenshot();
-        await SS.checkImagesInclusion(searchImage, fullImage);
+        await SS.checkImageInclusion(fullImage, searchImage);
     });
 });
