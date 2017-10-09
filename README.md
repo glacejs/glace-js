@@ -17,7 +17,7 @@
 Use `npm`:
 
 ```
-npm i git+https://github.com/schipiga/glacejs.git
+npm i glacejs
 ```
 
 Or clone repository:
