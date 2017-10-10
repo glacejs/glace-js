@@ -14,7 +14,7 @@ Steps.register({
         await this.openPage(indexPage.name);
         await indexPage.searchField.setText("nodejs");
         await indexPage.searchButton.click();
-        await this.pause(3000, "wait for result");
+        await this.pause(3, "wait for result");
     },
 });
 
