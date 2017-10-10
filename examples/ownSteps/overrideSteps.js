@@ -14,7 +14,7 @@ MySteps.prototype.openApp = async function () {
     console.log(this._appUrl);
 };
 
-global.SS = new MySteps;
+global.SS = new MySteps();
 
 test("Override steps", () => {
     chunk(async () => await SS.openApp());
