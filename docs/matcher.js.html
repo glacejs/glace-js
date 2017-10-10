@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: page/index.js</title>
+	<title>GlaseJS Source: matcher.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,85 +93,60 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: page/index.js</h1>
+		<h1 class="page-title">Source: matcher.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">"use strict";
 /**
- * Page.
+ * Matchers.
  *
  * @module
  */
 
-var GlaceError = require("../error").GlaceError;
-var Element = require("./element");
+var _ = require("lodash");
+var Assertion = require("chai").Assertion;
 /**
- * Page of browser.
+ * Checks that correct condition were added correctly.
  *
- * @class
- * @arg {string} name - Name of page.
- * @arg {string} pageUrl - URL of page.
- * @arg {object} elements - Element names and selectors dictionary.
- */
-var Page = module.exports = function (name, pageUrl, elements) {
+ * @param {string} cond - conditions for assertion.
+ * @param {string} [msg] - message to throw in case of wrong conditions.
+ * @example
 
-    this.name = name;
-    this.url = pageUrl;
+ await SS.checkBalance({ "to be not equal": 100 })
 
-    this._webdriver = null;
+ Steps.prototype.checkBalance = async function (condition) {
+    var currBalance = await this.getBalance();
 
-    this.addElements(elements || {});
+    expect(currBalance).correspond(condition, "Invalid user balance");
 };
-/**
- * Sets webdriver for page.
- *
- * @method
- * @arg {object} webdriver - Webdriver instance.
  */
-Page.prototype.setDriver = function (webdriver) {
-    this._webdriver = webdriver;
-};
-/**
- * Gets webdriver.
- *
- * @method
- * @return {object} - Webdriver instance.
- * @throws {AssertionError} - If webdriver isn't set yet.
- */
-Page.prototype.getDriver = function () {
-    expect(this._webdriver,
-           "Webdriver isn't set")
-        .to.not.be.null;
-    return this._webdriver;
-};
-/**
- * Adds elements to page.
- *
- * @method
- * @arg {object} elements - Element names and selectors dictionary.
- */
-Page.prototype.addElements = function (elements) {
+Assertion.prototype.correspond = function (cond, msg) {
+    var matchers, expVal;
 
-    for (var name in elements) {
-        var selector = elements[name];
+    if (msg) this.__flags.message = msg;
 
-        if (this[name]) {
-            throw new GlaceError(
-                `Page '${this.name}' already contains property '${name}'`);
-        };
-        this[name] = new Element(name, selector, this);
-    };
-};
-/**
- * Removes elements from page.
- *
- * @method
- * @arg {...string} elementNames - Sequence of element names.
- */
-Page.prototype.removeElements = function () {
-    for (var name of arguments) delete this[name];
+    if (typeof(cond) === "object") {
+        if (Object.keys(cond).length !== 1) {
+            throw new Error("Condition should contain only one key-value pair");
+        }
+        matchers = Object.keys(cond)[0];
+        expVal = Object.values(cond)[0];
+    } else if (typeof(cond) === "string") {
+        matchers = cond;
+    } else {
+        throw new Error("Condition should be string or object only");
+    }
+    matchers = _.filter(_.split(matchers, " "));
+
+    var predicate = this;
+    for (var matcher of matchers) {
+        predicate = predicate[matcher];
+        if (!predicate) throw new TypeError(`Undefined matcher '${matcher}'`);
+    }
+    if (expVal) predicate.call(this, expVal);
+    return this;
 };
 </pre>
     </article>

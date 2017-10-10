@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: page/index.js</title>
+	<title>GlaseJS Mixin: module:lib/steps/timer</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,95 +88,456 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: page/index.js</h1>
-    
+	<h1 class="page-title">Mixin: module:lib/steps/timer</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">"use strict";
-/**
- * Page.
- *
- * @module
- */
 
-var GlaceError = require("../error").GlaceError;
-var Element = require("./element");
-/**
- * Page of browser.
- *
- * @class
- * @arg {string} name - Name of page.
- * @arg {string} pageUrl - URL of page.
- * @arg {object} elements - Element names and selectors dictionary.
- */
-var Page = module.exports = function (name, pageUrl, elements) {
+<header>
+    
+        <h2>
+        module:lib/steps/timer
+        </h2>
+        
+    
+</header>
 
-    this.name = name;
-    this.url = pageUrl;
 
-    this._webdriver = null;
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Steps to measure time.</p></div>
+        
 
-    this.addElements(elements || {});
-};
-/**
- * Sets webdriver for page.
- *
- * @method
- * @arg {object} webdriver - Webdriver instance.
- */
-Page.prototype.setDriver = function (webdriver) {
-    this._webdriver = webdriver;
-};
-/**
- * Gets webdriver.
- *
- * @method
- * @return {object} - Webdriver instance.
- * @throws {AssertionError} - If webdriver isn't set yet.
- */
-Page.prototype.getDriver = function () {
-    expect(this._webdriver,
-           "Webdriver isn't set")
-        .to.not.be.null;
-    return this._webdriver;
-};
-/**
- * Adds elements to page.
- *
- * @method
- * @arg {object} elements - Element names and selectors dictionary.
- */
-Page.prototype.addElements = function (elements) {
+        
+<dl class="details">
+    
 
-    for (var name in elements) {
-        var selector = elements[name];
+	
 
-        if (this[name]) {
-            throw new GlaceError(
-                `Page '${this.name}' already contains property '${name}'`);
-        };
-        this[name] = new Element(name, selector, this);
-    };
-};
-/**
- * Removes elements from page.
- *
- * @method
- * @arg {...string} elementNames - Sequence of element names.
- */
-Page.prototype.removeElements = function () {
-    for (var name of arguments) delete this[name];
-};
-</pre>
-    </article>
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_timer.js.html">steps/timer.js</a>,
+				 <a href="steps_timer.js.html#sunlight-1-line-13">line 13</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id="checkTimer"><span class="type-signature"></span>checkTimer(condition)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Step to check timer.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>condition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>chaijs condition.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_timer.js.html">steps/timer.js</a>,
+				 <a href="steps_timer.js.html#sunlight-1-line-40">line 40</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If timer verification is failed.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">AssertionError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="startTimer"><span class="type-signature"></span>startTimer()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Step to start timer.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_timer.js.html">steps/timer.js</a>,
+				 <a href="steps_timer.js.html#sunlight-1-line-20">line 20</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="stopTimer"><span class="type-signature"></span>stopTimer()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Step to stop timer.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_timer.js.html">steps/timer.js</a>,
+				 <a href="steps_timer.js.html#sunlight-1-line-29">line 29</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -186,6 +547,10 @@ Page.prototype.removeElements = function () {
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>

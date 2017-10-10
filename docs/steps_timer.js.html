@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: page/index.js</title>
+	<title>GlaseJS Source: steps/timer.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,85 +93,55 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: page/index.js</h1>
+		<h1 class="page-title">Source: steps/timer.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">"use strict";
 /**
- * Page.
+ * Time steps.
  *
  * @module
  */
 
-var GlaceError = require("../error").GlaceError;
-var Element = require("./element");
 /**
- * Page of browser.
+ * Steps to measure time.
  *
- * @class
- * @arg {string} name - Name of page.
- * @arg {string} pageUrl - URL of page.
- * @arg {object} elements - Element names and selectors dictionary.
+ * @mixin
  */
-var Page = module.exports = function (name, pageUrl, elements) {
-
-    this.name = name;
-    this.url = pageUrl;
-
-    this._webdriver = null;
-
-    this.addElements(elements || {});
-};
-/**
- * Sets webdriver for page.
- *
- * @method
- * @arg {object} webdriver - Webdriver instance.
- */
-Page.prototype.setDriver = function (webdriver) {
-    this._webdriver = webdriver;
-};
-/**
- * Gets webdriver.
- *
- * @method
- * @return {object} - Webdriver instance.
- * @throws {AssertionError} - If webdriver isn't set yet.
- */
-Page.prototype.getDriver = function () {
-    expect(this._webdriver,
-           "Webdriver isn't set")
-        .to.not.be.null;
-    return this._webdriver;
-};
-/**
- * Adds elements to page.
- *
- * @method
- * @arg {object} elements - Element names and selectors dictionary.
- */
-Page.prototype.addElements = function (elements) {
-
-    for (var name in elements) {
-        var selector = elements[name];
-
-        if (this[name]) {
-            throw new GlaceError(
-                `Page '${this.name}' already contains property '${name}'`);
-        };
-        this[name] = new Element(name, selector, this);
-    };
-};
-/**
- * Removes elements from page.
- *
- * @method
- * @arg {...string} elementNames - Sequence of element names.
- */
-Page.prototype.removeElements = function () {
-    for (var name of arguments) delete this[name];
+module.exports = {
+    /**
+     * Step to start timer.
+     *
+     * @method
+     * @instance
+     */
+    startTimer: function () {
+        this._timer = new Date;
+    },
+    /**
+     * Step to stop timer.
+     *
+     * @method
+     * @instance
+     */
+    stopTimer: function () {
+        this._timer = null;
+    },
+    /**
+     * Step to check timer.
+     *
+     * @method
+     * @instance
+     * @arg {string|object} condition - chaijs condition.
+     * @throws {AssertionError} - If timer verification is failed.
+     */
+    checkTimer: function (condition) {
+        expect(this._timer, "Timer isn't started").to.exist;
+        var diff = (new Date - this._timer) / 1000;
+        expect(diff, "Timing is failed").to.correspond(condition);
+    },
 };
 </pre>
     </article>
