@@ -4,6 +4,30 @@
 
 `GlaceJS` is a functional testing framework based on [mochajs](http://mochajs.org/).
 
+## Features
+
+- Cross-platform
+- Uses `mochajs` as test runner
+- Has own tests and reports system
+- Oriented to complex functional scenarios
+- Supports multiple independent verifications (`chunks`) inside a test
+- Supports parameterization inside and outside of test
+- Has built-in mechanism to retry failed tests or chunks
+- Has built-in reporters to terminal, `report.log` file and TestRail
+- Launches selenium server if external selenium address isn't specified
+- Supports STEPS architecture and Page Object Pattern
+- Has mechanism to compare two images
+- Has mechanism to search one image inside another image
+- Supports video capture of executed tests
+- Supports `xvfb` virtual display and video capture of it
+- Includes two proxies: simple http proxy and global transparent proxy
+- Supports a set of middlewares for both proxies
+- Includes middleware to cache server responses
+- Includes middleware to manage proxy responses speed
+- Includes middleware to gather server responses information
+- Supports `JSON` config for `CLI` options
+- Supports extending default config with user config
+
 ## Binary software may be used
 
 - `java` for selenium server usage;
