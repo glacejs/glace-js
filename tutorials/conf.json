@@ -10,5 +10,8 @@
     },
     "reporter": {
         "title": "How to use own reporter"
+    },
+    "uncaught": {
+        "title": "Why GlaceJS suppresses uncaught exceptions"
     }
 }

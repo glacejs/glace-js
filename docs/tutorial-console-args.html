@@ -54,7 +54,7 @@
 			<li class="dropdown">
 				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="tutorial-conftest.html">How to use conftest.js</a></li><li><a href="tutorial-console-args.html">Command line arguments</a></li><li><a href="tutorial-middleware.html">How to use own middleware</a></li><li><a href="tutorial-reporter.html">How to use own reporter</a></li>
+					<li><a href="tutorial-conftest.html">How to use conftest.js</a></li><li><a href="tutorial-console-args.html">Command line arguments</a></li><li><a href="tutorial-middleware.html">How to use own middleware</a></li><li><a href="tutorial-reporter.html">How to use own reporter</a></li><li><a href="tutorial-uncaught.html">Why GlaceJS suppresses uncaught exceptions</a></li>
 				</ul>
 			</li>
 			
@@ -105,15 +105,16 @@
 <li><code>&lt;path&gt;</code> (<strong>optional</strong>) - File or folder path, where tests are located. For example, <code>glace myTests.js</code> or <code>glace path/to/tests-folder</code>. In folder it loads files with tests recursively. If file with tests is not specified directly, it loads files with prefix <code>test</code> and extension <code>.js</code> only. If argument is not specified, it looks inside folder <code>tests</code> in current work directory.</li>
 <li><code>--web</code> (<strong>optional</strong>) - Activates steps for web testing in browser via selenium. If option is specified, selenium server and browser will launched automatically on session begin and will be stopped at session end.</li>
 <li><code>--dont-install-drivers</code> (<strong>optional</strong>) - Don't install selenium webdrivers on session start.</li>
-<li><code>--platform</code> (<strong>optional</strong>) - Platfrom type. Supported values are <code>pc</code>, <code>android</code>, <code>ios</code>. Default value is <code>pc</code>. For example, <code>--platform android</code>.</li>
-<li><code>--browser</code> (<strong>optional</strong>) - Browser name. Default value is specific for platform: <code>chrome</code> for <code>pc</code>, <code>chrome</code> for <code>android</code>, <code>safari</code> for <code>ios</code>. For example, <code>--browser firefox</code>.</li>
-<li><code>--selenium-addr</code> (<strong>optional</strong>) - Selenium or appium network address. For example, <code>--selenium-addr 192.168.0.9:4004</code>. If it is not specified, local selenium server with default options will be started.</li>
-<li><code>--device</code> (<strong>optional</strong>) - Mobile device name. For example, <code>--device &quot;My iPhone&quot;</code> or <code>--device Our_Android</code>. Look for actual value for mobile device in its settings.</li>
-<li><code>--os-version</code> (<strong>optional</strong>) - Mobile OS version. For example, <code>--os-version 9.0.3</code> or <code>--os-version 5.0.5</code>.</li>
-<li><code>--udid</code> (<strong>optional</strong>) - Mobile device UDID.</li>
-<li><code>--ios-engine</code> (<strong>optional</strong>) - iOS driver engine name. Default value is <code>XCUITest</code>.</li>
+<li><code>--platform &lt;type&gt;</code> (<strong>optional</strong>) - Platfrom type. Supported values are <code>pc</code>, <code>android</code>, <code>ios</code>. Default value is <code>pc</code>. For example, <code>--platform android</code>.</li>
+<li><code>--browser &lt;name&gt;</code> (<strong>optional</strong>) - Browser name. Default value is specific for platform: <code>chrome</code> for <code>pc</code>, <code>chrome</code> for <code>android</code>, <code>safari</code> for <code>ios</code>. For example, <code>--browser firefox</code>.</li>
+<li><code>--selenium-addr &lt;address&gt;</code> (<strong>optional</strong>) - Selenium or appium network address. For example, <code>--selenium-addr 192.168.0.9:4004</code>. If it is not specified, local selenium server with default options will be started.</li>
+<li><code>--device &lt;name&gt;</code> (<strong>optional</strong>) - Mobile device name. For example, <code>--device &quot;My iPhone&quot;</code> or <code>--device Our_Android</code>. Look for actual value for mobile device in its settings.</li>
+<li><code>--os-version &lt;version&gt;</code> (<strong>optional</strong>) - Mobile OS version. For example, <code>--os-version 9.0.3</code> or <code>--os-version 5.0.5</code>.</li>
+<li><code>--udid &lt;UDID&gt;</code> (<strong>optional</strong>) - Mobile device UDID.</li>
+<li><code>--ios-engine &lt;engineName&gt;</code> (<strong>optional</strong>) - iOS driver engine name. Default value is <code>XCUITest</code>.</li>
 <li><code>--retry &lt;times&gt;</code> (<strong>optional</strong>) - Number of times to retry a failed test case.</li>
 <li><code>--stdout-log</code> (<strong>optional</strong>) - Print log to console stdout.</li>
+<li><code>--allow-uncaught</code> (<strong>optional</strong>) - Use mochajs processing of uncaught exceptions.</li>
 </ul>
 </article>
 
@@ -156,7 +157,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-10-10T23:04:12+03:00
+		on 2017-10-11T20:05:25+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

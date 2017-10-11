@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Class: Steps</title>
+	<title>GlaseJS Tutorial: Why GlaceJS suppresses uncaught exceptions</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,546 +88,142 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
-			
-
-	<h1 class="page-title">Class: Steps</h1>
-<section>
+			<section class="tutorial-section">
 
 <header>
     
-        <h2>
-            <span class="ancestors"><a href="module-lib_steps_index.html">lib/steps/index</a>~</span>
-        
-        Steps
-        </h2>
-        
-    
+
+    <h2>Why GlaceJS suppresses uncaught exceptions</h2>
 </header>
 
-
 <article>
-    <div class="container-overview">
-    
-        
-<hr>
-<dt>
-    <h4 class="name" id="Steps"><span class="type-signature"></span>new Steps()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Steps collection which will be executed in test cases.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="steps_index.js.html">steps/index.js</a>,
-				 <a href="steps_index.js.html#sunlight-1-line-18">line 18</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id=".register"><span class="type-signature">&lt;static> </span>register()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Registers sequence of objects containing steps.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="steps_index.js.html">steps/index.js</a>,
-				 <a href="steps_index.js.html#sunlight-1-line-53">line 53</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="pause"><span class="type-signature">&lt;async> </span>pause(timeout, message)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Step to make pause in another step or test case. Good style to rid of
-its direct usage in test case, only inside other step.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>timeout</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Pause time, sec.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Pause reason.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="steps_index.js.html">steps/index.js</a>,
-				 <a href="steps_index.js.html#sunlight-1-line-42">line 42</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="setWebdriver"><span class="type-signature"></span>setWebdriver(webdriver)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Sets webdriver.</p>
-<p>It's used for web ui test cases.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>webdriver</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Instance of webdriver.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="steps_index.js.html">steps/index.js</a>,
-				 <a href="steps_index.js.html#sunlight-1-line-30">line 30</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
+    <p>Uncaught exceptions is really dangerous thing, that may break your <code>mochajs</code> tests queue.</p>
+<p>Let's consider code example with async calls and uncaught exceptions.</p>
+<pre class="prettyprint source lang-javascript"><code>/* sample.js */
+var sleep = timeout => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log(`I was sleeping ${timeout} ms`);
+            resolve();
+        }, timeout);
+    });
+};
+
+var error = timeout => {
+    setTimeout(() => {
+        throw new Error(&quot;BOOM!!!&quot;);
+    }, timeout);
+};
+
+describe(&quot;scope&quot;, () => {
+    it (&quot;test #1&quot;, async () => {
+        error(1000);
+        await sleep(1000);
+    });
+    it (&quot;test #2&quot;, async () => await sleep(1000));
+    it (&quot;test #3&quot;, async () => {
+        error(1000);
+        await sleep(1000);
+    });
+    it (&quot;test #4&quot;, async () => await sleep(1000));
+    it (&quot;test #5&quot;, async () => await sleep(1000));
+    it (&quot;test #6&quot;, async () => await sleep(1000));
+});</code></pre><p>Execute it and get something really strange in report:</p>
+<pre class="prettyprint source"><code>$ mocha sample.js
+
+
+  scope
+    1) test #1  # in console it colored as red (failed)
+I was sleeping 1000 ms
+    √ test #1 (1012ms)
+    2) test #3  # in console it colored as red (failed)
+I was sleeping 1000 ms
+I was sleeping 1000 ms
+    √ test #4
+    √ test #4
+I was sleeping 1000 ms
+I was sleeping 1000 ms
+I was sleeping 1000 ms
+    √ test #6 (1002ms)
+    √ test #6 (1002ms)
+    √ test #6 (1003ms)
+
+  6 passing (3s)
+  2 failing
+
+  1) scope
+       test #1:
+     Uncaught Error: BOOM!!!
+      at Timeout.setTimeout [as _onTimeout] (proba.js:12:15)
+
+  2) scope
+       test #3:
+     Uncaught Error: BOOM!!!
+      at Timeout.setTimeout [as _onTimeout] (proba.js:12:15)
+
+
+
+
+
+  6 passing (3s)
+  2 failing
+
+  1) scope
+       test #1:
+     Uncaught Error: BOOM!!!
+      at Timeout.setTimeout [as _onTimeout] (proba.js:12:15)
+
+  2) scope
+       test #3:
+     Uncaught Error: BOOM!!!
+      at Timeout.setTimeout [as _onTimeout] (proba.js:12:15)
+
+
+
+
+  6 passing (3s)
+  2 failing
+
+  1) scope
+       test #1:
+     Uncaught Error: BOOM!!!
+      at Timeout.setTimeout [as _onTimeout] (proba.js:12:15)
+
+  2) scope
+       test #3:
+     Uncaught Error: BOOM!!!
+      at Timeout.setTimeout [as _onTimeout] (proba.js:12:15</code></pre><ol>
+<li>Pay attention, that <code>test #1</code> is mentioned twice: as passed and as failed!</li>
+<li><code>test #2</code> &amp; <code>test #5</code> are absent in report!</li>
+<li>You may see concurrent printing of messages <code>I was sleeping 1000 ms</code>, 1 time, 2 times, 3 times.</li>
+</ol>
+<p>Let's see why it happens.
+The problem, that by default <code>mochajs</code> processes <code>uncaught exceptions</code>: https://github.com/mochajs/mocha/blob/master/lib/runner.js#L698. And if such exception happens, <code>mochajs</code> fails currently executed test. And it doesn't matter whether such exception happens in current test or was born many tests ago (due to unstopped timer, for example). This processing is implemented via listener, and in above example very interesting things happen:</p>
+<ol>
+<li>In <code>test #1</code> on one hand <code>uncaught exception</code> happens after 1 second and its processing starts. On the other hand, <code>test #1</code> waits for <code>sleep</code> finishing 1 second and then <code>mochajs</code> marks it as passed.</li>
+<li>Due to async of <code>JavaScript</code>, there are two concurrently <code>test #1</code> processors, that leads to <code>test #1</code> reporting twice.</li>
+<li>More over, since there are two places, which emit events to start new test execution. And factically, there are two tests queues.</li>
+<li>In <code>test #3</code> previous situation repeats. And there are 3 concurrently executed tests queues! The evidence is a number of printed messages <code>I was sleeping 1000 ms</code>.</li>
+</ol>
+<p><strong>How to fix</strong></p>
+<p>Simple and working variant is to suppress <code>uncaught exception</code>.</p>
+<pre class="prettyprint source lang-javascript"><code>var Mocha = require(&quot;mocha&quot;);
+Mocha.Runner.prototype.uncaught = function (err) {
+    logger.error(&quot;UNCAUGHT ERROR&quot;, err);
+};</code></pre><p>It's better to get one failed test and in test finalizers to close all descriptors, to stop proxies, to kill processes and so on, than to get fully failed tests queue in nightly build.</p>
+<p>That's why mechanism to suppress <code>uncaught exceptions</code> is enabled by default in <code>GlaceJS</code>. But it may be disabled with option <code>--allow-uncaught</code>.</p>
 </article>
 
 </section>
-
-
-
 
 		</div>
 	</div>
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>
