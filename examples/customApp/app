@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+var colors = require("colors");
+
+require("../../lib").run().then(errCode => {
+    if (!errCode) {
+        console.log("It's passed! 🙂".green.bold);
+    } else {
+        console.log("It's failed! 🙁".red.bold);
+    };
+    process.exit(errCode);
+});

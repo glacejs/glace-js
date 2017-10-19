@@ -3,3 +3,4 @@ node_modules
 reports
 .http-mitm-proxy
 .proxy-cache
+.vscode
