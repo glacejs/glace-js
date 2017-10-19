@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Class: StepError</title>
+	<title>GlaseJS Source: run.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,189 +88,65 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: StepError</h1>
+		<h1 class="page-title">Source: run.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+/**
+ * Runs `GlaceJS`
+ *
+ * @module
+ */
 
-<header>
-    
-        <h2>
-            <span class="ancestors"><a href="module-lib_error.html">lib/error</a>~</span>
-        
-        StepError
-        </h2>
-        
-    
-</header>
+var path = require("path");
 
+var Mocha = require("mocha");
 
-<article>
-    <div class="container-overview">
-    
-        
-<hr>
-<dt>
-    <h4 class="name" id="StepError"><span class="type-signature"></span>new StepError(message)</h4>
-    
-    
-</dt>
-<dd>
+var CONF = require("./config");
+var hacking = require("./hacking");
+/**
+ * Runs tests.
+ *
+ *  - executes `runner.js` file, which is entry point to load and execute
+ *    files with tests
+ *  - connects custom reporter to `mochajs`.
+ *
+ * @function
+ * @arg {function} cb - Callback.
+ */
+var run = module.exports = cb => {
+    if (CONF.suppressUncaught) hacking.suppressUncaught();
 
-    
-    <div class="description">
-        <p>Error which is thrown when step execution is wrong.</p>
-    </div>
-    
+    var mocha = new Mocha({ grep: CONF.grep,
+                            timeout: CONF.timeouts.testCase,
+                            retries: CONF.chunkRetries,
+                            reporter: path.resolve(__dirname, "reporter") });
+    mocha.addFile(path.resolve(__dirname, "runner.js"));
 
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Error message.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="error.js.html">error.js</a>,
-				 <a href="error.js.html#sunlight-1-line-36">line 36</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+    var _run = fin => {
+        mocha.run(code => {
+            var clampedCode = Math.min(code, 255);
+            if (CONF.isRunPassed) clampedCode = 0;
+            fin(clampedCode);
+        });
+    };
+    if (cb) {
+        _run(cb);
+    } else {
+        return new Promise(resolve => _run(resolve));
+    };
+};
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -280,10 +156,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

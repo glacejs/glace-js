@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_logger.html">lib/logger</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_page_index.html">lib/page/index</a></li><li><a href="module-lib_proxy_base.html">lib/proxy/base</a></li><li><a href="module-lib_proxy_globalProxy.html">lib/proxy/globalProxy</a></li><li><a href="module-lib_proxy_httpProxy.html">lib/proxy/httpProxy</a></li><li><a href="module-lib_proxy_index.html">lib/proxy/index</a></li><li><a href="module-lib_proxy_middleware_cache.html">lib/proxy/middleware/cache</a></li><li><a href="module-lib_proxy_middleware_index.html">lib/proxy/middleware/index</a></li><li><a href="module-lib_proxy_middleware_info.html">lib/proxy/middleware/info</a></li><li><a href="module-lib_proxy_middleware_speed.html">lib/proxy/middleware/speed</a></li><li><a href="module-lib_reporter_base.html">lib/reporter/base</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_index.html">lib/steps/index</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_proxy.html">lib/steps/proxy</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_utils.html">lib/utils</a></li><li><a href="module-lib_video.html">lib/video</a></li>
+					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_logger.html">lib/logger</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_page_index.html">lib/page/index</a></li><li><a href="module-lib_proxy_base.html">lib/proxy/base</a></li><li><a href="module-lib_proxy_globalProxy.html">lib/proxy/globalProxy</a></li><li><a href="module-lib_proxy_httpProxy.html">lib/proxy/httpProxy</a></li><li><a href="module-lib_proxy_index.html">lib/proxy/index</a></li><li><a href="module-lib_proxy_middleware_cache.html">lib/proxy/middleware/cache</a></li><li><a href="module-lib_proxy_middleware_index.html">lib/proxy/middleware/index</a></li><li><a href="module-lib_proxy_middleware_info.html">lib/proxy/middleware/info</a></li><li><a href="module-lib_proxy_middleware_speed.html">lib/proxy/middleware/speed</a></li><li><a href="module-lib_reporter_base.html">lib/reporter/base</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_run.html">lib/run</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_index.html">lib/steps/index</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_proxy.html">lib/steps/proxy</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_utils.html">lib/utils</a></li><li><a href="module-lib_video.html">lib/video</a></li>
 				</ul>
 			</li>
 			
@@ -119,54 +119,163 @@ var d = function () {
 var argv = require("yargs")
     .usage("\nglace [options] [tests-file-or-folder]".white.bold)
     .options({
+        /* configuration */
         "args-config": {
-            describe: d("Path to JSON file with CLI arguments."),
+            describe: d("Path to JSON file with CLI arguments.",
+                        "Default is 'cwd/args.json' (if it exists)."),
             type: "string",
-            default: "./args.json (if exists)",
+            group: "Configuration:",
         },
         "config": {
             describe: d("Path to JS file with configuration which will be",
-                        "merged with override default configuration"),
+                        "merged with override default configuration.",
+                        "Default is 'cwd/config.js' (if it exists)."),
             type: "string",
-            default: "./config.js (if exists)",
+            group: "Configuration:",
+        },
+        "grep": {
+            describe: d("Filter tests by name or name chunk."),
+            type: "string",
+            group: "Configuration:",
+        },
+        "languages": {
+            describe: d("List of tested languages separated with comma."),
+            type: "string",
+            group: "Configuration:",
+        },
+        "retry": {
+            describe: d("Number of times to retry failed test.",
+                        "Default is 0."),
+            type: "number",
+            group: "Configuration:",
+        },
+        "chunk-retry": {
+            describe: d("Number of times to retry failed chunk.",
+                        "Default is 0."),
+            type: "number",
+            group: "Configuration:",
+        },
+        "allow-uncaught": {
+            describe: d("Use mochajs processing of uncaught exceptions."),
+            type: "boolean",
+            group: "Configuration:",
+        },
+        "stdout-log": {
+            describe: d("Print log messages to stdout."),
+            type: "boolean",
+            group: "Configuration:",
+        },
+        "testrail": {
+            describe: d("Plug in testrail reporter."),
+            type: "boolean",
+            group: "Configuration:",
+        },
+        /* selenium */
+        "dont-install-drivers": {
+            describe: d("Flag to not install selenium drivers on tests run."),
+            type: "boolean",
+            group: "Selenium:",
         },
         "web": {
             describe: d("Flag to launch tests in browser. Browser will be",
                         "launched on session start and closed on session finish."),
-            type: "boolean"
+            type: "boolean",
+            group: "Selenium:",
         },
         "app": {
             describe: d("Application URL which will be used for web tests."),
-            type: "string"
+            type: "string",
+            group: "Selenium:",
         },
-        "dont-install-drivers": {
-            describe: d("Flag to not install selenium drivers on tests run."),
-            type: "boolean"
+        "selenium-addr": {
+            describe: d("Connect to launched selenium server with this address."),
+            type: "string",
+            group: "Selenium:",
         },
         "platform": {
-            describe: d("Specify platform type where tests will be executed."),
+            describe: d("Specify platform type where tests will be executed.",
+                        "Default is 'pc'."),
             type: "string",
-            default: "pc",
-            choices: [ "pc", "android", "ios" ]
+            choices: [ "pc", "android", "ios" ],
+            group: "Selenium:",
         },
         "browser": {
             describe: d("Name of browser where web tests will be",
                         "executed. Default value is platform specific."),
-            type: "string"
+            type: "string",
+            group: "Selenium:",
         },
-        "retry": {
-            describe: d("Number of times to retry failed test."),
-            type: "number",
-            default: 0
+        /* appium */
+        "device": {
+            describe: d("Mobile device name."),
+            type: "string",
+            group: "Appium:",
         },
-        "chunk-retry": {
-            describe: d("Number of times to retry failed chunk."),
-            type: "number",
-            default: 0
+        "os-version": {
+            describe: d("Mobile operating system version."),
+            type: "string",
+            group: "Appium:",
         },
-        "allow-uncaught": {
-            describe: d("Use mochajs processing for uncaught exceptions"),
+        "ios-engine": {
+            describe: d("iOS automation engine name."),
+            type: "string",
+            group: "Appium:",
+        },
+        /* video */
+        "video": {
+            describe: d("Capture video of executed tests.",
+                        "Video will be removed if test is passed."),
             type: "boolean",
+            group: "Video:",
+        },
+        "force-video": {
+            describe: d("Capture video of executed tests.",
+                        "Video will be saved even if test is passed."),
+            type: "boolean",
+            group: "Video:",
+        },
+        /* proxy */
+        "proxy": {
+            describe: d("Use http proxy."),
+            type: "boolean",
+            group: "Proxy:",
+        },
+        "proxy-port": {
+            describe: d("Port for http proxy. Default is random."),
+            type: "number",
+            group: "Proxy:",
+        },
+        "global-proxy": {
+            describe: d("Use transparent global proxy. Chromium browsers only."),
+            type: "boolean",
+            group: "Proxy:",
+        },
+        "global-proxy-port": {
+            describe: d("Port for transparent global proxy. Default is 8888."),
+            type: "number",
+            group: "Proxy:",
+        },
+        "install-certificate": {
+            describe: d("Install global proxy certificate as trusted.",
+                        "Requires administrator permissions."),
+            type: "boolean",
+            group: "Proxy:",
+        },
+        "cache": {
+            describe: d("Enable middleware to cache proxy responses to disk."),
+            type: "boolean",
+            group: "Proxy:",
+        },
+        "existing-cache": {
+            describe: d("Use existing cache if it exists."),
+            type: "boolean",
+            group: "Proxy:",
+        },
+        /* virtual display */
+        "xvfb": {
+            describe: d("Use xvfb for headless testing"),
+            type: "string",
+            group: "Virtual display:",
         },
     })
     .help("h")
@@ -218,7 +327,7 @@ var argv = require("yargs")
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-10-11T20:05:24+03:00
+		on 2017-10-19T22:00:16+03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

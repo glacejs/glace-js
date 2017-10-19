@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Class: StepError</title>
+	<title>GlaseJS Module: lib/run</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,17 +93,10 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: StepError</h1>
+	<h1 class="page-title">Module: lib/run</h1>
 <section>
 
 <header>
-    
-        <h2>
-            <span class="ancestors"><a href="module-lib_error.html">lib/error</a>~</span>
-        
-        StepError
-        </h2>
-        
     
 </header>
 
@@ -112,9 +105,83 @@
     <div class="container-overview">
     
         
+            <div class="description"><p>Runs <code>GlaceJS</code></p></div>
+        
+
+        
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="run.js.html">run.js</a>,
+				 <a href="run.js.html#sunlight-1-line-2">line 2</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
 <hr>
 <dt>
-    <h4 class="name" id="StepError"><span class="type-signature"></span>new StepError(message)</h4>
+    <h4 class="name" id="~run"><span class="type-signature">&lt;inner> </span>run(cb)</h4>
     
     
 </dt>
@@ -122,7 +189,12 @@
 
     
     <div class="description">
-        <p>Error which is thrown when step execution is wrong.</p>
+        <p>Runs tests.</p>
+<ul>
+<li>executes <code>runner.js</code> file, which is entry point to load and execute
+files with tests</li>
+<li>connects custom reporter to <code>mochajs</code>.</li>
+</ul>
     </div>
     
 
@@ -157,13 +229,13 @@
 
         <tr>
             
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>cb</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
 
@@ -174,7 +246,7 @@
 
             
 
-            <td class="description last"><p>Error message.</p></td>
+            <td class="description last"><p>Callback.</p></td>
         </tr>
 
     
@@ -218,8 +290,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="error.js.html">error.js</a>,
-				 <a href="error.js.html#sunlight-1-line-36">line 36</a>
+				<a href="run.js.html">run.js</a>,
+				 <a href="run.js.html#sunlight-1-line-24">line 24</a>
 			</li>
 		</ul>
 	</dd>
@@ -248,21 +320,7 @@
     
 </dd>
 
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
+        </dl>
     
 
     
