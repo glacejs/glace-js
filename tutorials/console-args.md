@@ -1,6 +1,6 @@
 `GlaceJS` supports follow command line arguments:
 
-- `<path>` (**optional**) - File or folder path, where tests are located. For example, `glace myTests.js` or `glace path/to/tests-folder`. In folder it loads files with tests recursively. If file with tests is not specified directly, it loads files with prefix `test` and extension `.js` only. If argument is not specified, it looks inside folder `tests` in current work directory.
+- `<paths>` (**optional**) - Sequence of file or folder paths, where tests are located. For example, `glace myTests.js` or `glace path/to/tests-folder`. In folder it loads files with tests recursively. If file with tests is not specified directly, it loads files with prefix `test` and extension `.js` only. If argument is not specified, it looks inside folder `tests` in current work directory.
 - `--web` (**optional**) - Activates steps for web testing in browser via selenium. If option is specified, selenium server and browser will launched automatically on session begin and will be stopped at session end.
 - `--dont-install-drivers` (**optional**) - Don't install selenium webdrivers on session start.
 - `--platform <type>` (**optional**) - Platfrom type. Supported values are `pc`, `android`, `ios`. Default value is `pc`. For example, `--platform android`.
