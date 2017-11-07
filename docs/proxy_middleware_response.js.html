@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: steps/timer.js</title>
+	<title>GlaseJS Source: proxy/middleware/response.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,55 +93,56 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: steps/timer.js</h1>
+		<h1 class="page-title">Source: proxy/middleware/response.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">"use strict";
 /**
- * Time steps.
+ * Middleware to store response data.
  *
  * @module
  */
 
-/**
- * Steps to measure time.
- *
- * @mixin
- */
-module.exports = {
-    /**
-     * Step to start timer.
-     *
-     * @method
-     * @instance
-     */
-    startTimer: function () {
-        this._timer = new Date;
-    },
-    /**
-     * Step to stop timer.
-     *
-     * @method
-     * @instance
-     */
-    stopTimer: function () {
-        this._timer = null;
-    },
-    /**
-     * Step to check timer.
-     *
-     * @method
-     * @instance
-     * @arg {string|object} condition - chaijs condition.
-     * @throws {AssertionError} - If timer verification is failed.
-     */
-    checkTimer: function (condition) {
-        expect(this._timer, "Timer isn't started").to.exist;
-        var diff = (new Date - this._timer) / 1000;
-        expect(diff, "Timing is failed").to.correspond(condition);
-    },
+var _ = require("lodash");
+
+var response = module.exports = function () {
+
+    var res = this.res;
+    var req = this.req;
+
+    var resHead = res.writeHead;
+    var resHeader = res.setHeader;
+
+    res.headers = res.headers || {};
+
+    res.writeHead = function (statusCode, statusMsg, headers) {
+
+        if (typeof(statusMsg) === "object" &amp;&amp; !headers) {
+            headers = statusMsg;
+            statusMsg = undefined;
+        };
+
+        if (statusCode) {
+            res.statusCode = res.statusCode || statusCode;
+        };
+
+        if (statusMsg) {
+            res.statusMessage = res.statusMessage || statusMsg;
+        };
+
+        if (typeof(headers) === "object") {
+            _.assign(res.headers, headers);
+        };
+
+        return resHead.apply(this, arguments);
+    };
+
+    res.setHeader = function(name, value) {
+        res.headers[name] = value;
+        return resHeader.apply(this, arguments);
+    };
 };
 </pre>
     </article>

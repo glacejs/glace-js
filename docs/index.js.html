@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_logger.html">lib/logger</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_page_index.html">lib/page/index</a></li><li><a href="module-lib_proxy_base.html">lib/proxy/base</a></li><li><a href="module-lib_proxy_globalProxy.html">lib/proxy/globalProxy</a></li><li><a href="module-lib_proxy_httpProxy.html">lib/proxy/httpProxy</a></li><li><a href="module-lib_proxy_index.html">lib/proxy/index</a></li><li><a href="module-lib_proxy_middleware_cache.html">lib/proxy/middleware/cache</a></li><li><a href="module-lib_proxy_middleware_index.html">lib/proxy/middleware/index</a></li><li><a href="module-lib_proxy_middleware_info.html">lib/proxy/middleware/info</a></li><li><a href="module-lib_proxy_middleware_speed.html">lib/proxy/middleware/speed</a></li><li><a href="module-lib_reporter_base.html">lib/reporter/base</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_run.html">lib/run</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_index.html">lib/steps/index</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_proxy.html">lib/steps/proxy</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_utils.html">lib/utils</a></li><li><a href="module-lib_video.html">lib/video</a></li>
+					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_logger.html">lib/logger</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_page_index.html">lib/page/index</a></li><li><a href="module-lib_proxy_base.html">lib/proxy/base</a></li><li><a href="module-lib_proxy_globalProxy.html">lib/proxy/globalProxy</a></li><li><a href="module-lib_proxy_httpProxy.html">lib/proxy/httpProxy</a></li><li><a href="module-lib_proxy_index.html">lib/proxy/index</a></li><li><a href="module-lib_proxy_middleware_cache.html">lib/proxy/middleware/cache</a></li><li><a href="module-lib_proxy_middleware_index.html">lib/proxy/middleware/index</a></li><li><a href="module-lib_proxy_middleware_info.html">lib/proxy/middleware/info</a></li><li><a href="module-lib_proxy_middleware_response.html">lib/proxy/middleware/response</a></li><li><a href="module-lib_proxy_middleware_speed.html">lib/proxy/middleware/speed</a></li><li><a href="module-lib_reporter_base.html">lib/reporter/base</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_run.html">lib/run</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_index.html">lib/steps/index</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_proxy.html">lib/steps/proxy</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_utils.html">lib/utils</a></li><li><a href="module-lib_video.html">lib/video</a></li>
 				</ul>
 			</li>
 			
@@ -112,16 +112,63 @@
  * @property {object} Steps - {@link module:steps|Steps} module.
  */
 
-module.exports = {
-    config: require("./config"),
-    error: require("./error"),
-    logger: require("./logger"),
-    middleware: require("./proxy/middleware"),
-    Page: require("./page"),
-    reporter: require("./reporter"),
-    run: require("./run"),
-    Steps: require("./steps"),
-};
+var config, error, logger, middleware, Page, reporter, run, Steps;
+
+Object.defineProperty(exports, "config", {
+    get: function() {
+        config = config || require("./config");
+        return config;
+    },
+});
+
+Object.defineProperty(exports, "error", {
+    get: function() {
+        error = error || require("./error");
+        return error;
+    },
+});
+
+Object.defineProperty(exports, "logger", {
+    get: function() {
+        logger = logger || require("./logger");
+        return logger;
+    },
+});
+
+Object.defineProperty(exports, "middleware", {
+    get: function() {
+        middleware = middleware || require("./proxy/middleware");
+        return middleware;
+    },
+});
+
+Object.defineProperty(exports, "Page", {
+    get: function() {
+        Page = Page || require("./page");
+        return Page;
+    },
+});
+
+Object.defineProperty(exports, "reporter", {
+    get: function() {
+        reporter = reporter || require("./reporter");
+        return reporter;
+    },
+});
+
+Object.defineProperty(exports, "run", {
+    get: function() {
+        run = run || require("./run");
+        return run;
+    },
+});
+
+Object.defineProperty(exports, "Steps", {
+    get: function() {
+        Steps = Steps || require("./steps");
+        return Steps;
+    },
+});
 </pre>
     </article>
 </section>
@@ -167,7 +214,7 @@ module.exports = {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-10-30T22:47:13+02:00
+		on 2017-11-07T14:24:55+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

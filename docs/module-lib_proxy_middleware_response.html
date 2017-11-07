@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: steps/timer.js</title>
+	<title>GlaseJS Module: lib/proxy/middleware/response</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,65 +88,100 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: steps/timer.js</h1>
-    
+	<h1 class="page-title">Module: lib/proxy/middleware/response</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">"use strict";
-/**
- * Time steps.
- *
- * @module
- */
 
-/**
- * Steps to measure time.
- *
- * @mixin
- */
-module.exports = {
-    /**
-     * Step to start timer.
-     *
-     * @method
-     * @instance
-     */
-    startTimer: function () {
-        this._timer = new Date;
-    },
-    /**
-     * Step to stop timer.
-     *
-     * @method
-     * @instance
-     */
-    stopTimer: function () {
-        this._timer = null;
-    },
-    /**
-     * Step to check timer.
-     *
-     * @method
-     * @instance
-     * @arg {string|object} condition - chaijs condition.
-     * @throws {AssertionError} - If timer verification is failed.
-     */
-    checkTimer: function (condition) {
-        expect(this._timer, "Timer isn't started").to.exist;
-        var diff = (new Date - this._timer) / 1000;
-        expect(diff, "Timing is failed").to.correspond(condition);
-    },
-};
-</pre>
-    </article>
+<header>
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Middleware to store response data.</p></div>
+        
+
+        
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="proxy_middleware_response.js.html">proxy/middleware/response.js</a>,
+				 <a href="proxy_middleware_response.js.html#sunlight-1-line-2">line 2</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -156,6 +191,10 @@ module.exports = {
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>
