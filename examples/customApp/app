@@ -2,7 +2,11 @@
 
 var colors = require("colors");
 
-require("../../lib").run().then(errCode => {
+var glace = require("../../lib");
+
+glace.config.isWeb = true;
+
+glace.run().then(errCode => {
     if (!errCode) {
         console.log("It's passed! 🙂".green.bold);
     } else {
