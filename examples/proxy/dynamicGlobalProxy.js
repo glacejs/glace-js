@@ -7,6 +7,6 @@ test("Dynamic global proxy", () => {
         await SS.openApp();
     });
     after(async () => {
-        if (CONF.useGlobalProxy) await SS.startGlobalProxy();
+        if (CONF.proxy.global) await SS.startGlobalProxy();
     });
 });
