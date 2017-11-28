@@ -1,6 +1,6 @@
 {
   "name": "glacejs",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Glacejs is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
