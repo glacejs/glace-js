@@ -4,3 +4,4 @@ reports
 .http-mitm-proxy
 .proxy-cache
 .vscode
+.idea
