@@ -1,6 +1,6 @@
 {
   "name": "glacejs",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Glacejs is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "find-process": "^1.1.0",
     "fs-extra": "^4.0.2",
     "glacejs-proxy": "^1.1.8",
-    "glacejs-utils": "0.0.6",
+    "glacejs-utils": "0.0.7",
     "http-mitm-proxy": "^0.5.3",
     "http-proxy": "^1.16.2",
     "image-diff": "^2.0.0",
