@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_video.html">lib/video</a></li>
+					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_fixtures.html">lib/fixtures</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_video.html">lib/video</a></li>
 				</ul>
 			</li>
 			
@@ -68,7 +68,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
+					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
 				</ul>
 			</li>
 			
@@ -113,6 +113,7 @@
  */
 
 var fs = require("fs");
+var path = require("path");
 
 var _ = require("lodash");
 var imageDiff = require("image-diff");
@@ -139,6 +140,7 @@ module.exports = {
      * @arg {string} [opts.imageName] - Screenshot name. File extension
      *  `.png` will be added automatically. Default value is dynamically
      *  generated on each call with algorithm `uuid`.
+     * @arg {string} [opts.imageDirPath] - Screenshot folder path.
      * @arg {boolean} [opts.bySelenium=true] - Flag to use selenium to make
      *  screenshot. Other library `html2canvas` will be used.
      * @arg {?string} [opts.cssSelector=null] - CSS selector of DOM element
@@ -157,18 +159,21 @@ module.exports = {
     makeScreenshot: async function (opts) {
 
         opts = U.defVal(opts, {});
-        var imageName = U.defVal(opts.imageName, uuid()) + ".png";
+
+        var imageName = U.defVal(opts.imageName, uuid());
+        imageName = _.kebabCase(imageName);
+        if (!imageName.endsWith(".png")) imageName += ".png";
+
+        var imagePath = U.mkpath(
+            U.defVal(opts.imageDirPath, getScreensDir()),
+            imageName);
+
         var bySelenium = U.defVal(opts.bySelenium, true);
         var cssSelector = U.defVal(opts.cssSelector);
         var preHook = U.defVal(opts.preHook);
         var postHook = U.defVal(opts.postHook);
         var element = U.defVal(opts.element);
         var check = U.defVal(opts.check, true);
-
-        var imagePath = U.mkpath(CONF.reportsDir,
-                                 _.kebabCase(CONF.curTestCase.name),
-                                 "screenshots",
-                                 imageName);
 
         if (preHook) await preHook.call(this);
 
@@ -237,6 +242,7 @@ module.exports = {
      * @arg {string} fullImage - Path to image which may include.
      * @arg {string} includedImage - Path to image which may be included.
      * @arg {object} [opts] - Step options.
+     * @arg {object} [opts.matchedDirPath] - Folder path to save matched image.
      * @arg {number} [opts.threshold=0.05] - Threshold of divergence.
      * @arg {boolean} [opts.shouldBe=true] - Flag to check whether
      *  image are equal or not equal.
@@ -248,11 +254,11 @@ module.exports = {
         var threshold = U.defVal(opts.threshold, 0.05);
         var shouldBe = U.defVal(opts.shouldBe, true);
 
-        var matchedImagePath = U.mkpath(CONF.reportsDir,
-                                        _.kebabCase(CONF.curTestCase.name),
-                                        "screenshots",
-                                        "inclusions",
-                                        uuid() + ".png");
+        var matchedImagePath = U.mkpath(
+            U.defVal(
+                opts.matchedDirPath,
+                path.resolve(getScreensDir(), "inclusions")),
+            uuid() + ".png");
 
         var errMsg = "Image " + fullImage +
                      " doesn't contain image " + includedImage;
@@ -277,10 +283,11 @@ module.exports = {
      * @async
      * @method
      * @instance
+     * @arg {string} imageName - Screenshot name. File extension
+     *  `.png` will be added automatically.
      * @arg {object} [opts] - Step options.
-     * @arg {string} [opts.imageName] - Screenshot name. File extension
-     *  `.png` will be added automatically. Default value is dynamically
-     *  generated on each call with algorithm `uuid`.
+     * @arg {string} [opts.imageDirPath] - Screenshot folder path.
+     * @arg {string} [opts.expectedDirPath] - Expected screenshot path.
      * @arg {boolean} [opts.bySelenium=true] - Flag to use selenium to make
      *  screenshot. Other library `html2canvas` will be used.
      * @arg {?function} [opts.preHook=null] - Function which will be called
@@ -295,15 +302,21 @@ module.exports = {
      * @throws {AssertionError} - If screenshot isn't saved.
      */
     checkOrMakeScreenshot: async function (imageName, opts) {
+        imageName = _.kebabCase(imageName);
 
         opts = U.defVal(opts, {});
         opts.imageName = imageName;
         var actualImage = await this.makeScreenshot(opts);
+
         if (CONF.compareImages) {
-            var expectedImage = path.resolve(CONF.resourcesDir,
-                                             _.kebabCase(CONF.curTestCase.name),
-                                             "screenshots",
-                                             imageName + ".png");
+            testName = CONF.curTestCase ? _.kebabCase(CONF.curTestCase.name) : "";
+
+            var expectedImage = path.resolve(
+                U.defVal(
+                    opts.expectedDirPath,
+                    path.resolve(CONF.resourcesDir, testName, "screenshots")),
+                imageName + ".png");
+
             await this.checkImagesEquivalence(
                 actualImage, expectedImage, opts);
         };
@@ -318,23 +331,35 @@ module.exports = {
      * @arg {string} actualImage - Path to actual image.
      * @arg {string} expectedImage - Path to expected image.
      * @arg {object} [opts] - Helper options.
+     * @arg {string} [opts.diffDirPath] - Path to diffs folder.
      * @arg {number} [opts.threshold=0.05] - Threshold of divergence.
      * @arg {boolean} [opts.shouldBe=true] - Flag to check whether
      *  image are equal or not equal.
      * @return {Promise&lt;void>}
+     * @throws {AssertionError} - If actual image doesn't exist.
+     * @throws {AssertionError} - If expected image doesn't exist.
      * @throws {AssertionError} - If result of images comparison don't pass
      *  requested parameters.
      */
     _checkImagesEquivalence: async function (actualImage, expectedImage, opts) {
 
+        expect(fs.existsSync(actualImage),
+               `Actual image '${actualImage}' doesn't exist`)
+            .to.be.true;
+
+        expect(fs.existsSync(expectedImage),
+               `Expected image '${expectedImage}' doesn't exist`)
+            .to.be.true;
+
         opts = U.defVal(opts, {});
         var threshold = U.defVal(opts.threshold, 0.05);
         var shouldBe = U.defVal(opts.shouldBe, true);
-        var diffImage = U.mkpath(CONF.reportsDir,
-                                 _.kebabCase(CONF.curTestCase.name),
-                                 "screenshots",
-                                 "diffs",
-                                 uuid() + ".png");
+
+        var diffImage = U.mkpath(
+            U.defVal(
+                opts.diffDirPath,
+                path.resolve(getScreensDir(), "diffs")),
+            uuid() + ".png");
 
         var percentage = (await new Promise((resolve, reject) => {
 
@@ -458,7 +483,7 @@ module.exports = {
      * @arg {string} elementName - Name of element which will be cut.
      * @arg {object} [opts] - Helper options.
      * @arg {string} [opts.name] - Name of cut image with element.
-     * @arg {string} [opts.path] - Path to cut image with element.
+     * @arg {string} [opts.cutDirPath] - Folder path to cut elements.
      * @return {Promise&lt;string>} - Path to cut element image.
      * @throws {AssertionError} - If original image doesn't exist.
      * @throws {AssertionError} - If DOM element is not registered in config.
@@ -475,12 +500,12 @@ module.exports = {
 
         opts = U.defVal(opts, {});
         var targetName = U.defVal(opts.name, uuid()) + ".png";
-        var targetPath = U.defVal(opts.path,
-                                  U.mkpath(CONF.reportsDir,
-                                           _.kebabCase(CONF.curTestCase.name),
-                                           "screenshots",
-                                           "cutElements",
-                                           targetName));
+
+        targetPath = U.mkpath(
+            U.defVal(
+                opts.cutDirPath,
+                path.resolve(getScreensDir(), "cutElements")),
+            targetName);
 
         var imageInfo = await new Promise((resolve, reject) => {
             sharp(imagePath).toBuffer((err, outputBuffer, info) => {
@@ -525,6 +550,15 @@ module.exports = {
 
         return targetPath;
     },
+};
+/**
+ * Helper to get screenshots folder.
+ * 
+ * @function
+ */
+var getScreensDir = () => {
+    var testName = CONF.curTestCase ? _.kebabCase(CONF.curTestCase.name) : "";
+    return path.resolve(CONF.reportsDir, testName, "screenshots");
 };
 </pre>
     </article>
@@ -571,7 +605,7 @@ module.exports = {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-28T22:22:35+02:00
+		on 2017-11-30T15:37:16+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_video.html">lib/video</a></li>
+					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_fixtures.html">lib/fixtures</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_video.html">lib/video</a></li>
 				</ul>
 			</li>
 			
@@ -68,7 +68,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
+					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
 				</ul>
 			</li>
 			
@@ -117,9 +117,12 @@ var path = require("path");
 
 var _ = require("lodash");
 var findProcess = require("find-process");
-var LOG = require("glacejs-utils").logger;
+var U = require("glacejs-utils");
+var LOG = U.logger;
 
+require("./fixtures");
 require("./matcher");
+var CONF = require("./config");
 var hacking = require("./hacking");
 var TestCase = require("./testing").TestCase;
 /**
@@ -132,6 +135,7 @@ var setLog = () => {
     var logFile = path.resolve(CONF.reportsDir, testName, "logs", "test.log");
     LOG.setFile(logFile);
 };
+setLog(); // Set log immediatelly.
 /**
  * `chaijs` `expect` function.
  *
@@ -153,7 +157,7 @@ global.expect = require("chai").expect;
  * @global
  * @see {@link module:config|config} to get more details about its options.
  */
-global.CONF = require("./config");
+global.CONF = CONF;
 /**
  * Atomic steps collection.
  *
@@ -264,7 +268,6 @@ global.beforeSession = ctx => {
 
     before(() => {
         CONF.isRunPassed = true;
-        setLog();
     });
 
     if (CONF.isWeb) {
@@ -333,23 +336,52 @@ global.afterSession = ctx => {
  * added to queue in separated session with title containing `Retry` and its
  * number.
  *
- * @function
  * @abstract
+ * @function
  * @arg {string} name - Name of test case.
+ * @arg {object} [opts] - Options.
+ * @arg {boolean} [opts.video=false] - Flag to involve video fixture.
+ * @arg {boolean} [opts.skip=false] - Flag to skip test.
+ * @arg {number} [opts.retry=0] - Number of retries on failure. May be managed
+ *  in config.
+ * @arg {function[]} [fixtures] - Involved fixtures list.
  * @arg {function} func - Test function.
  */
 var baseTest = (names => {
-    return (name, func) => {
+    return (name, opts, fixtures, func) => {
 
         if (names.includes(name)) {
-            LOG.warn(`Test case "${name}" is added already. \
-                         Test case with the same name will be omitted.`);
+            LOG.warn(`Test case '${name}' is added already.`,
+                     `Test case with the same name will be omitted.`);
+            return;
+        };
+
+        if (opts instanceof Function) {
+            func = opts;
+            opts = {};
+            fixtures = [];
+        };
+        if (fixtures instanceof Function) {
+            func = fixtures;
+            fixtures = [];
+        };
+        opts = opts || {};
+        fixtures = fixtures || [];
+
+        opts.video = U.defVal(opts.video, CONF.captureVideo, false);
+        opts.skip = U.defVal(opts.skip, false);
+        opts.retry = U.defVal(opts.retry, CONF.testRetries, 0);
+
+        if (opts.skip) {
+            LOG.warn(`Test '${name}' is marked as skipped and will be omitted`);
             return;
         };
         names.push(name);
 
+        if (opts.video &amp;&amp; !fixtures.includes(fixVideo)) fixtures.push(fixVideo);
+
         var testCase = new TestCase(name);
-        var retries = CONF.testRetries;
+        var retries = opts.retry;
 
         CONF.testCases.push(testCase);
 
@@ -362,34 +394,22 @@ var baseTest = (names => {
                     testCase.reset();
                     testCase.status = TestCase.IN_PROGRESS;
                     CONF.curTestCase = testCase;
-                    setLog();
+                    setLog(); // Current test case is started, need to reinit log
                 });
 
-                before(async () => {
-                    if (CONF.captureVideo) await SS.startVideo();
-                });
-
-                for (var ctx of ctxs) func(ctx);
-
-                after(async () => {
-                    if (CONF.captureVideo) await SS.stopVideo();
-                });
+                U.wrap(fixtures, () => {
+                    for (var ctx of ctxs) func(ctx);
+                })();
 
                 after(() => {
-                    if (_.isEmpty(testCase.errors)) {
-                        testCase.status = TestCase.PASSED;
-                    } else {
+                    if (testCase.errors.length) {
                         testCase.status = TestCase.FAILED;
-                    };
-
-                    if (CONF.captureVideo &amp;&amp; 
-                            !CONF.forceVideo &amp;&amp;
-                            testCase.status !== TestCase.FAILED) {
-                        fs.unlinkSync(SS.getVideo());
+                    } else {
+                        testCase.status = TestCase.PASSED;
                     };
 
                     CONF.curTestCase = null;
-                    setLog();
+                    setLog(); // Current test case is finished, need to reinit log
 
                     if (testCase.status !== TestCase.FAILED || retries &lt;= 0) {
                         return;
@@ -420,7 +440,13 @@ var baseTest = (names => {
  * @global
  * @function
  * @arg {string} name - Name of test case.
- * @arg {function} func - Function with test chunks.
+ * @arg {object} [opts] - Options.
+ * @arg {boolean} [opts.video=true] - Flag to involve video fixture.
+ * @arg {boolean} [opts.skip=false] - Flag to skip test.
+ * @arg {number} [opts.retry=0] - Number of retries on failure. May be managed
+ *  in config.
+ * @arg {function[]} [fixtures] - Involved fixtures list.
+ * @arg {function} func - Test function.
  * @example
 
 test("Some test", () => {
@@ -430,8 +456,8 @@ test("Some test", () => {
 });
 
  */
-global.test = (name, func) => {
-    baseTest(name, ctx => {
+global.test = (name, opts, fixtures, func) => {
+    baseTest(name, opts, fixtures, ctx => {
         func(ctx);
     });
 };
@@ -517,6 +543,10 @@ global.afterChunk = afterEach;
  * @global
  * @function
  * @arg {object} [ctx] - Test case context.
+ * @arg {object} [opts] - Options.
+ * @arg {boolean} [opts.video=false] - Flag to involve video fixture. May be
+ *  managed in config.
+ * @arg {function[]} [fixtures] - Involved fixtures list.
  * @arg {function} func - Function with test steps.
  * @example
 
@@ -535,18 +565,36 @@ test("Some test", ctx => {
 });
 
  */
-global.forEachLanguage = (ctx, func) => {
+global.forEachLanguage = (ctx, opts, fixtures, func) => {
 
     if (ctx instanceof Function) {
         func = ctx;
         ctx = {};
+        opts = {};
+        fixtures = [];
     };
+    if (opts instanceof Function) {
+        func = opts;
+        opts = {};
+        fixtures = [];
+    };
+    if (fixtures instanceof Function) {
+        func = fixtures;
+        fixtures = [];
+    };
+    ctx = ctx || {};
+    opts = opts || {};
+    fixtures = fixtures || [];
+
+    opts.video = U.defVal(opts.video, CONF.captureVideo, false);
+    if (opts.video &amp;&amp; !fixtures.includes(fixVideo)) fixtures.push(fixVideo);
 
     var languages = ctx.language ? [ctx.language] : CONF.languages;
     languages.forEach(lang => {
+
         scope(`for language "${lang}"`, () => {
             before(() => CONF.curTestCase.testParams.language = lang);
-            func(lang);
+            U.wrap(fixtures, () => func(lang))();
         });
     });
 };
@@ -619,7 +667,7 @@ var _killProcs = (procName) => {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-28T22:22:35+02:00
+		on 2017-11-30T15:37:16+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

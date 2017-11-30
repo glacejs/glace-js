@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_video.html">lib/video</a></li>
+					<li><a href="module-lib_cli.html">lib/cli</a></li><li><a href="module-lib_config.html">lib/config</a></li><li><a href="module-lib_error.html">lib/error</a></li><li><a href="module-lib_fixtures.html">lib/fixtures</a></li><li><a href="module-lib_globals.html">lib/globals</a></li><li><a href="module-lib_hacking.html">lib/hacking</a></li><li><a href="module-lib_help.html">lib/help</a></li><li><a href="module-lib_image.html">lib/image</a></li><li><a href="module-lib_index.html">lib/index</a></li><li><a href="module-lib_matcher.html">lib/matcher</a></li><li><a href="module-lib_page_element.html">lib/page/element</a></li><li><a href="module-lib_page_event.html">lib/page/event</a></li><li><a href="module-lib_reporter_index.html">lib/reporter/index</a></li><li><a href="module-lib_reporter_stdout.html">lib/reporter/stdout</a></li><li><a href="module-lib_reporter_testrail.html">lib/reporter/testrail</a></li><li><a href="module-lib_runner.html">lib/runner</a></li><li><a href="module-lib_steps_image.html">lib/steps/image</a></li><li><a href="module-lib_steps_page.html">lib/steps/page</a></li><li><a href="module-lib_steps_timer.html">lib/steps/timer</a></li><li><a href="module-lib_steps_video.html">lib/steps/video</a></li><li><a href="module-lib_steps_web.html">lib/steps/web</a></li><li><a href="module-lib_steps_xvfb.html">lib/steps/xvfb</a></li><li><a href="module-lib_testing.html">lib/testing</a></li><li><a href="module-lib_video.html">lib/video</a></li>
 				</ul>
 			</li>
 			
@@ -68,7 +68,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
+					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
 				</ul>
 			</li>
 			
@@ -458,7 +458,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-282">line 282</a>
+				 <a href="steps_image.js.html#sunlight-1-line-307">line 307</a>
 			</li>
 		</ul>
 	</dd>
@@ -707,6 +707,44 @@
 
         <tr>
             
+                <td class="name"><code>diffDirPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Path to diffs folder.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>threshold</code></td>
             
 
@@ -833,7 +871,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-221">line 221</a>
+				 <a href="steps_image.js.html#sunlight-1-line-237">line 237</a>
 			</li>
 		</ul>
 	</dd>
@@ -857,8 +895,64 @@
 
     
     <h5>Throws:</h5>
-    
-            
+    <ul>
+            <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If actual image doesn't exist.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">AssertionError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+</li>
+        
+            <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <ul>
+<li>If expected image doesn't exist.</li>
+</ul>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">AssertionError</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+</li>
+        
+            <li>
 
 <dl>
     <dt>
@@ -885,8 +979,8 @@ requested parameters.</li>
     </dt>
 </dl>
 
-
-        
+</li>
+        </ul>
 
     
     <h5>Returns:</h5>
@@ -1115,7 +1209,7 @@ requested parameters.</li>
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>cutDirPath</code></td>
             
 
             <td class="type">
@@ -1142,7 +1236,7 @@ requested parameters.</li>
 
             
 
-            <td class="description last"><p>Path to cut image with element.</p></td>
+            <td class="description last"><p>Folder path to cut elements.</p></td>
         </tr>
 
     
@@ -1194,7 +1288,7 @@ requested parameters.</li>
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-360">line 360</a>
+				 <a href="steps_image.js.html#sunlight-1-line-385">line 385</a>
 			</li>
 		</ul>
 	</dd>
@@ -1444,7 +1538,7 @@ requested parameters.</li>
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-263">line 263</a>
+				 <a href="steps_image.js.html#sunlight-1-line-288">line 288</a>
 			</li>
 		</ul>
 	</dd>
@@ -1663,6 +1757,44 @@ requested parameters.</li>
 
         <tr>
             
+                <td class="name"><code>matchedDirPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Folder path to save matched image.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>threshold</code></td>
             
 
@@ -1789,7 +1921,7 @@ requested parameters.</li>
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-138">line 138</a>
+				 <a href="steps_image.js.html#sunlight-1-line-144">line 144</a>
 			</li>
 		</ul>
 	</dd>
@@ -2175,7 +2307,7 @@ requested parameters.</li>
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-110">line 110</a>
+				 <a href="steps_image.js.html#sunlight-1-line-115">line 115</a>
 			</li>
 		</ul>
 	</dd>
@@ -2259,7 +2391,7 @@ requested parameters.</li>
             
 <hr>
 <dt>
-    <h4 class="name" id="checkOrMakeScreenshot"><span class="type-signature">&lt;async> </span>checkOrMakeScreenshot( [opts])</h4>
+    <h4 class="name" id="checkOrMakeScreenshot"><span class="type-signature">&lt;async> </span>checkOrMakeScreenshot(imageName [, opts])</h4>
     
     
 </dt>
@@ -2300,6 +2432,39 @@ requested parameters.</li>
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imageName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Screenshot name. File extension
+ <code>.png</code> will be added automatically.</p></td>
+        </tr>
+
     
 
         <tr>
@@ -2361,7 +2526,7 @@ requested parameters.</li>
 
         <tr>
             
-                <td class="name"><code>imageName</code></td>
+                <td class="name"><code>imageDirPath</code></td>
             
 
             <td class="type">
@@ -2392,9 +2557,45 @@ requested parameters.</li>
                 </td>
             
 
-            <td class="description last"><p>Screenshot name. File extension
- <code>.png</code> will be added automatically. Default value is dynamically
- generated on each call with algorithm <code>uuid</code>.</p></td>
+            <td class="description last"><p>Screenshot folder path.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expectedDirPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Expected screenshot path.</p></td>
         </tr>
 
     
@@ -2655,7 +2856,7 @@ requested parameters.</li>
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-190">line 190</a>
+				 <a href="steps_image.js.html#sunlight-1-line-197">line 197</a>
 			</li>
 		</ul>
 	</dd>
@@ -2874,6 +3075,44 @@ requested parameters.</li>
             <td class="description last"><p>Screenshot name. File extension
  <code>.png</code> will be added automatically. Default value is dynamically
  generated on each call with algorithm <code>uuid</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>imageDirPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Screenshot folder path.</p></td>
         </tr>
 
     
@@ -3179,7 +3418,7 @@ requested parameters.</li>
 		<ul class="dummy">
 			<li>
 				<a href="steps_image.js.html">steps/image.js</a>,
-				 <a href="steps_image.js.html#sunlight-1-line-50">line 50</a>
+				 <a href="steps_image.js.html#sunlight-1-line-52">line 52</a>
 			</li>
 		</ul>
 	</dd>
@@ -3264,6 +3503,94 @@ requested parameters.</li>
     
 </dd>
 
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~getScreensDir"><span class="type-signature">&lt;inner> </span>getScreensDir()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Helper to get screenshots folder.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="steps_image.js.html">steps/image.js</a>,
+				 <a href="steps_image.js.html#sunlight-1-line-452">line 452</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
         </dl>
     
 
@@ -3318,7 +3645,7 @@ requested parameters.</li>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-28T22:22:36+02:00
+		on 2017-11-30T15:37:16+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

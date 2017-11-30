@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>GlaseJS Source: page/index.js</title>
+	<title>GlaseJS Module: lib/fixtures</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -95,93 +95,100 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: page/index.js</h1>
-    
+	<h1 class="page-title">Module: lib/fixtures</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">"use strict";
-/**
- * Page of browser.
- *
- * @class
- * @name Page
- * @arg {string} name - Name of page.
- * @arg {string} pageUrl - URL of page.
- * @arg {object} elements - Element names and selectors dictionary.
- */
 
-var GlaceError = require("../error").GlaceError;
-var Element = require("./element");
+<header>
+    
+</header>
 
-var Page = function (name, pageUrl, elements) {
 
-    this.name = name;
-    this.url = pageUrl;
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p><code>GlaceJS</code> fixtures.</p></div>
+        
 
-    this._webdriver = null;
+        
+<dl class="details">
+    
 
-    this.addElements(elements || {});
-};
-module.exports = Page;
-/**
- * Sets webdriver for page.
- *
- * @method
- * @arg {object} webdriver - Webdriver instance.
- */
-Page.prototype.setDriver = function (webdriver) {
-    this._webdriver = webdriver;
-};
-/**
- * Gets webdriver.
- *
- * @method
- * @return {object} - Webdriver instance.
- * @throws {AssertionError} - If webdriver isn't set yet.
- */
-Page.prototype.getDriver = function () {
-    expect(this._webdriver,
-           "Webdriver isn't set")
-        .to.not.be.null;
-    return this._webdriver;
-};
-/**
- * Adds elements to page.
- *
- * @method
- * @arg {object} elements - Element names and selectors dictionary.
- */
-Page.prototype.addElements = function (elements) {
+	
 
-    for (var name in elements) {
-        var selector = elements[name];
+	
 
-        if (this[name]) {
-            throw new GlaceError(
-                `Page '${this.name}' already contains property '${name}'`);
-        };
-        this[name] = new Element(name, selector, this);
-    };
-};
-/**
- * Removes elements from page.
- *
- * @method
- * @arg {...string} elementNames - Sequence of element names.
- */
-Page.prototype.removeElements = function () {
-    for (var name of arguments) delete this[name];
-};
-</pre>
-    </article>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-2">line 2</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -191,6 +198,10 @@ Page.prototype.removeElements = function () {
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>
