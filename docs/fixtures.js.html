@@ -68,7 +68,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
+					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixBrowser">fixBrowser</a></li><li><a href="global.html#fixGlobalProxy">fixGlobalProxy</a></li><li><a href="global.html#fixHttpProxy">fixHttpProxy</a></li><li><a href="global.html#fixSelenium">fixSelenium</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#fixWebdriver">fixWebdriver</a></li><li><a href="global.html#fixXvfb">fixXvfb</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
 				</ul>
 			</li>
 			
@@ -120,25 +120,145 @@ var CONF = require("./config");
  * @function
  */
 global.fixVideo = func => {
-    var videoStarted = false;
-    var errNumBefore = null;
+    var isStarted;
+    var errNumBefore;
 
     before(async () => {
         errNumBefore = CONF.curTestCase.errors.length;
-        videoStarted = await SS.startVideo();
+        isStarted = await SS.startVideo();
     });
 
     func();
 
     after(async () => {
-        if (!videoStarted) return;
+        if (!isStarted) return;
         await SS.stopVideo();
-        videoStarted = false;
+        isStarted = false;
 
         if (!CONF.forceVideo &amp;&amp;
                 CONF.curTestCase.errors.length === errNumBefore) {
             SS.removeVideo();
         };
+    });
+};
+/**
+ * Fixture to launch xvfb.
+ * 
+ * @global
+ * @function
+ */
+global.fixXvfb = func => {
+    var isStarted;
+
+    before(async () => {
+        isStarted = await SS.startXvfb();
+    });
+
+    func();
+
+    after(async () => {
+        if (!isStarted) return;
+        await SS.stopXvfb();
+    });
+};
+/**
+ * Fixture to launch selenium server.
+ * 
+ * @global
+ * @function
+ */
+global.fixSelenium = func => {
+    var isStarted;
+
+    before(async () => {
+        if (CONF.installDrivers) {
+            CONF.installDrivers = false;
+            await SS.installSeleniumDrivers();
+        };
+        isStarted = await SS.startSeleniumServer();
+    });
+
+    func();
+
+    after(async () => {
+        if (!isStarted) return;
+        await SS.stopSeleniumServer();
+    });
+};
+/**
+ * Fixture to launch browser.
+ * 
+ * @global
+ * @function
+ */
+global.fixBrowser = func => {
+    var isStarted;
+
+    before(async () => {
+        isStarted = await SS.launchBrowser();
+    });
+
+    func();
+
+    after(async () => {
+        if (!isStarted) return;
+        await SS.closeBrowser();
+    });
+};
+/**
+ * Fixture to set webdriver.
+ * 
+ * @global
+ * @function
+ */
+global.fixWebdriver = func => {
+
+    before(() => {
+        var wdio = require("webdriverio");
+        var webdriver = wdio.remote(CONF.webdriver);
+        SS.setWebdriver(webdriver);
+    });
+
+    func();
+};
+/**
+ * Fixture to launch http proxy.
+ * 
+ * @global
+ * @function
+ */
+global.fixHttpProxy = func => {
+    var isStarted;
+
+    before(async () => {
+        isStarted = await SS.startProxy();
+    });
+
+    func();
+
+    after(async () => {
+        if (!isStarted) return;
+        await SS.stopProxy();
+    });
+};
+/**
+ * Fixture to launch http proxy.
+ * 
+ * @global
+ * @function
+ */
+global.fixGlobalProxy = func => {
+    var isStarted;
+
+    before(async () => {
+        isStarted = await SS.startGlobalProxy();
+    });
+
+    func();
+
+    after(async () => {
+        if (!isStarted) return;
+        await SS.stopGlobalProxy();
     });
 };
 </pre>
@@ -186,7 +306,7 @@ global.fixVideo = func => {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-30T15:37:16+02:00
+		on 2017-12-01T11:52:18+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

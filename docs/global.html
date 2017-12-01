@@ -68,7 +68,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
+					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixBrowser">fixBrowser</a></li><li><a href="global.html#fixGlobalProxy">fixGlobalProxy</a></li><li><a href="global.html#fixHttpProxy">fixHttpProxy</a></li><li><a href="global.html#fixSelenium">fixSelenium</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#fixWebdriver">fixWebdriver</a></li><li><a href="global.html#fixXvfb">fixXvfb</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
 				</ul>
 			</li>
 			
@@ -549,7 +549,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-429">line 429</a>
+				 <a href="globals.js.html#sunlight-1-line-406">line 406</a>
 			</li>
 		</ul>
 	</dd>
@@ -703,7 +703,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-205">line 205</a>
+				 <a href="globals.js.html#sunlight-1-line-198">line 198</a>
 			</li>
 		</ul>
 	</dd>
@@ -877,7 +877,7 @@ global.afterSession = ctx =&gt; {
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-406">line 406</a>
+				 <a href="globals.js.html#sunlight-1-line-383">line 383</a>
 			</li>
 		</ul>
 	</dd>
@@ -1031,7 +1031,7 @@ global.afterSession = ctx =&gt; {
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-160">line 160</a>
+				 <a href="globals.js.html#sunlight-1-line-177">line 177</a>
 			</li>
 		</ul>
 	</dd>
@@ -1228,7 +1228,7 @@ structure and to allocate independent test actions.</p>
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-377">line 377</a>
+				 <a href="globals.js.html#sunlight-1-line-354">line 354</a>
 			</li>
 		</ul>
 	</dd>
@@ -1423,6 +1423,358 @@ expect(2).to.be.gte(0);</pre>
             
 <hr>
 <dt>
+    <h4 class="name" id="fixBrowser"><span class="type-signature"></span>fixBrowser()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fixture to launch browser.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-87">line 87</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="fixGlobalProxy"><span class="type-signature"></span>fixGlobalProxy()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fixture to launch http proxy.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-143">line 143</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="fixHttpProxy"><span class="type-signature"></span>fixHttpProxy()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fixture to launch http proxy.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-123">line 123</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="fixSelenium"><span class="type-signature"></span>fixSelenium()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fixture to launch selenium server.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-63">line 63</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="fixVideo"><span class="type-signature"></span>fixVideo()</h4>
     
     
@@ -1479,6 +1831,182 @@ expect(2).to.be.gte(0);</pre>
 			<li>
 				<a href="fixtures.js.html">fixtures.js</a>,
 				 <a href="fixtures.js.html#sunlight-1-line-15">line 15</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="fixWebdriver"><span class="type-signature"></span>fixWebdriver()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fixture to set webdriver.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-107">line 107</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="fixXvfb"><span class="type-signature"></span>fixXvfb()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fixture to launch xvfb.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="fixtures.js.html">fixtures.js</a>,
+				 <a href="fixtures.js.html#sunlight-1-line-43">line 43</a>
 			</li>
 		</ul>
 	</dd>
@@ -1801,7 +2329,7 @@ specified, it will be used firstly. Otherwise from configuration.</p>
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-461">line 461</a>
+				 <a href="globals.js.html#sunlight-1-line-438">line 438</a>
 			</li>
 		</ul>
 	</dd>
@@ -1995,7 +2523,7 @@ files with tests</li>
             
 <hr>
 <dt>
-    <h4 class="name" id="scope"><span class="type-signature"></span>scope(name, func)</h4>
+    <h4 class="name" id="scope"><span class="type-signature"></span>scope(name [, fixtures], func)</h4>
     
     
 </dt>
@@ -2026,6 +2554,8 @@ files with tests</li>
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -2052,10 +2582,52 @@ files with tests</li>
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last"><p>Scope name.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fixtures</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;function()></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>List of fixtures.</p></td>
         </tr>
 
     
@@ -2075,6 +2647,14 @@ files with tests</li>
             
             </td>
 
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -2124,7 +2704,7 @@ files with tests</li>
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-85">line 85</a>
+				 <a href="globals.js.html#sunlight-1-line-86">line 86</a>
 			</li>
 		</ul>
 	</dd>
@@ -2358,7 +2938,7 @@ files with tests</li>
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-122">line 122</a>
+				 <a href="globals.js.html#sunlight-1-line-131">line 131</a>
 			</li>
 		</ul>
 	</dd>
@@ -2780,7 +3360,7 @@ files with tests</li>
 		<ul class="dummy">
 			<li>
 				<a href="globals.js.html">globals.js</a>,
-				 <a href="globals.js.html#sunlight-1-line-352">line 352</a>
+				 <a href="globals.js.html#sunlight-1-line-329">line 329</a>
 			</li>
 		</ul>
 	</dd>
@@ -2873,7 +3453,7 @@ files with tests</li>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-30T15:37:16+02:00
+		on 2017-12-01T11:52:18+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

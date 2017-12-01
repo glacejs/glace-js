@@ -68,7 +68,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
+					<li><a href="global.html#afterChunk">afterChunk</a></li><li><a href="global.html#afterSession">afterSession</a></li><li><a href="global.html#beforeChunk">beforeChunk</a></li><li><a href="global.html#beforeSession">beforeSession</a></li><li><a href="global.html#chunk">chunk</a></li><li><a href="global.html#CONF">CONF</a></li><li><a href="global.html#expect">expect</a></li><li><a href="global.html#fixBrowser">fixBrowser</a></li><li><a href="global.html#fixGlobalProxy">fixGlobalProxy</a></li><li><a href="global.html#fixHttpProxy">fixHttpProxy</a></li><li><a href="global.html#fixSelenium">fixSelenium</a></li><li><a href="global.html#fixVideo">fixVideo</a></li><li><a href="global.html#fixWebdriver">fixWebdriver</a></li><li><a href="global.html#fixXvfb">fixXvfb</a></li><li><a href="global.html#forEachLanguage">forEachLanguage</a></li><li><a href="global.html#reporters">reporters</a></li><li><a href="global.html#run">run</a></li><li><a href="global.html#scope">scope</a></li><li><a href="global.html#session">session</a></li><li><a href="global.html#SS">SS</a></li><li><a href="global.html#test">test</a></li>
 				</ul>
 			</li>
 			
@@ -171,6 +171,7 @@ global.SS = new (require("./steps"));
  * @global
  * @function
  * @arg {string} name - Scope name.
+ * @arg {function[]} [fixtures] - List of fixtures.
  * @arg {function} func - Function with test cases.
  * @example
 
@@ -189,7 +190,15 @@ scope("Some test scope", () => {
 });
 
  */
-global.scope = describe;
+global.scope = (name, fixtures, func) => {
+
+    if (fixtures instanceof Function) {
+        func = fixtures;
+        fixtures = [];
+    };
+
+    describe(name, U.wrap(fixtures, func));
+};
 /**
  * Executed sessions counter.
  * 
@@ -241,9 +250,17 @@ global.session = (name, ctx, func) => {
     sessNum++;
     ctx.sessionNumber = sessNum;
 
+    var fixtures = [];
+    if (CONF.useXvfb) fixtures.push(fixXvfb);
+    if (CONF.isWeb &amp;&amp; !CONF.webdriver.host) fixtures.push(fixSelenium);
+    if (CONF.proxy.http) fixtures.push(fixHttpProxy);
+    if (CONF.proxy.global) fixtures.push(fixGlobalProxy);
+    if (CONF.isWeb) fixtures.push(fixWebdriver);
+    if (CONF.isWeb) fixtures.push(fixBrowser);
+
     scope(name, () => {
         beforeSession(ctx);
-        func();
+        U.wrap(fixtures, func)();
         afterSession(ctx);
     });
 };
@@ -265,32 +282,8 @@ global.beforeSession = ctx => {
 
  */
 global.beforeSession = ctx => {
-
-    before(() => {
-        CONF.isRunPassed = true;
-    });
-
-    if (CONF.isWeb) {
-        before(async () => await _killProcs("chromedriver"));
-
-        before(() => {
-            var wdio = require("webdriverio");
-            var webdriver = wdio.remote(CONF.webdriver);
-            SS.setWebdriver(webdriver);
-        });
-
-        before(async () => {
-            if (CONF.useXvfb) await SS.startXvfb();
-            if (CONF.proxy.global) await SS.startGlobalProxy();
-            if (CONF.proxy.http) await SS.startProxy();
-            if (CONF.installDrivers) {
-                CONF.installDrivers = false;
-                await SS.installSeleniumDrivers();
-            };
-            if (!CONF.webdriver.host) await SS.startSeleniumServer();
-            await SS.launchBrowser();
-        });
-    };
+    before(() => CONF.isRunPassed = true);
+    if (CONF.isWeb) before(async () => await _killProcs("chromedriver"));
 };
 /**
  * Executes after tests session. May be overridden or expanded.
@@ -309,23 +302,7 @@ global.afterSession = ctx => {
 };
 
  */
-global.afterSession = ctx => {
-    if (CONF.isWeb) {
-        after(async () => await SS.closeBrowser());
-        after(async () => {
-            if (!CONF.webdriver.host) await SS.stopSeleniumServer();
-        });
-        after(async () => {
-            if (CONF.proxy.http) await SS.stopProxy();
-        });
-        after(async () => {
-            if (CONF.proxy.global) await SS.stopGlobalProxy();
-        });
-        after(() => {
-            if (CONF.useXvfb) SS.stopXvfb();
-        });
-    };
-};
+global.afterSession = ctx => {};
 /**
  * Basis for any test case.
  *
@@ -667,7 +644,7 @@ var _killProcs = (procName) => {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-30T15:37:16+02:00
+		on 2017-12-01T11:52:18+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
