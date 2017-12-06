@@ -1,6 +1,6 @@
 {
   "name": "glace-js",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "GlaceJS is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/glacejs/glace-js.git"
   },
-  "author": "Sergei Chipiga",
+  "author": "Sergei Chipiga <chipiga86@gmail.com>",
   "license": "MIT",
   "bin": {
     "glace": "./bin/glace"
