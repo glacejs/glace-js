@@ -41,27 +41,27 @@
 Use `npm`:
 
 ```
-npm i glacejs
+npm i glace-js
 ```
 
 Or clone repository:
 
 ```
-git clone https://github.com/schipiga/glacejs.git
+git clone https://github.com/glacejs/glace-js.git
 cd glacejs
 npm i
 ```
 
 ## How to launch tests
 
-If you clone repository and install it as developer, you may find a plenty of [examples](https://github.com/schipiga/glacejs/tree/master/examples) with commands how to launch them.
+If you clone repository and install it as developer, you may find a plenty of [examples](https://github.com/glacejs/glace-js/tree/master/examples) with commands how to launch them.
 
 After `npm` installation you may use command `glace` to launch tests. Use `glace -h` to get info about available options, or read about [CLI options](tutorial-console-args.html) in documentation.
 
 ## How to write tests
 
-Please look through [examples](https://github.com/schipiga/glacejs/tree/master/examples) to see how to write tests. In documentation also you may find description of all supported steps.
+Please look through [examples](https://github.com/glacejs/glace-js/tree/master/examples) to see how to write tests. In documentation also you may find description of all supported steps.
 
 ## Bugs and feedbacks
 
-Please fill free to create an [issue](https://github.com/schipiga/glacejs/issues) on github.
+Please fill free to create an [issue](https://github.com/glacejs/glace-js/issues) on github.
