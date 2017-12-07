@@ -1,6 +1,6 @@
 {
   "name": "glace-js",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "GlaceJS is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
@@ -20,11 +20,11 @@
   },
   "homepage": "https://glacejs.github.io/glace-js",
   "dependencies": {
-    "glace-core": "^1.0.3",
+    "glace-core": "^1.0.4",
     "glace-image": "^1.0.2",
     "glace-proxy": "^1.2.3",
     "glace-video": "^1.0.3",
-    "glace-web": "^1.0.2",
+    "glace-web": "^1.0.4",
     "glace-xvfb": "^1.0.5"
   },
   "devDependencies": {
@@ -34,8 +34,8 @@
     "gulp-clean": "^0.3.2"
   },
   "engines": {
-    "node": ">= 8.9",
-    "npm": ">= 5.5"
+    "node": ">=8.9",
+    "npm": ">=5.5"
   },
   "files": [
     "bin",
