@@ -16,3 +16,19 @@ gulp.task("mk-docs", () => {
 gulp.task("rm-docs", () => {
     gulp.src("docs", {read: false}).pipe(clean());
 });
+
+gulp.task("test-xvfb", () => {
+    spawn.sync("./bin/glace",
+               [
+                   "tests/integration/testXvfb.js",
+                   "--web",
+                   "--video",
+                   "--xvfb"
+               ],
+               { stdio: "inherit" });
+});
+
+gulp.task("test-all", [
+    "test-xvfb",
+], () => {
+});
