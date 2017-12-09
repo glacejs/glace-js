@@ -76,6 +76,18 @@ gulp.task("test-page", () => {
                { stdio: "inherit" });
 });
 
+gulp.task("test-proxy", () => {
+    spawn.sync("./bin/glace",
+               [
+                   "tests/integration/testProxy.js",
+                   "--web",
+                   "--global-proxy",
+                   "--http-proxy",
+                   "--web-url", "https://yandex.ru",
+               ],
+               { stdio: "inherit" });
+});
+
 gulp.task("test-all", [
     "test-xvfb",
     "test-fixtures",
@@ -83,5 +95,6 @@ gulp.task("test-all", [
     "test-web",
     "test-video",
     "test-page",
+    "test-proxy",
 ], () => {
 });
