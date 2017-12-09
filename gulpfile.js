@@ -37,8 +37,19 @@ gulp.task("test-fixtures", () => {
                { stdio: "inherit" });
 });
 
+gulp.task("test-image", () => {
+    spawn.sync("./bin/glace",
+               [
+                   "tests/integration/testImage.js",
+                   "--web",
+                   "--web-url", "https://yandex.ru",
+               ],
+               { stdio: "inherit" });
+});
+
 gulp.task("test-all", [
     "test-xvfb",
     "test-fixtures",
+    "test-image",
 ], () => {
 });
