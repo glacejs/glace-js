@@ -56,10 +56,21 @@ gulp.task("test-web", () => {
                { stdio: "inherit" });
 });
 
+gulp.task("test-video", () => {
+    spawn.sync("./bin/glace",
+               [
+                   "tests/integration/testVideo.js",
+                   "--web",
+                   "--video",
+               ],
+               { stdio: "inherit" });
+});
+
 gulp.task("test-all", [
     "test-xvfb",
     "test-fixtures",
     "test-image",
     "test-web",
+    "test-video",
 ], () => {
 });
