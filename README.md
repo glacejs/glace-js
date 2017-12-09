@@ -2,33 +2,11 @@
 
 ![GlaceJS logo](glace.png)
 
-`GlaceJS` is a functional testing framework based on [mochajs](http://mochajs.org/).
+`GlaceJS` is a quick-start functional testing framework based on [mocha](http://mochajs.org/) and extensible with [plugins](https://github.com/glacejs).
 
-## Features
+`glace-js` is aggregation project which includes [glace-core](https://glacejs.github.io/glace-core) and its [plugins](https://github.com/glacejs).
 
-- Cross-platform
-- Uses `mochajs` as test runner
-- Has own tests and reports system
-- Oriented to complex functional scenarios
-- Supports multiple independent verifications (`chunks`) inside a test
-- Supports parameterization inside and outside of test
-- Has built-in mechanism to retry failed tests or chunks
-- Has built-in reporters to terminal, `report.log` file and TestRail
-- Launches selenium server if external selenium address isn't specified
-- Supports STEPS architecture and Page Object Pattern
-- Has mechanism to compare two images
-- Has mechanism to search one image inside another image
-- Supports video capture of executed tests
-- Supports `xvfb` virtual display and video capture of it
-- Includes two proxies: simple http proxy and global transparent proxy
-- Supports a set of middlewares for both proxies
-- Includes middleware to cache server responses
-- Includes middleware to manage proxy responses speed
-- Includes middleware to gather server responses information
-- Supports `JSON` config for `CLI` options
-- Supports extending default config with user config
-
-## Binary software may be used
+## Binary software which may be used
 
 - `java` for selenium server usage;
 - `chrome` browser for web tests;
@@ -44,24 +22,30 @@ Use `npm`:
 npm i glace-js
 ```
 
-Or clone repository:
+For development:
 
 ```
 git clone https://github.com/glacejs/glace-js.git
-cd glacejs
+cd glace-js
 npm i
+gulp test-all // launch all integration tests
+gulp --tasks // list all tasks
 ```
 
-## How to launch tests
+## How to use
 
-If you clone repository and install it as developer, you may find a plenty of [examples](https://github.com/glacejs/glace-js/tree/master/examples) with commands how to launch them.
+```
+glace [options] [sequence-of-test-files-or-folders]
+```
 
-After `npm` installation you may use command `glace` to launch tests. Use `glace -h` to get info about available options, or read about [CLI options](tutorial-console-args.html) in documentation.
+In order to see all CLI options use command (plugin commands will be shown too):
 
-## How to write tests
+```
+glace -h
+```
 
-Please look through [examples](https://github.com/glacejs/glace-js/tree/master/examples) to see how to write tests. In documentation also you may find description of all supported steps.
+## Test examples
 
-## Bugs and feedbacks
+See `glace-core` [integration tests](https://github.com/glacejs/glace-core/tree/master/tests/integration) in order to explore basic examples.
 
-Please fill free to create an [issue](https://github.com/glacejs/glace-js/issues) on github.
+See `glace-js` [integration tests](https://github.com/glacejs/glace-js/tree/master/tests/integration) in order to explore plugin examples.

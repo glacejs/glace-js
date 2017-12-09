@@ -48,7 +48,7 @@ test("Images processing", () => {
     chunk("Image should be captured with html2canvas", async () => {
         await SS.openUrl("https://html2canvas.hertzen.com/documentation.html");
         var imagePath = await SS.makeScreenshot(
-            { bySelenium: false, cssSelector: "body > div.container" });
+            { by: "html2canvas", cssSelector: "body > div.container" });
         console.log(imagePath);
     });
 

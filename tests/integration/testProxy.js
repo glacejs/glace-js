@@ -21,7 +21,7 @@ test("Proxy subsystem", () => {
         await SS.openApp();
     });
 
-    chunk("It should active proxy cache", async () => {
+    chunk("It should activate proxy cache", async () => {
         await SS.restartBrowser();
         SS.enableCache();
         await SS.openApp();  // cache population
