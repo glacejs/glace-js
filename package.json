@@ -22,7 +22,7 @@
   "dependencies": {
     "glace-core": "^1.0.9",
     "glace-image": "^1.0.4",
-    "glace-proxy": "^1.2.5",
+    "glace-proxy": "^1.2.6",
     "glace-video": "^1.0.3",
     "glace-web": "^1.0.9",
     "glace-xvfb": "^1.0.5"
