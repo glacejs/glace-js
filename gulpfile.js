@@ -32,6 +32,7 @@ gulp.task("test-fixtures", () => {
     spawn.sync("./bin/glace",
                [
                    "tests/integration/testFixtures.js",
+                   "--web",
                    "--web-url", "https://yandex.ru",
                ],
                { stdio: "inherit" });
