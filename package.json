@@ -20,9 +20,9 @@
   },
   "homepage": "https://glacejs.github.io/glace-js",
   "dependencies": {
-    "glace-core": "^1.0.7",
+    "glace-core": "^1.0.9",
     "glace-image": "^1.0.4",
-    "glace-proxy": "^1.2.4",
+    "glace-proxy": "^1.2.5",
     "glace-video": "^1.0.3",
     "glace-web": "^1.0.9",
     "glace-xvfb": "^1.0.5"
