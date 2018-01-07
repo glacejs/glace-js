@@ -1,6 +1,6 @@
 {
   "name": "glace-js",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "GlaceJS is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "homepage": "https://glacejs.github.io/glace-js",
   "dependencies": {
     "glace-core": "^1.1.2",
-    "glace-image": "^1.0.5",
+    "glace-image": "^1.0.6",
     "glace-proxy": "^1.2.6",
     "glace-video": "^1.0.4",
     "glace-web": "^1.1.1",
