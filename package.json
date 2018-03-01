@@ -1,6 +1,6 @@
 {
   "name": "glace-js",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "GlaceJS is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
