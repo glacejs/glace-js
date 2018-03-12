@@ -7,7 +7,7 @@ scope("It should use fixtures", [fxSelenium, fxWebdriver, fxBrowser], () => {
     test("Global proxy", null, [fxGlobalProxy], () => {
         chunk(async () => {
             await SS.restartBrowser();
-            await SS.openUrl("https://opennet.ru")
+            await SS.openUrl("https://opennet.ru");
         });
     });
 });
