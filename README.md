@@ -4,7 +4,13 @@
 
 `GlaceJS` is a quick-start functional testing framework based on [mocha](http://mochajs.org/) and extensible with [plugins](https://github.com/glacejs).
 
-`glace-js` is aggregation project which includes [glace-core](https://glacejs.github.io/glace-core) and its [plugins](https://github.com/glacejs).
+`glace-js` is aggregation project which includes [glace-core](https://glacejs.github.io/glace-core) and its [plugins](https://github.com/glacejs):
+- [glace-image](https://glacejs.github.io/glace-image)
+- [glace-proxy](https://glacejs.github.io/glace-proxy)
+- [glace-testgen](https://glacejs.github.io/glace-testgen)
+- [glace-video](https://glacejs.github.io/glace-video)
+- [glace-web](https://glacejs.github.io/glace-web)
+- [glace-xvfb](https://glacejs.github.io/glace-xvfb)
 
 ## Binary software which may be used
 
@@ -44,8 +50,114 @@ In order to see all CLI options use command (plugin commands will be shown too):
 glace -h
 ```
 
+## CLI options
+
+`Arguments`
+- `--config [path], -c` - Path to JSON file with CLI arguments. Default is `cwd/config.json` (if it exists).
+
+**Note!** All options below may be set via `.json` file (see option `--config` above).
+
+`Log`
+- `--stdout-log` - Print log messages to stdout.
+- `--log [path]` - Path to log file. Default is `cwd/glace.log`.
+- `--log-level [level]` - Log level. Default is `debug`.
+
+`Core`
+- `--user-config [path]` - Path to JS file with configuration which will be merged with override default configuration. Default is `cwd/config.js` (if it exists).
+- `--session-name [name]` - Tests run session name. Default value includes word `session` and datetime.
+- `--grep <pattern>, -g` - Filter tests by name or name chunk.
+- `--report [path]` - Path to reports folder. Default is `cwd/reports`.
+- `--dont-clear-report` - Don't clear previous report on tests run.
+- `--root-conftest <path>` - Path to root conftest.js which will be loaded before all.
+- `--languages <sequence>` - List of tested languages separated with comma.
+- `--retry [times]` - Number of times to retry failed test. Default is `0`.
+- `--chunk-retry [times]` - Number of times to retry failed chunk. Default is `0`.
+- `--chunk-timeout [sec]` - Time to execute chunk or hook, sec. Default is `180`.
+- `--uncaught [type]` - Strategy to process uncaught exceptions. Default value is `log`. Supported values are `log`, `fail`, `mocha`. See details in https://glacejs.github.io/glace-core.
+- `--kill-procs <sequence>` - List of process names separated with comma, which will be killed before tests run.
+- `--debug-on-fail` - Enter to interactive debug mode on step failure.
+
+`Plugins`
+- `--plugins` - Show plugins only.
+- `--plugins-dir [path]` - Path to custom plugins folder. By default it searches plugins inside folder, where `glace-core` is installed.
+- `--disable-default-plugins` - Disable default plugins.
+
+`xUnit`
+- `--xunit` - Activate xUnit reporter.
+- `--xunit-path [path]` - Path to xUnit report. Default is `cwd/xunit.xml`.
+- `--xunit-suite-name [name]` - Tests suite name in xUnit report. By default it's the same as session name.
+
+`TestRail`
+- `--testrail` - Activate testrail reporter.
+- `--testrail-host <host>` - TestRail host.
+- `--testrail-user <user>` - TestRail username or email.
+- `--testrail-token <token>` - TestRail token.
+- `--testrail-project-id <id>` - TestRail project id.
+- `--testrail-suite-id <id>` - TestRail suite id.
+- `--testrail-run-name <name>` - TestRail run name.
+- `--testrail-run-desc <description>` - TestRail run description.
+
+`Tools`
+- `--list-steps [filter]` - Only list available steps.
+- `--list-tests [filter]` - Only list collected tests.
+- `--list-fixtures [filter]` - Only list available fixtures.
+
+`Image`
+- `--screenshot-on-fail` - Capture screenshot on chunk fail.
+
+`Proxy`
+- `--http-proxy` - Use http proxy.
+- `--http-proxy-port` - Port for http proxy. Default is `random`.
+- `--global-proxy` - Use transparent global proxy.
+- `--global-proxy-port` - Port for transparent global proxy. Default is `8888`.
+- `--install-certificate` - Install global proxy certificate as trusted. Requires administrator permissions.
+- `--speed [value]` - Responses speed from proxy to client (browser), `kb/s`. Default is `unlimited`.
+- `--cache` - Enable middleware to cache proxy responses to disk.
+- `--existing-cache` - Use existing cache if it exists.
+- `--cache-folder [folder-path]` - Folder to cache server responses. Default is `cwd/.proxy-cache`.
+- `--reconnect [number]` - Number of proxy reconnects on request error. Default is `2`.
+
+`Test-gen`
+- `--gen-output-file <path>` - Path to output file with generated tests (`yaml` format).
+- `--gen-filter <chunk>` - Chunk of step name to filter tests.
+- `--gen-steps-uniq [number]` - Number of steps in unique sequence to filter tests. Default is `unlimited`.
+- `--gen-limit-tests [number]` - Maximum amount of generated tests. Default is `1000000`.
+- `--gen-limit-steps [number]` - Maximum amount of steps per test. Default is `unlimited`.
+- `--gen-names-only` - Flag to print only step names.
+- `--gen-steps-usage <number>` - Number of steps usage in test case.
+- `--gen-steps-file <path>` - Path to steps file (yaml or json format). As alternate to specify path to steps file in plugin mode.
+- `--gen-tests-only` - Flag to exclude other found tests and launch only generated tests in plugin mode.
+
+`Video`
+- `--video` - Capture video of executed tests. Video will be removed if test is passed.
+- `--video-save` - Capture video of executed tests. Video will be saved even if test is passed.
+
+`Selenium`
+- `--dont-install-web-drivers` - Flag to not install selenium drivers on tests run.
+- `--web` - Flag to launch tests in browser.
+- `--web-url <URL>` - Web URL which will be used for web tests.
+- `--web-resolution <widthxheight>` - Browser viewport size (`pc` platform only).
+- `--selenium-addr <address>` - Connect to launched selenium server with this address.
+- `--platform [type]` - Specify platform type where tests will be executed. Default is `pc`. Supported values are `pc`, `android`, `ios`.
+- `--browser <name>` - Name of browser where web tests will be executed. Default value is platform specific.
+
+`Appium`
+- `--device <name>` - Mobile device name.
+- `--os-version <version>` - Mobile operating system version.
+- `--ios-engine <engine>` - iOS automation engine name.
+
+`Chrome`
+- `--chrome-incognito` - Launch chrome in incognito mode.
+
+`Virtual display`
+- `--xvfb [<width>x<height>]` - Use [xvfb](https://en.wikipedia.org/wiki/Xvfb) for headless testing.
+
+`Common`
+- `--version` - Show version number.
+- `-h, --help` - Show help.
+
 ## Test examples
 
-See `glace-core` [integration tests](https://github.com/glacejs/glace-core/tree/master/tests/integration) in order to explore basic examples.
+See `glace-core` [integration tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
 
 See `glace-js` [integration tests](https://github.com/glacejs/glace-js/tree/master/tests/integration) in order to explore plugin examples.
