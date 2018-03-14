@@ -76,6 +76,7 @@ glace -h
 - `--uncaught [type]` - Strategy to process uncaught exceptions. Default value is `log`. Supported values are `log`, `fail`, `mocha`. See details in https://glacejs.github.io/glace-core.
 - `--kill-procs <sequence>` - List of process names separated with comma, which will be killed before tests run.
 - `--debug-on-fail` - Enter to interactive debug mode on step failure.
+- `--interactive, -i` - Launch interactive mode to execute steps manually in terminal.
 
 `Plugins`
 - `--plugins` - Show plugins only.
