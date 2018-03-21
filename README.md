@@ -99,6 +99,7 @@ glace -h
 - `--testrail-run-desc <description>` - TestRail run description.
 
 `Tools`
+- `--testrail-check` - Check TestRail cases consistency with implemented tests.
 - `--list-steps [filter]` - Only list available steps.
 - `--list-tests [filter]` - Only list collected tests.
 - `--list-fixtures [filter]` - Only list available fixtures.
