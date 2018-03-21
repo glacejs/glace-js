@@ -160,6 +160,6 @@ glace -h
 
 ## Test examples
 
-See `glace-core` [integration tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
+See `glace-core` [e2e tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
 
-See `glace-js` [integration tests](https://github.com/glacejs/glace-js/tree/master/tests/integration) in order to explore plugin examples.
+See `glace-js` [e2e tests](https://github.com/glacejs/glace-js/tree/master/tests/e2e) in order to explore plugin examples.
