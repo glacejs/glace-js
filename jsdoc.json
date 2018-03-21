@@ -7,7 +7,7 @@
     },
     "plugins": ["plugins/markdown", "node_modules/jsdoc-strip-async-await"],
     "source": {
-        "include": [ "lib", "glace.png" ]
+        "include": ["lib"]
     },
     "templates": {
         "default": {
