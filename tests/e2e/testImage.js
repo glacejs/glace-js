@@ -1,12 +1,11 @@
 "use strict";
 
-var Steps = require("../../lib").Steps;
 var Page = require("../../lib").Page;
 
 var indexPage = new Page(
     "index", "/",
     { searchField: "input#text",
-      searchButton: "button.button_theme_websearch[type='submit']"});
+        searchButton: "button.button_theme_websearch[type='submit']"});
 
 test("Images processing", () => {
 

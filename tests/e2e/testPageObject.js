@@ -6,7 +6,7 @@ var Page = require("../../lib").Page;
 var indexPage = new Page(
     "index", "/",
     { searchField: "input#text",
-      searchButton: "button.button_theme_websearch[type='submit']"});
+        searchButton: "button.button_theme_websearch[type='submit']"});
 
 Steps.register({
     /**
@@ -18,7 +18,7 @@ Steps.register({
      */
     searchPom: async function (text) {
         await this.openPage(indexPage.name);
-        await indexPage.searchField.setText("nodejs");
+        await indexPage.searchField.setText(text);
         await indexPage.searchButton.click();
         await this.pause(3, "wait for result");
     },
@@ -31,7 +31,7 @@ Steps.register({
      */
     searchWdio: async function (text) {
         await this.openPage(indexPage.name);
-        await indexPage.searchField.getElement().setValue("nodejs");
+        await indexPage.searchField.getElement().setValue(text);
         await indexPage.searchButton.getElement().click();
         await this.pause(3, "wait for result");
     },
