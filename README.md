@@ -109,14 +109,15 @@ glace -h
 
 `Proxy`
 - `--http-proxy` - Use http proxy.
-- `--http-proxy-port` - Port for http proxy. Default is `random`.
+- `--http-proxy-port [number]` - Port for http proxy. Default is `random`.
 - `--global-proxy` - Use transparent global proxy.
-- `--global-proxy-port` - Port for transparent global proxy. Default is `8888`.
-- `--install-certificate` - Install global proxy certificate as trusted. Requires administrator permissions.
-- `--speed [value]` - Responses speed from proxy to client (browser), `kb/s`. Default is `unlimited`.
+- `--global-proxy-port [number]` - Port for transparent global proxy. Default is `8888`.
 - `--cache` - Enable middleware to cache proxy responses to disk.
 - `--existing-cache` - Use existing cache if it exists.
-- `--cache-folder [folder-path]` - Folder to cache server responses. Default is `cwd/.proxy-cache`.
+- `--cache-folder [folder]` - Folder to put cached server responses. Default is `cwd/.proxy-cache`.
+- `--speed <value>` - Proxy speed, kb/s.
+- `--install-certificate` - Install global proxy certificate as trusted. Requires administrator permissions.
+- `--ssl-ca-dir [folder]` - Folder to put generated self-signed SSL certificates.
 - `--reconnect [number]` - Number of proxy reconnects on request error. Default is `2`.
 
 `Test-gen`
@@ -139,14 +140,15 @@ glace -h
 - `--web` - Flag to launch tests in browser.
 - `--web-url <URL>` - Web URL which will be used for web tests.
 - `--web-resolution <widthxheight>` - Browser viewport size (`pc` platform only).
-- `--selenium-addr <address>` - Connect to launched selenium server with this address.
+- `--selenium-address <host:port>` - Connect to launched selenium server with this address.
 - `--platform [type]` - Specify platform type where tests will be executed. Default is `pc`. Supported values are `pc`, `android`, `ios`.
 - `--browser <name>` - Name of browser where web tests will be executed. Default value is platform specific.
 
 `Appium`
 - `--device <name>` - Mobile device name.
-- `--os-version <version>` - Mobile operating system version.
-- `--ios-engine <engine>` - iOS automation engine name.
+- `--os-version <value>` - Mobile operating system version.
+- `--ios-engine <name>` - iOS automation engine name.
+- `--udid <value>` - Mobile device UDID.
 
 `Chrome`
 - `--chrome-incognito` - Launch chrome in incognito mode.
