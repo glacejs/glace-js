@@ -34,8 +34,6 @@ For development:
 git clone https://github.com/glacejs/glace-js.git
 cd glace-js
 npm i
-gulp test-all // launch all integration tests
-gulp --tasks // list all tasks
 ```
 
 ## How to use
