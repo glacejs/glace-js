@@ -136,7 +136,7 @@ glace -h
 - `--video-save` - Capture video of executed tests. Video will be saved even if test is passed.
 
 `Selenium`
-- `--dont-install-web-drivers` - Flag to not install selenium drivers on tests run.
+- `--update-web-drivers` - Update installed selenium drivers on tests run.
 - `--web` - Flag to launch tests in browser.
 - `--web-url <URL>` - Web URL which will be used for web tests.
 - `--web-resolution <widthxheight>` - Browser viewport size (`pc` platform only).
@@ -152,6 +152,8 @@ glace -h
 
 `Chrome`
 - `--chrome-incognito` - Launch chrome in incognito mode.
+- `--chrome-headless` - Launch chrome in headless mode.
+- `--chrome-options` - Provide space-separated chrome options with `key=value` style.
 
 `Virtual display`
 - `--xvfb [<width>x<height>]` - Use [xvfb](https://en.wikipedia.org/wiki/Xvfb) for headless testing.
