@@ -74,6 +74,7 @@ glace -h
 - `--uncaught [type]` - Strategy to process uncaught exceptions. Default value is `log`. Supported values are `log`, `fail`, `mocha`. See details in https://glacejs.github.io/glace-core.
 - `--kill-procs <sequence>` - List of process names separated with comma, which will be killed before tests run.
 - `--debug-on-fail` - Enter to interactive debug mode on step failure.
+- `--exit-on-fail` - Finish test run on first failure.
 - `--interactive, -i` - Launch interactive mode to execute steps manually in terminal.
 
 `Plugins`
@@ -119,14 +120,14 @@ glace -h
 - `--reconnect [number]` - Number of proxy reconnects on request error. Default is `2`.
 
 `Test-gen`
-- `--gen-output-file <path>` - Path to output file with generated tests (`yaml` format).
 - `--gen-filter <chunk>` - Chunk of step name to filter tests.
 - `--gen-steps-uniq [number]` - Number of steps in unique sequence to filter tests. Default is `unlimited`.
 - `--gen-limit-tests [number]` - Maximum amount of generated tests. Default is `1000000`.
 - `--gen-limit-steps [number]` - Maximum amount of steps per test. Default is `unlimited`.
 - `--gen-names-only` - Flag to print only step names.
 - `--gen-steps-usage <number>` - Number of steps usage in test case.
-- `--gen-steps-file <path>` - Path to steps file (yaml or json format). As alternate to specify path to steps file in plugin mode.
+- `--gen-steps-files <sequence>` - Space-separated sequence of paths to steps file (yaml or json format). As alternate to specify path to steps file in plugin mode.
+- `--gen-tests-files <sequence>` - Space-separated sequence of paths to files with pregenerated tests (yaml or json format).
 - `--gen-tests-only` - Flag to exclude other found tests and launch only generated tests in plugin mode.
 
 `Video`
