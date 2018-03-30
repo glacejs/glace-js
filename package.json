@@ -15,7 +15,8 @@
     "test:video": "./bin/glace tests/e2e/testVideo.js --web --video",
     "test:page": "./bin/glace tests/e2e/testPageObject.js --web --web-url https://yandex.ru",
     "test:proxy": "./bin/glace tests/e2e/testProxy.js --web --global-proxy --http-proxy --web-url https://yandex.ru",
-    "test": "npm run lint && npm run test:xvfb && npm run test:fixtures && npm run test:image && npm run test:web && npm run test:video && npm run test:page && npm run test:proxy"
+    "test:gen": "./bin/glace --kill-procs \"Xvfb, chrome, selenium, ffmpeg, avconv\" --root-conftest ./tests/e2e.conftest.js --gen-steps-files ./tests/e2e.steps.yaml --gen-steps-uniq 2 --gen-limit-tests 100 --gen-tests-only",
+    "test": "npm run lint && npm run test:xvfb && npm run test:fixtures && npm run test:image && npm run test:web && npm run test:video && npm run test:page && npm run test:proxy && npm run test:gen"
   },
   "pre-commit": [
     "lint"
@@ -34,10 +35,10 @@
   },
   "homepage": "https://glacejs.github.io/glace-js",
   "dependencies": {
-    "glace-core": "^1.4.2",
-    "glace-image": "^1.1.0",
-    "glace-proxy": "^1.3.0",
-    "glace-testgen": "^1.0.0",
+    "glace-core": "^1.4.3",
+    "glace-image": "^1.1.1",
+    "glace-proxy": "^1.3.1",
+    "glace-testgen": "^1.0.2",
     "glace-video": "^1.1.1",
     "glace-web": "^1.1.7",
     "glace-xvfb": "^1.0.8"
