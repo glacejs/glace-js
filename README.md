@@ -120,15 +120,16 @@ glace -h
 - `--reconnect [number]` - Number of proxy reconnects on request error. Default is `2`.
 
 `Test-gen`
-- `--gen-filter <chunk>` - Chunk of step name to filter tests.
+- `--gen-steps-filter <chunk>` - Chunk of step name to filter tests.
 - `--gen-steps-uniq [number]` - Number of steps in unique sequence to filter tests. Default is `unlimited`.
-- `--gen-limit-tests [number]` - Maximum amount of generated tests. Default is `1000000`.
-- `--gen-limit-steps [number]` - Maximum amount of steps per test. Default is `unlimited`.
-- `--gen-names-only` - Flag to print only step names.
+- `--gen-steps-limit [number]` - Maximum amount of steps per test. Default is `unlimited`.
 - `--gen-steps-usage <number>` - Number of steps usage in test case.
 - `--gen-steps-files <sequence>` - Space-separated sequence of paths to steps file (yaml or json format). As alternate to specify path to steps file in plugin mode.
+- `--gen-tests-limit [number]` - Maximum amount of generated tests. Default is `1000000`.
 - `--gen-tests-files <sequence>` - Space-separated sequence of paths to files with pregenerated tests (yaml or json format).
 - `--gen-tests-only` - Flag to exclude other found tests and launch only generated tests in plugin mode.
+- `--gen-tests-shuffle` - Shuffle tests during generating. Provides more steps sequence randomization, but tests will be different in generating runs.
+- `--gen-names-only` - Flag to print only step names.
 
 `Video`
 - `--video` - Capture video of executed tests. Video will be removed if test is passed.
