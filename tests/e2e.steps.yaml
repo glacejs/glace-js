@@ -1,0 +1,240 @@
+-
+  name: activateWeb
+  income:
+    selenium server: true
+  outcome:
+    web driver: true
+-
+  name: check_timer
+  income:
+    timer: true
+  outcome:
+    checked timer: true
+-
+  name: closeBrowser
+  complete:
+    - browser
+  income:
+    browser: true
+  outcome:
+    browser: false
+-
+  name: disableCache
+  complete:
+    - cache
+  income:
+    proxy cache: true
+  outcome:
+    proxy cache: false
+-
+  name: enableCache
+  incomplete:
+    - cache
+  income:
+    http proxy: true
+    global proxy: true
+  outcome:
+    proxy cache: true
+-
+  name: getCurrentPage
+  income:
+    browser: true
+    browser restarted: false
+    opened page: true
+-
+  name: get_element
+  income:
+    browser: true
+    browser restarted: false
+    opened page: true
+-
+  name: getProxyUrl
+  income:
+    http proxy: true
+-
+  name: getResponsesData
+  income:
+    measured responses: true
+    opened app: true
+-
+  name: getTimer
+  income:
+    timer: true
+-
+  name: getVideo
+  income:
+    video: stopped
+-
+  name: installSeleniumDrivers
+  outcome:
+    selenium drivers: true
+-
+  name: launchBrowser
+  incomplete:
+    - browser
+  income:
+    web driver: true
+  outcome:
+    browser: true
+-
+  name: limit_proxy_speed
+  incomplete:
+    - proxy speed
+  income:
+    http proxy: true
+    global proxy: true
+  outcome:
+    proxy speed: true
+-
+  name: makeScreenshot
+  income:
+    browser: true
+  outcome:
+    screenshot: true
+-
+  name: measureResponses
+  incomplete:
+    - measured responses
+  income:
+    http proxy: true
+    global proxy: true
+    opened app: false
+  outcome:
+    measured responses: true
+-
+  name: openApp
+  income:
+    browser: true
+  outcome:
+    opened app: true
+-
+  name: open_page
+  income:
+    browser: true
+  outcome:
+    opened page: true
+-
+  name: open_url
+  income:
+    browser: true
+  outcome:
+    opened url: true
+-
+  name: make_pause
+  outcome:
+    pause: true
+-
+  name: removeVideo
+  income:
+    video: stopped
+  outcome:
+    removed video: true
+-
+  name: restartBrowser
+  income:
+    browser: true
+  outcome:
+    browser restarted: true
+-
+  name: setViewport
+  income:
+    browser: true
+-
+  name: startGlobalProxy
+  incomplete:
+    - global proxy
+  outcome:
+    global proxy: true
+-
+  name: startHttpProxy
+  incomplete:
+    - http proxy
+  outcome:
+    http proxy: true
+-
+  name: startSeleniumServer
+  incomplete:
+    - selenium server
+  income:
+    selenium drivers: true
+  outcome:
+    selenium server: true
+-
+  name: startTimer
+  outcome:
+    timer: true
+-
+  name: startVideo
+  incomplete:
+    - video
+  outcome:
+    video: started
+-
+  name: startXvfb
+  incomplete:
+    - xvfb
+  outcome:
+    xvfb: true
+-
+  name: stopGlobalProxy
+  complete:
+    - global proxy
+  income:
+    global proxy: true
+  outcome:
+    global proxy: false
+-
+  name: stopHttpProxy
+  complete:
+    - http proxy
+  income:
+    http proxy: true
+  outcome:
+    http proxy: false
+-
+  name: stopSeleniumServer
+  complete:
+    - selenium server
+  income:
+    selenium server: true
+  outcome:
+    selenium server: false
+    web driver: false
+-
+  name: stopTimer
+  income:
+    timer: true
+  outcome:
+    timer: false
+-
+  name: stopVideo
+  complete:
+    - video
+  income:
+    video: started
+  outcome:
+    video: stopped
+-
+  name: stopXvfb
+  complete:
+    - xvfb
+  income:
+    xvfb: true
+  outcome:
+    xvfb: false
+-
+  name: unlimitProxySpeed
+  complete:
+    - proxy speed
+  income:
+    proxy speed: true
+  outcome:
+    proxy speed: false
+-
+  name: unmeasureResponses
+  complete:
+    - measured responses
+  income:
+    measured responses: true
+  outcome:
+    measured responses: false
