@@ -83,6 +83,7 @@
   income:
     http proxy: true
     global proxy: true
+    opened app: false
   outcome:
     proxy speed: true
 -
@@ -227,6 +228,7 @@
   complete:
     - proxy speed
   income:
+    opened app: true
     proxy speed: true
   outcome:
     proxy speed: false
