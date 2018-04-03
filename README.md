@@ -63,9 +63,13 @@ glace -h
 `Core`
 - `--user-config [path]` - Path to JS file with configuration which will be merged with override default configuration. Default is `cwd/config.js` (if it exists).
 - `--session-name [name]` - Tests run session name. Default value includes word `session` and datetime.
-- `--grep <pattern>, -g` - Filter tests by name or name chunk.
+- `--grep <pattern>, -g` - Filter tests by name or name chunk (by mocha).
+- `--include <sequence>` - Sequence of test name chunks separated by ` | ` in order to choose tests for run.
+- `--exclude <sequence>` - Sequence of test name chunks separated by ` | ` in order to exclude tests from run.
+- `--precise` - Precise tests inclusion or exclusion (not substring pattern).
 - `--report [path]` - Path to reports folder. Default is `cwd/reports`.
 - `--dont-clear-report` - Don't clear previous report on tests run.
+- `--failed-tests-path [path]` - Path to save failed tests in JSON format. Default is `cwd/failed-tests.json`.
 - `--root-conftest <path>` - Path to root conftest.js which will be loaded before all.
 - `--languages <sequence>` - List of tested languages separated with comma.
 - `--retry [times]` - Number of times to retry failed test. Default is `0`.
@@ -75,6 +79,7 @@ glace -h
 - `--kill-procs <sequence>` - List of process names separated with comma, which will be killed before tests run.
 - `--debug-on-fail` - Enter to interactive debug mode on step failure.
 - `--exit-on-fail` - Finish test run on first failure.
+- `--errors-now` - Print error message immediately when it happened.
 - `--interactive, -i` - Launch interactive mode to execute steps manually in terminal.
 
 `Plugins`
