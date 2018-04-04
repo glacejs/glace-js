@@ -130,10 +130,13 @@ glace -h
 - `--gen-steps-limit [number]` - Maximum amount of steps per test. Default is `unlimited`.
 - `--gen-steps-usage <number>` - Number of steps usage in test case.
 - `--gen-steps-files <sequence>` - Space-separated sequence of paths to steps file (yaml or json format). As alternate to specify path to steps file in plugin mode.
-- `--gen-tests-limit [number]` - Maximum amount of generated tests. Default is `1000000`.
+- `--gen-tests-limit [number]` - Maximum amount of generated tests per iteration. Default is `1000000`.
+- `--gen-tests-max <number>` - Maximum amount of final tests.
 - `--gen-tests-files <sequence>` - Space-separated sequence of paths to files with pregenerated tests (yaml or json format).
 - `--gen-tests-only` - Flag to exclude other found tests and launch only generated tests in plugin mode.
 - `--gen-tests-shuffle` - Shuffle tests during generating. Provides more steps sequence randomization, but tests will be different in generating runs.
+- `--gen-load-train <path>` - Path to file with pretrained model, which will be loaded before generating.
+- `--gen-train-before <path>` - Path to file with tests for training before generating.
 - `--gen-names-only` - Flag to print only step names.
 
 `Video`
