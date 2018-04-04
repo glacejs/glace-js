@@ -5,3 +5,4 @@ reports
 .proxy-cache
 .vscode
 .idea
+failed-tests.json
