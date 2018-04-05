@@ -1,6 +1,6 @@
 {
   "name": "glace-js",
-  "version": "1.9.8",
+  "version": "1.9.9",
   "description": "GlaceJS is functional testing framework based on mochajs",
   "main": "lib/index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "docs:publish": "npm run docs && git add -A && git commit -m \"update docs\" && git push origin master",
     "lint": "eslint lib tests",
     "lint:fix": "npm run lint -- --fix",
+    "test:bugs": "./bin/glace tests/e2e/testBugs.js --global-proxy --http-proxy --web-url https://yandex.ru",
     "test:xvfb": "./bin/glace tests/e2e/testXvfb.js --web --video --xvfb",
     "test:fixtures": "./bin/glace tests/e2e/testFixtures.js --web --web-url https://yandex.ru",
     "test:image": "./bin/glace tests/e2e/testImage.js --web --web-url https://yandex.ru",
@@ -16,7 +17,7 @@
     "test:page": "./bin/glace tests/e2e/testPageObject.js --web --web-url https://yandex.ru",
     "test:proxy": "./bin/glace tests/e2e/testProxy.js --web --global-proxy --http-proxy --web-url https://yandex.ru",
     "test:gen": "./bin/glace --kill-procs \"Xvfb, chrome, selenium, ffmpeg, avconv\" --chrome-headless --root-conftest ./tests/e2e.conftest.js --gen-steps-files ./tests/e2e.steps.yaml --gen-steps-uniq 2 --gen-tests-limit 200 --gen-tests-shuffle --gen-tests-only",
-    "test": "npm run lint && npm run test:xvfb && npm run test:fixtures && npm run test:image && npm run test:web && npm run test:video && npm run test:page && npm run test:proxy && npm run test:gen"
+    "test": "npm run lint && npm run test:bugs && npm run test:xvfb && npm run test:fixtures && npm run test:image && npm run test:web && npm run test:video && npm run test:page && npm run test:proxy && npm run test:gen"
   },
   "pre-commit": [
     "lint"
@@ -35,10 +36,10 @@
   },
   "homepage": "https://glacejs.github.io/glace-js",
   "dependencies": {
-    "glace-core": "^1.4.7",
+    "glace-core": "^1.4.8",
     "glace-image": "^1.1.1",
     "glace-proxy": "^1.3.1",
-    "glace-testgen": "^1.0.7",
+    "glace-testgen": "^1.0.8",
     "glace-video": "^1.1.2",
     "glace-web": "^1.1.8",
     "glace-xvfb": "^1.0.8"
