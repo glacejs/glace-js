@@ -87,10 +87,14 @@
   outcome:
     proxy speed: true
 -
-  name: makeScreenshot
+  name: make_screenshot
   income:
     browser: true
   outcome:
+    screenshot: true
+-
+  name: resize_image
+  income:
     screenshot: true
 -
   name: measureResponses

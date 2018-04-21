@@ -40,4 +40,12 @@ glace.Steps.register({
     make_pause: async function () {
         await this.pause(0.1, "small sleep");
     },
+
+    make_screenshot: async function () {
+        this.ctx.screenshot = await this.makeScreenshot();
+    },
+
+    resize_image: async function () {
+        await this.resizeImage(this.ctx.screenshot, "50%");
+    },
 });
