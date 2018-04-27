@@ -37,7 +37,7 @@
   },
   "homepage": "https://glacejs.github.io/glace-js",
   "dependencies": {
-    "glace-core": "^1.5.1",
+    "glace-core": "^1.5.2",
     "glace-image": "^1.2.1",
     "glace-proxy": "^1.3.2",
     "glace-testgen": "^1.1.1",
