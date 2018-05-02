@@ -92,6 +92,10 @@ glace -h
 - `--xunit-path [path]` - Path to xUnit report. Default is `cwd/xunit.xml`.
 - `--xunit-suite-name [name]` - Tests suite name in xUnit report. By default it's the same as session name.
 
+`Allure`
+- `--allure` - Activate [Allure](https://docs.qameta.io/allure/) reporter.
+- `--allure-dir [path]` - Path to allure reports folder. Default is `cwd/reports/allure`.
+
 `TestRail`
 - `--testrail` - Activate testrail reporter.
 - `--testrail-host <host>` - TestRail host.
