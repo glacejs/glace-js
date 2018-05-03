@@ -1,6 +1,6 @@
 **Glace** (fr. *glacé* — ice, frozen) is a cold drink based on **coffee** with addition of **ice cream**.
 
-![GlaceJS logo](glace.png)
+<img src="glace.png" alt="GlaceJS logo" style="width: 250px; height: 250px;"/>
 
 `GlaceJS` is a quick-start functional testing framework based on [mocha](http://mochajs.org/) and extensible with [plugins](https://github.com/glacejs).
 
