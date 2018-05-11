@@ -1,6 +1,6 @@
 node_modules
 *.log
-reports
+report
 .http-mitm-proxy
 .proxy-cache
 .vscode
