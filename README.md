@@ -84,7 +84,7 @@ glace -h
 - `--interactive, -i` - Launch interactive mode to execute steps manually in terminal.
 
 `Plugins`
-- `--plugins` - Show plugins only.
+- `--list-plugins` - List installed plugins and exit.
 - `--plugins-dir [path]` - Path to custom plugins folder. By default it searches plugins inside folder, where `glace-core` is installed.
 - `--disable-default-plugins` - Disable default plugins.
 
@@ -109,9 +109,9 @@ glace -h
 
 `Tools`
 - `--testrail-check` - Check TestRail cases consistency with implemented tests.
-- `--list-steps [filter]` - Only list available steps.
-- `--list-tests [filter]` - Only list collected tests.
-- `--list-fixtures [filter]` - Only list available fixtures.
+- `--list-steps [filter]` - List available steps and exit.
+- `--list-tests [filter]` - List collected tests and exit.
+- `--list-fixtures [filter]` - List available fixtures and exit.
 
 `Image`
 - `--screenshot-on-fail` - Capture screenshot on chunk fail.
