@@ -67,10 +67,10 @@ glace -h
 - `--include <sequence>` - Sequence of test name chunks separated by ` | ` in order to choose tests for run.
 - `--exclude <sequence>` - Sequence of test name chunks separated by ` | ` in order to exclude tests from run.
 - `--precise` - Precise tests inclusion or exclusion (not substring pattern).
-- `--report [path]` - Path to reports folder. Default is `cwd/reports`.
+- `--report [path]` - Path to reports folder. Default is `cwd/report`.
 - `--dont-clear-report` - Don't clear previous report on tests run.
 - `--dont-check-names` - Don't check test names uniqueness (_usually useful in unit testing_).
-- `--failed-tests-path [path]` - Path to save failed tests in JSON format. Default is `cwd/failed-tests.json`.
+- `--failed-tests-path [path]` - Path to save failed tests in JSON format. Default is `cwd/report/failed-tests.json`.
 - `--root-conftest <path>` - Path to root conftest.js which will be loaded before all.
 - `--languages <sequence>` - List of tested languages separated with comma.
 - `--retry [times]` - Number of times to retry failed test. Default is `0`.
@@ -90,12 +90,12 @@ glace -h
 
 `xUnit`
 - `--xunit` - Activate xUnit reporter.
-- `--xunit-path [path]` - Path to xUnit report. Default is `cwd/xunit.xml`.
+- `--xunit-path [path]` - Path to xUnit report. Default is `cwd/report/xunit.xml`.
 - `--xunit-suite-name [name]` - Tests suite name in xUnit report. By default it's the same as session name.
 
 `Allure`
 - `--allure` - Activate [Allure](https://docs.qameta.io/allure/) reporter.
-- `--allure-dir [path]` - Path to allure reports folder. Default is `cwd/reports/allure`.
+- `--allure-dir [path]` - Path to allure reports folder. Default is `cwd/report/allure`.
 
 `TestRail`
 - `--testrail` - Activate testrail reporter.
