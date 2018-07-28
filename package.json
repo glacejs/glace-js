@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "release": "VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git add -u && git commit -m \"release $VERSION\" && git tag $VERSION && git push origin $VERSION && npm run docs:publish && npm publish",
-    "docs": "rm -rf docs && jsdoc -c jsdoc.json -d docs",
-    "docs:publish": "npm run docs && git add -A && git commit -m \"update docs\" && git push origin master",
+    "docs": "rm -rf docs && jsdoc -c jsdoc.json -d docs && npm run allure:report",
+    "docs:publish": "npm run docs && git add docs && git commit -m \"update docs\" && git push origin master",
+    "allure:report": "npm run test:gen && allure generate report/allure --report-dir ./docs/allure-report",
     "lint": "eslint lib tests",
     "lint:fix": "npm run lint -- --fix",
     "test:bugs": "./bin/glace tests/e2e/testBugs.js --global-proxy --http-proxy --web-url https://yandex.ru",
@@ -17,7 +18,7 @@
     "test:video": "./bin/glace tests/e2e/testVideo.js --web --video",
     "test:page": "./bin/glace tests/e2e/testPageObject.js --web --web-url https://yandex.ru",
     "test:proxy": "./bin/glace tests/e2e/testProxy.js --web --global-proxy --http-proxy --web-url https://yandex.ru",
-    "test:gen": "./bin/glace --kill-procs \"Xvfb, chrome, selenium, ffmpeg, avconv\" --chrome-headless --root-conftest ./tests/e2e.conftest.js --gen-steps-files ./tests/e2e.steps.yaml --gen-steps-uniq 2 --gen-tests-limit 300 --gen-tests-shuffle --gen-tests-only",
+    "test:gen": "./bin/glace --kill-procs \"Xvfb, chrome, selenium, ffmpeg, avconv\" --chrome-headless --root-conftest ./tests/e2e.conftest.js --gen-steps-files ./tests/e2e.steps.yaml --gen-steps-uniq 2 --gen-tests-limit 300 --gen-tests-shuffle --gen-tests-only --allure",
     "test": "npm run lint && npm run test:bugs && npm run test:xvfb && npm run test:fixtures && npm run test:image && npm run test:web && npm run test:video && npm run test:page && npm run test:proxy && npm run test:gen"
   },
   "pre-commit": [
