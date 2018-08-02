@@ -180,7 +180,3 @@ glace -h
 See `glace-core` [e2e tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
 
 See `glace-js` [e2e tests](https://github.com/glacejs/glace-js/tree/master/tests/e2e) in order to explore plugin examples.
-
-## Tests and quality
-
-- Project tests report is <a href="allure-report/index.html" target="_blank">here</a>
