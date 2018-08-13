@@ -78,10 +78,11 @@ glace -h
 - `--chunk-timeout [sec]` - Time to execute chunk or hook, sec. Default is `180`.
 - `--uncaught [type]` - Strategy to process uncaught exceptions. Default value is `log`. Supported values are `log`, `fail`, `mocha`. See details in https://glacejs.github.io/glace-core.
 - `--kill-procs <sequence>` - List of process names separated with comma, which will be killed before tests run.
-- `--debug-on-fail` - Enter to interactive debug mode on step failure.
+- `--debug-on-fail` - Enter to interactive debug mode on step failure. **Incompatible with `--slaves` option**.
 - `--exit-on-fail` - Finish test run on first failure.
 - `--errors-now` - Print error message immediately when it happened.
-- `--interactive, -i` - Launch interactive mode to execute steps manually in terminal.
+- `--interactive, -i` - Launch interactive mode to execute steps manually in terminal. **Incompatible with `--slaves` option**.
+- `--slaves <number|auto>` - Split tests by slaves and execute them in separated processes in parallel. If it is `auto`, slaves amount will be equal to process cores amount.
 
 `Plugins`
 - `--list-plugins` - List installed plugins and exit.
@@ -118,15 +119,15 @@ glace -h
 
 `Proxy`
 - `--http-proxy` - Use http proxy.
-- `--http-proxy-port [number]` - Port for http proxy. Default is `random`.
+- `--http-proxy-port [number]` - Port for http proxy. Default is `random`. **Incompatible with `--slaves` option**.
 - `--global-proxy` - Use transparent global proxy.
-- `--global-proxy-port [number]` - Port for transparent global proxy. Default is `8888`.
+- `--global-proxy-port [number]` - Port for transparent global proxy. Default is `random`. **Incompatible with `--slaves` option**.
 - `--cache` - Enable middleware to cache proxy responses to disk.
 - `--existing-cache` - Use existing cache if it exists.
-- `--cache-folder [folder]` - Folder to put cached server responses. Default is `cwd/.proxy-cache`.
+- `--cache-folder [folder]` - Folder to put cached server responses. Default is `cwd/report/.proxy-cache`.
 - `--speed <value>` - Proxy speed, kb/s.
 - `--install-certificate` - Install global proxy certificate as trusted. Requires administrator permissions.
-- `--ssl-ca-dir [folder]` - Folder to put generated self-signed SSL certificates.
+- `--ssl-ca-dir [folder]` - Folder to put generated self-signed SSL certificates. Default is `cwd/report/.certificats`.
 - `--reconnect [number]` - Number of proxy reconnects on request error. Default is `2`.
 
 `Test-gen`
