@@ -4,6 +4,7 @@ module.exports = {
         "node": true
     },
     "globals": {
+        "$": true,
         "SS": true,
         "expect": true,
         "chunk": true,

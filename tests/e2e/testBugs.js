@@ -6,7 +6,7 @@ scope("Fixed Bugs", () => {
     test("https://github.com/glacejs/glace-core/issues/87", { retry: 1 }, () => {
 
         before(async () => {
-            await SS.limitProxySpeed(1024);
+            await $.limitProxySpeed(1024);
         });
 
         after(() => {

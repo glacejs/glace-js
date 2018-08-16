@@ -9,7 +9,7 @@ CONF.web.url = "https://yandex.ru";
 CONF.web.width = 1066;
 CONF.web.height = 600;
 
-SS.registerPages(
+$.registerPages(
     new Page(
         "index", "/", {
             searchField: "input#text",

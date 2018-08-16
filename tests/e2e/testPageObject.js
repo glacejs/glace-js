@@ -40,18 +40,18 @@ Steps.register({
 test("Page Object", () => {
 
     before(() => {
-        SS.registerPages(indexPage);
+        $.registerPages(indexPage);
     });
 
     beforeChunk(async () => {
-        await SS.restartBrowser();
+        await $.restartBrowser();
     });
 
     chunk("It should manage UI elements via Glace POM", async () => {
-        await SS.searchPom("nodejs");
+        await $.searchPom("nodejs");
     });
 
     chunk("It should manage UI elements via WebdriverIO", async () => {
-        await SS.searchWdio("nodejs");
+        await $.searchWdio("nodejs");
     });
 });
