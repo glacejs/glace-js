@@ -1,4 +1,4 @@
-scope("It should use fixtures", [fxSelenium, fxWebdriver, fxBrowser], () => {
+scope("It should use fixtures", [fxSelenium, fxBrowser], () => {
 
     test("Http proxy", null, [fxHttpProxy], () => {
         chunk(async () => await $.openApp());

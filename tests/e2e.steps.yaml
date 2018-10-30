@@ -1,10 +1,4 @@
 -
-  name: activateWeb
-  income:
-    selenium server: true
-  outcome:
-    web driver: true
--
   name: check_timer
   income:
     timer: true
@@ -73,7 +67,7 @@
   incomplete:
     - browser
   income:
-    web driver: true
+    selenium server: true
   outcome:
     browser: true
 -

@@ -5,7 +5,7 @@ var glace = require("glace-core");
 var CONF = require("../lib").config;
 var Page = require("../lib").Page;
 
-CONF.web.url = "https://yandex.ru";
+CONF.web.url = "https://ya.ru";
 CONF.web.width = 1066;
 CONF.web.height = 600;
 
