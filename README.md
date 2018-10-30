@@ -150,7 +150,6 @@ glace -h
 - `--video-save` - Capture video of executed tests. Video will be saved even if test is passed.
 
 `Selenium`
-- `--update-web-drivers` - Update installed selenium drivers on tests run.
 - `--web` - Flag to launch tests in browser.
 - `--web-url <URL>` - Web URL which will be used for web tests.
 - `--web-resolution <widthxheight>` - Browser viewport size (`pc` platform only).
