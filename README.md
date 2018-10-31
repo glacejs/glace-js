@@ -10,6 +10,14 @@
 - [glace-web](https://glacejs.github.io/glace-web)
 - [glace-xvfb](https://glacejs.github.io/glace-xvfb)
 
+## Killer features
+
+- **Interactive mode**
+- **[Test generating with machine learning](https://glacejs.github.io/glace-testgen)**
+- **Smart retries**
+- **Universal fixtures**
+- **Multiprocessing mode**
+
 ## Installation
 
 - Be sure you have next software installed:
