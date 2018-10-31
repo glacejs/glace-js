@@ -36,7 +36,7 @@ npm i
 
 ## Quick start
 
-**Test to launch browser and open web page.**
+**Passed test to launch browser and open web page.**
 
 - Be sure that `glace` command is in `$PATH` env variable. Or add it:
 
@@ -80,8 +80,58 @@ Summary tests time is 0.664 sec
 ---------------------------------
 Local report is /home/user/report
 ```
+<br/>
+**Failed test when web page is redirected to another.**
 
-## Examples
+- Save next test case to file `failed-test.js`:
+
+```javascript
+"use strict";
+
+test("It should launch browser and open web page", () => {
+    const url = "https://www.ya.ru";
+
+    chunk(`Open url "${url}"`, async () => {
+        await $.openUrl(url);
+    });
+});
+```
+
+- Call command to launch test:
+
+```
+glace failed-test.js --web
+```
+
+- Get failure:
+
+```
+suite: Session 2017-10-11 13:11:39
+
+  test: It should launch browser and open web page
+    ✖ chunk: Open url "https://www.ya.ru"
+
+  ✖ 1 failed test
+  1 executed chunk
+
+  Summary tests time is 1m 0.6s
+
+TEST FAILURES:
+
+test: It should launch browser and open web page
+
+Open url "https://www.ya.ru"
+message: Browser didn't navigate to https://www.ya.ru during 60000 ms
+stack: Error: Browser didn't navigate to https://www.ya.ru during 60000 ms
+    at new WaitUntilTimeoutError (node_modules/webdriverio/build/lib/utils/ErrorHandler.js:149:12)
+    at /home/user/node_modules/webdriverio/build/lib/commands/waitUntil.js:29:19
+    at <anonymous>
+
+---------------------------------
+Local report is /home/user/report
+```
+
+## More examples
 
 - See `glace-core` [e2e tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
 - See `glace-js` [e2e tests](https://github.com/glacejs/glace-js/tree/master/tests/e2e) in order to explore plugin examples.
