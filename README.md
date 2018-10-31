@@ -22,29 +22,69 @@
 
 - For usage call `npm`:
 
-    ```
-    npm i glace-js
-    ```
+```
+npm i glace-js
+```
 
 - *For development*:
 
-    ```
-    git clone https://github.com/glacejs/glace-js.git
-    cd glace-js
-    npm i
-    ```
-
-## How to use
-
 ```
-glace [options] [sequence-of-test-files-or-folders]
+git clone https://github.com/glacejs/glace-js.git
+cd glace-js
+npm i
 ```
 
-In order to see all CLI options use command (plugin commands will be shown too):
+## Quick start
+
+**Test to launch browser and open web page.**
+
+- Be sure that `glace` command is in `$PATH` env variable. Or add it:
 
 ```
-glace -h
+PATH=$PATH:./node_modules/glace-js/bin
 ```
+
+- Save next test case to file `first-test.js`:
+
+```javascript
+"use strict";
+
+test("It should launch browser and open web page", () => {
+    const url = "https://ya.ru";
+
+    chunk(`Open url "${url}"`, async () => {
+        await $.openUrl(url);
+    });
+});
+```
+
+- Call command to launch test:
+
+```
+glace first-test.js --web
+```
+
+- Enjoy result:
+
+```
+suite: Session 2017-10-11 12:56:51
+
+test: It should launch browser and open web page
+    ✓ chunk: Open url "https://ya.ru"
+
+✓ 1 passed test
+1 executed chunk
+
+Summary tests time is 0.664 sec
+
+---------------------------------
+Local report is /home/user/report
+```
+
+## Examples
+
+- See `glace-core` [e2e tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
+- See `glace-js` [e2e tests](https://github.com/glacejs/glace-js/tree/master/tests/e2e) in order to explore plugin examples.
 
 ## CLI options
 
@@ -172,9 +212,3 @@ glace -h
 `Common`
 - `--version` - Show version number.
 - `-h, --help` - Show help.
-
-## Examples
-
-See `glace-core` [e2e tests](https://github.com/glacejs/glace-core/tree/master/tests/e2e) in order to explore basic examples.
-
-See `glace-js` [e2e tests](https://github.com/glacejs/glace-js/tree/master/tests/e2e) in order to explore plugin examples.
