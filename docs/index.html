@@ -95,8 +95,7 @@
     <section class="readme-section">
         <article><p><strong>Glace</strong> (fr. <em>glacé</em> — ice, frozen) is a cold drink based on <strong>coffee</strong> with addition of <strong>ice cream</strong>.</p>
 <p><img src="glace.png" alt="GlaceJS logo" style="width: 250px; height: 250px;"/></p>
-<p><code>GlaceJS</code> is a quick-start functional testing framework based on <a href="http://mochajs.org/">mocha</a> and extensible with <a href="https://github.com/glacejs">plugins</a>.</p>
-<p><code>glace-js</code> is aggregation project which includes <a href="https://glacejs.github.io/glace-core">glace-core</a> and its <a href="https://github.com/glacejs">plugins</a>:</p>
+<p><code>glace-js</code> is a <a href="https://nodejs.org/">nodejs</a> <strong>quick-start</strong> testing framework for complex scenarios touching UI and API cases. It's based on <a href="https://glacejs.github.io/glace-core">glace-core</a> and extended with <a href="https://github.com/glacejs">plugins</a>:</p>
 <ul>
 <li><a href="https://glacejs.github.io/glace-image">glace-image</a></li>
 <li><a href="https://glacejs.github.io/glace-proxy">glace-proxy</a></li>
@@ -105,19 +104,61 @@
 <li><a href="https://glacejs.github.io/glace-web">glace-web</a></li>
 <li><a href="https://glacejs.github.io/glace-xvfb">glace-xvfb</a></li>
 </ul>
-<h2>Binary software which may be used</h2><ul>
-<li><code>java</code> for selenium server usage;</li>
-<li><code>chrome</code> browser for web tests;</li>
-<li><code>imagemagick</code> (<strong>unix only</strong>) for images comparison (on windows will be installed together with framework);</li>
-<li><code>avconv</code> (<strong>linux only</strong>) for video capture. On windows <code>ffmpeg</code> is used which will be installed together with framework. On macOS isn't implemented still;</li>
-<li>compiler for native nodejs modules. On windows may be installed with <code>npm i -g windows-build-tools</code>;</li>
+<h2>Installation</h2><ul>
+<li>Be sure you have next software installed:<ul>
+<li><code>java</code> for local selenium server;</li>
+<li><code>chrome</code> browser for web tests (or any selenium supported browser);</li>
+<li><code>imagemagick</code> [<strong>unix only</strong>] for images processing (on windows it will be installed together with framework);</li>
+<li><code>avconv</code> or <code>ffmpeg</code> [<strong>unix only</strong>] for video processing (on windows <code>ffmpeg</code> will be installed together with framework);</li>
+<li>compiler for native nodejs modules (on windows it can be installed with <code>npm i -g windows-build-tools</code>);</li>
 </ul>
-<h2>How to install</h2><p>Use <code>npm</code>:</p>
-<pre class="prettyprint source"><code>npm i glace-js</code></pre><p>For development:</p>
+</li>
+</ul>
+<ul>
+<li>For usage call <code>npm</code>:</li>
+</ul>
+<pre class="prettyprint source"><code>npm i glace-js</code></pre><ul>
+<li><em>For development</em>:</li>
+</ul>
 <pre class="prettyprint source"><code>git clone https://github.com/glacejs/glace-js.git
 cd glace-js
-npm i</code></pre><h2>How to use</h2><pre class="prettyprint source"><code>glace [options] [sequence-of-test-files-or-folders]</code></pre><p>In order to see all CLI options use command (plugin commands will be shown too):</p>
-<pre class="prettyprint source"><code>glace -h</code></pre><h2>CLI options</h2><p><code>Arguments</code></p>
+npm i</code></pre><h2>Quick start</h2><p><strong>Test to launch browser and open web page.</strong></p>
+<ul>
+<li>Be sure that <code>glace</code> command is in <code>$PATH</code> env variable. Or add it:</li>
+</ul>
+<pre class="prettyprint source"><code>PATH=$PATH:./node_modules/glace-js/bin</code></pre><ul>
+<li>Save next test case to file <code>first-test.js</code>:</li>
+</ul>
+<pre class="prettyprint source lang-javascript"><code>&quot;use strict&quot;;
+
+test(&quot;It should launch browser and open web page&quot;, () => {
+    const url = &quot;https://ya.ru&quot;;
+
+    chunk(`Open url &quot;${url}&quot;`, async () => {
+        await $.openUrl(url);
+    });
+});</code></pre><ul>
+<li>Call command to launch test:</li>
+</ul>
+<pre class="prettyprint source"><code>glace first-test.js --web</code></pre><ul>
+<li>Enjoy result:</li>
+</ul>
+<pre class="prettyprint source"><code>suite: Session 2017-10-11 12:56:51
+
+test: It should launch browser and open web page
+    ✓ chunk: Open url &quot;https://ya.ru&quot;
+
+✓ 1 passed test
+1 executed chunk
+
+Summary tests time is 0.664 sec
+
+---------------------------------
+Local report is /home/user/report</code></pre><h2>Examples</h2><ul>
+<li>See <code>glace-core</code> <a href="https://github.com/glacejs/glace-core/tree/master/tests/e2e">e2e tests</a> in order to explore basic examples.</li>
+<li>See <code>glace-js</code> <a href="https://github.com/glacejs/glace-js/tree/master/tests/e2e">e2e tests</a> in order to explore plugin examples.</li>
+</ul>
+<h2>CLI options</h2><p><code>Arguments</code></p>
 <ul>
 <li><code>--config [path], -c</code> - Path to JSON file with CLI arguments. Default is <code>cwd/config.json</code> (if it exists).</li>
 </ul>
@@ -257,9 +298,7 @@ npm i</code></pre><h2>How to use</h2><pre class="prettyprint source"><code>glace
 <ul>
 <li><code>--version</code> - Show version number.</li>
 <li><code>-h, --help</code> - Show help.</li>
-</ul>
-<h2>Examples</h2><p>See <code>glace-core</code> <a href="https://github.com/glacejs/glace-core/tree/master/tests/e2e">e2e tests</a> in order to explore basic examples.</p>
-<p>See <code>glace-js</code> <a href="https://github.com/glacejs/glace-js/tree/master/tests/e2e">e2e tests</a> in order to explore plugin examples.</p></article>
+</ul></article>
     </section>
 
 
@@ -309,7 +348,7 @@ npm i</code></pre><h2>How to use</h2><pre class="prettyprint source"><code>glace
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2018-10-30T22:15:58+02:00
+		on 2018-10-31T13:06:00+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
