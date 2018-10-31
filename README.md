@@ -2,9 +2,7 @@
 
 <img src="glace.png" alt="GlaceJS logo" style="width: 250px; height: 250px;"/>
 
-`GlaceJS` is a quick-start functional testing framework based on [mocha](http://mochajs.org/) and extensible with [plugins](https://github.com/glacejs).
-
-`glace-js` is aggregation project which includes [glace-core](https://glacejs.github.io/glace-core) and its [plugins](https://github.com/glacejs):
+`glace-js` is a [nodejs](https://nodejs.org/) **quick-start** testing framework for complex scenarios touching UI and API cases. It's based on [glace-core](https://glacejs.github.io/glace-core) and extended with [plugins](https://github.com/glacejs):
 - [glace-image](https://glacejs.github.io/glace-image)
 - [glace-proxy](https://glacejs.github.io/glace-proxy)
 - [glace-testgen](https://glacejs.github.io/glace-testgen)
