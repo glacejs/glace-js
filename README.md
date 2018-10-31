@@ -10,29 +10,29 @@
 - [glace-web](https://glacejs.github.io/glace-web)
 - [glace-xvfb](https://glacejs.github.io/glace-xvfb)
 
-## Binary software which may be used
+## Installation
 
-- `java` for selenium server usage;
-- `chrome` browser for web tests;
-- `imagemagick` (**unix only**) for images comparison (on windows will be installed together with framework);
-- `avconv` (**linux only**) for video capture. On windows `ffmpeg` is used which will be installed together with framework. On macOS isn't implemented still;
-- compiler for native nodejs modules. On windows may be installed with `npm i -g windows-build-tools`;
+- Be sure you have next software installed:
+    - `java` for local selenium server;
+    - `chrome` browser for web tests (or any selenium supported browser);
+    - `imagemagick` [**unix only**] for images processing (on windows it will be installed together with framework);
+    - `avconv` or `ffmpeg` [**unix only**] for video processing (on windows `ffmpeg` will be installed together with framework);
+    - compiler for native nodejs modules (on windows it can be installed with `npm i -g windows-build-tools`);
 
-## How to install
 
-Use `npm`:
+- For usage call `npm`:
 
-```
-npm i glace-js
-```
+    ```
+    npm i glace-js
+    ```
 
-For development:
+- *For development*:
 
-```
-git clone https://github.com/glacejs/glace-js.git
-cd glace-js
-npm i
-```
+    ```
+    git clone https://github.com/glacejs/glace-js.git
+    cd glace-js
+    npm i
+    ```
 
 ## How to use
 
