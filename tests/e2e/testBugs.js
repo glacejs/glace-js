@@ -1,7 +1,8 @@
 "use strict";
 
+if (!global.i) global.i = 0;
+
 scope("Fixed Bugs", () => {
-    var i = 0;
 
     test("https://github.com/glacejs/glace-core/issues/87", { retry: 1 }, () => {
 
@@ -10,11 +11,11 @@ scope("Fixed Bugs", () => {
         });
 
         after(() => {
-            i++;
+            global.i++;
         });
 
         chunk(() => {
-            if (!i) throw new Error("BOOM!");
+            if (!global.i) throw new Error("BOOM!");
         });
     });
 });
