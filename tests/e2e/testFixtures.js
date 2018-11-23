@@ -1,10 +1,10 @@
-scope("It should use fixtures", [fxSelenium, fxBrowser], () => {
+scope("It should use fixtures", [fxSeleniumServer, fxBrowser], () => {
 
-    test("Http proxy", null, [fxHttpProxy], () => {
+    test("Http proxy", [fxHttpProxy], () => {
         chunk(async () => await $.openApp());
     });
 
-    test("Global proxy", null, [fxGlobalProxy], () => {
+    test("Global proxy", [fxGlobalProxy], () => {
         chunk(async () => {
             await $.restartBrowser();
             await $.openUrl("https://opennet.ru");
