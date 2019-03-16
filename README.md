@@ -176,7 +176,9 @@ Local report is /home/user/report
 - `--kill-procs <sequence>` - List of process names separated with comma, which will be killed before tests run.
 - `--debug-on-fail` - Enter to interactive debug mode on step failure. **Incompatible with `--slaves` option**.
 - `--exit-on-fail` - Finish test run on first failure.
+- `--dots` - Print dots instead of test & chunk names.
 - `--errors-now` - Print error message immediately when it happened.
+- `--deep-errors` - Print deep objects structure in error message.
 - `--interactive, -i` - Launch interactive mode to execute steps manually in terminal. **Incompatible with `--slaves` option**.
 - `--slaves <number|auto>` - Split tests by slaves and execute them in separated processes in parallel. If it is `auto`, slaves amount will be equal to process cores amount.
 
